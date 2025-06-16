@@ -55,18 +55,25 @@
         </ul>
 
         <h2>Contact Me</h2>
-        <form name="contact" method="POST" data-netlify="true" onsubmit="event.preventDefault(); this.style.display='none'; document.getElementById('thanks').style.display='block';">
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" required>
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="event.preventDefault(); this.style.display='none'; document.getElementById('thanks').style.display='block';">
+  
+  <!-- HONEYPOT FIELD (hidden from humans, visible to bots) -->
+  <p style="display:none;">
+    <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+  </p>
 
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" required>
+  <!-- VISIBLE FIELDS -->
+  <label for="name">Name</label>
+  <input type="text" name="name" id="name" required>
 
-            <label for="message">Message</label>
-            <textarea name="message" id="message" rows="5" required></textarea>
+  <label for="email">Email</label>
+  <input type="email" name="email" id="email" required>
 
-            <button type="submit">Send Message</button>
-        </form>
+  <label for="message">Message</label>
+  <textarea name="message" id="message" rows="5" required></textarea>
+
+  <button type="submit">Send Message</button>
+</form>
          <div id="thanks" class="thank-you">✅ Thank you for your message! I’ll get back to you soon.</div>
 
     <div class="footer">
