@@ -1,151 +1,278 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JJ Sainz | Fractional COO</title>
-  <meta name="description" content="Fractional COO services for growing businesses, agencies, and teams. JJ Sainz helps you scale operations, coach leaders, and build clarity for sustainable growth." />
-  <meta name="keywords" content="fractional COO, strategic operator, leadership advisor, remote COO, business clarity, team development, organisational systems, Christchurch operations expert, NZ business coaching" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "JJ Sainz",
-    "jobTitle": "Fractional COO",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Christchurch",
-      "addressCountry": "NZ"
-    },
-    "description": "Fractional COO helping businesses and teams solve operational problems, develop leadership, and scale with clarity.",
-    "url": "https://sai.nz"
-  }
-  </script>
+  <title>JJ Sainz | Business Advisor</title>
+  <meta name="description" content="Turning chaos into clarity and growth. Business Advisor helping leaders uncover simple truths, solve tough problems, and grow sustainably without unnecessary complexity." />
+  <meta name="keywords" content="business advisor, business consultant, leadership development, organisational effectiveness, continuous improvement, strategy and problem solving, Christchurch, New Zealand, Australia, SME advisory, outsourcing connections, BPO" />
+
   <style>
+    :root {
+      /* Light theme with teal accents (default) */
+      --bg: #f9fafb;
+      --card: #f9fafb;
+      --text: #0f172a;
+      --accent: #0d9488;
+      --accent-weak: rgba(13,148,136,0.25);
+      --panel: #f1f5f9;
+      --success: #0d9488;
+      --border: #cbd5e1;
+      --shadow: rgba(13,148,136,0.15);
+      --input-bg: #f9fafb;
+      --input-border: #cbd5e1;
+      --btn-text: #f9fafb;
+      --link: #0d9488;
+      --link-underline: rgba(13,148,136,0.4);
+
+      --base-font: 16px;
+      --line: 1.65;
+      --radius: 10px;
+    }
+
+    /* Dark theme overrides */
+    html[data-theme="dark"] {
+      --bg: #000000;
+      --card: rgba(0, 0, 0, 0.85);
+      --text: #f9fafb;
+            --accent: gold;
+      --accent-weak: rgba(255, 215, 0, 0.25);
+      --panel: #111111;
+      --success: #2d702d;
+      --border: #33373d;
+      --shadow: rgba(255,215,0,0.10);
+      --input-bg: #111111;
+      --input-border: #3f3f46;
+      --btn-text: #000000;
+      --link: gold;
+      --link-underline: rgba(255,215,0,0.45);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      background: #000000;
-      color: #ffffff;
+      background: var(--bg);
+      color: var(--text);
+      font-size: var(--base-font);
+      line-height: var(--line);
+      transition: background 0.2s ease, color 0.2s ease;
+      position: relative; /* anchor for absolute toggle */
     }
+
     .container {
-      max-width: 850px;
-      margin: 40px auto;
-      padding: 30px;
-      background: rgba(0, 0, 0, 0.85);
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.1);
-    }
-    h1, h2 {
-      color: #ffffff;
-    }
+  position: relative; /* anchor for toggle */
+  max-width: 850px;
+  margin: 60px auto 40px auto;
+  padding: 30px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 30px var(--shadow);
+  border: 1px solid var(--border);
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: inline-block;
+  width: auto;
+  background: transparent;
+  color: var(--text);
+  border: none;
+  font-size: 1rem;   /* bump slightly for emoji legibility */
+  cursor: pointer;
+  padding: 2px 6px;
+}
+
+    h1, h2, h3 { color: var(--text); margin: 0 0 10px 0; }
+    h1 { text-align: center; margin-bottom: 6px; }
     h2 {
-      margin-top: 2em;
-      padding-bottom: 0.3em;
-      border-bottom: 2px solid gold;
+      margin-top: 2rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 2px solid var(--accent);
     }
-    ul {
-      padding-left: 1.2em;
-    }
+    h3 { margin-top: 1.25rem; }
+
+    /* Consistent body text */
     p, li {
+      color: var(--text);
       font-size: 1rem;
-      line-height: 1.6;
+      line-height: var(--line);
+      margin: 0.7rem 0;
     }
+    ul { padding-left: 1.2em; margin: 0.5rem 0 0.75rem 0; }
+    .muted { color: var(--muted); font-size: 0.98rem; }
+
+    .subtitle {
+      text-align: center;
+      font-style: italic;
+      color: var(--muted);
+      margin: 0 0 14px 0;
+    }
+    .tagline {
+      text-align: center;
+      font-size: 1.15rem;
+      margin: 10px 0 26px 0;
+    }
+
+    blockquote {
+      margin: 1rem 0;
+      padding: 14px 16px;
+      border-left: 3px solid var(--accent);
+      background: var(--panel);
+      border-radius: 8px;
+      font-style: italic;
+    }
+
+    /* Form */
     label, input, textarea, button {
       display: block;
       width: 100%;
-      margin-top: 0.5em;
+      margin-top: 0.5rem;
       font-size: 1rem;
-      box-sizing: border-box;
     }
     input, textarea {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: #1c1c1c;
-      color: #ffffff;
+      padding: 12px;
+      border: 1px solid var(--input-border);
+      border-radius: 6px;
+      background-color: var(--input-bg);
+      color: var(--text);
+      outline: none;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    input:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-weak);
     }
     button {
-      background: gold;
-      color: black;
+      background: var(--accent);
+      color: var(--btn-text);
       border: none;
-      padding: 10px 20px;
-      margin-top: 1em;
-      border-radius: 4px;
+      padding: 12px 20px;
+      margin-top: 1rem;
+      border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
+      transition: filter 0.15s ease;
     }
-    button:hover {
-      background-color: #e6c200;
-    }
+    button:hover { filter: brightness(0.95); }
+
     .thank-you {
       display: none;
-      background: #2d702d;
-      padding: 15px;
-      margin-top: 1em;
-      border-radius: 4px;
-      color: white;
+      background: var(--success);
+      padding: 14px;
+      margin-top: 1rem;
+      border-radius: 6px;
+      color: #ffffff;
     }
+
     .footer {
       text-align: center;
-      margin-top: 3em;
-      font-size: 0.9em;
+      margin-top: 2rem;
+      font-size: 0.95rem;
     }
     .footer a {
-      color: gold;
+      color: var(--link);
       text-decoration: none;
+      border-bottom: 1px dotted var(--link-underline);
     }
+    .footer a:hover { opacity: 0.9; }
   </style>
 </head>
 <body>
+
+  <!-- Theme toggle button -->
+ 
   <main class="container">
-    <h1 style="text-align:center;">JJ Sainz</h1>
-    <p style="text-align:center;"><em>Fractional COO</em></p>
+  	<button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">🌙</button>
 
+    <h1>JJ Sainz</h1>
+    <p class="subtitle">Business Advisor</p>
+    <p class="tagline"><strong>Turning chaos into clarity and growth.</strong></p>
+
+    <!-- 1) Who I Work With -->
     <h2>Who I Work With</h2>
-    <p>I work with businesses that have outgrown their current operating methods. That might mean messy systems, overwhelmed managers, or teams working hard but not making progress. If your business or team feels harder to run than it should be, or growth is stalling due to internal friction, I can help.</p>
+    <p>I work with leaders who want practical clarity and sustainable results. If your business feels harder to run than it should be, or progress is stalling due to internal friction, I can help.</p>
+    <p class="muted">I primarily take on engagements by referral, but I will consider new opportunities if there is a strong fit.</p>
 
-    <p>I primarily take on engagements by referral, but I will consider new opportunities if there is a strong fit.</p>
-
+    <!-- 2) What I Do + Principles -->
     <h2>What I Do</h2>
-    <p>I help leaders solve operational problems, coach their teams, and focus on decisions that drive progress. I don't do the doing — I make sure direction is clear, your structure makes sense, and systems support sustainable growth from day one.</p>
+    <p><strong>Business problem solving.</strong> Practical strategies that cut through noise and make decisions obvious.</p>
+    <p><strong>Leadership development.</strong> One-on-one conversations that unlock performance, from rising talent to senior executives.</p>
+    <p><strong>Trusted connections.</strong> When the best solution is outside my lane, I connect you to partners I trust, from outsourcing and BPO to senior tech, prototyping, engineering, credit bureau data, and telephony providers.</p>
 
-    <p>My work is anchored in four principles:</p>
-    <ul>
-      <li><strong>Effectiveness over efficiency.</strong> Direction before optimisation.</li>
-      <li><strong>Systems enable scale.</strong> Structure must come early.</li>
-      <li><strong>Leadership drives leverage.</strong> Invest in people.</li>
-      <li><strong>Clarity creates momentum.</strong> Strategy + problem-solving = results.</li>
-    </ul>
+    <h2>Guiding Principles</h2>
+<p>The way I work is shaped by a few guiding principles I return to in every engagement.</p>
+ <ul>
+  <li><strong>Effectiveness over efficiency.</strong> Direction before optimisation.</li>
+  <li><strong>Leadership drives leverage.</strong> Invest in people.</li>
+  <li><strong>Clarity creates momentum.</strong> Strategy plus problem solving equals results.</li>
+  <li><strong>The right structures, at the right time.</strong> Systems support growth, not stifle it.</li>
+</ul>
 
+    <!-- 3) Why This Works + Highlights + Testimonials -->
     <h2>Why This Works</h2>
-    <p>Many leaders think systems slow them down. I help you build the kind that makes everything faster. I don’t create bureaucracy. I create clarity — less firefighting, more growth. Less burnout, more capability.</p>
+   <p>Many leaders feel stuck in complexity. The right perspective creates clarity, and clarity creates results. I focus on people, strategy, and simple steps that compound into lasting growth.</p>
 
-    <p><strong>Professional Highlights</strong></p>
-    <ul>
-      <li>Over $500K in operational costs saved across direct engagements</li>
-      <li>Executive of the Year — 2024</li>
-      <li>Outstanding Performance Rating — MBIE, 2018</li>
-      <li>0% attrition among direct reports</li>
-      <li>Leadership coaching resulting in multiple internal promotions</li>
-    </ul>
+<p><strong>What I’m Known For</strong></p>
+<ul>
+  <li>Guided multiple leaders into senior roles through tailored coaching and mentoring.</li>
+  <li>Recognised as <strong>Executive of the Year, 2024.</strong></li>
+  <li>Known for <strong>building teams with near-zero attrition</strong> by creating clarity and trust.</li>
+  <li>Over $500K saved through practical problem solving and structural improvements.</li>
+  <li>Rated <strong>Outstanding Performance</strong>, MBIE, 2018.</li>
+</ul>
 
+    <p><strong>Testimonials</strong></p>
+    <blockquote>
+      “JJ’s leadership creates an environment where people feel supported, valued, and motivated to grow. Working with him has been one of the most rewarding experiences of my career.”
+      <br>— Customer Accounts Manager, Multi-Industry Operations
+    </blockquote>
+    <!-- Add up to 2 more here for now, 4 max total -->
+
+    <!-- 4) How We Work Together + Engagement Models -->
     <h2>How We Work Together</h2>
-    <p>I work remotely or locally in Christchurch, New Zealand. Every engagement focuses on operational problem-solving, strategic coaching, and team development.</p>
+    <p>I do not believe in overly formal meetings in stiff boardrooms. I prefer honest conversations where everyone feels comfortable, whether that is over coffee, a video call, or in your office. What matters is the clarity we create.</p>
+    <p>For change initiatives, I may speak one-on-one with affected team members at different levels to surface reality, align goals, and inform decisions. For coaching and advisory work, we keep it focused and lightweight so you get value quickly.</p>
+    <p class="muted">I work remotely or locally in Christchurch, New Zealand. I can also work with you in Spanish if preferred.</p>
 
-    <ul>
-      <li><strong>Monthly Advisory</strong> (1–2 sessions/month, 4–6 hours total) — from <strong>NZD $2,000/month</strong></li>
-      <li><strong>Fractional Engagement</strong> (4–8 hours/week, ongoing partnership) — from <strong>NZD $4,000/month</strong></li>
-      <li><strong>Strategic Projects</strong> (defined scope and outcomes) — from <strong>NZD $10,000/project</strong></li>
-      <li><strong>Strategic Consulting</strong> (when you need answers fast) — <strong>NZD $750/hour</strong></li>
-    </ul>
+   <p><strong>Engagement models</strong></p>
+<ul>
+  <li>
+    <strong>Advisory Sessions:</strong> Focused 3-hour sessions to tackle pressing issues or opportunities.<br>
+   <span style="font-size:0.95rem;"><em> From $AUD 1,200 per session (or $NZD 1,300).</em></span>
+  </li>
 
-    <p>Ready to build a business that runs without running you ragged? Let's discuss what makes sense for your situation.</p>
+  <li>
+    <strong>Strategic Consulting:</strong> Hourly support for urgent or precise challenges.<br>
+    <span style="font-size:0.95rem;"><em>From $AUD 400 per hour (or $NZD 450).</em></span>
+  </li>
 
-    <h2>Contact Me</h2>
+  <li>
+    <strong>Strategic Projects:</strong> Defined scope, practical delivery, and measurable outcomes.<br>
+    <span style="font-size:0.95rem;"><em>From $AUD 8,000 per project (or $NZD 8,800).</em></span>
+  </li>
+
+  <li>
+    <strong>Ongoing Partnership:</strong> A light retainer for leaders who prefer regular check-ins and accountability. Includes up to 10 hours of advisory per month (additional time billed separately). Best for maintenance, not deep transformation.<br>
+    <span style="font-size:0.95rem;"><em>From $AUD 4,500 per month (or $NZD 5,000).</em></span>
+  </li>
+
+  <li>
+    <strong>Connector Pathway:</strong> Access to trusted partners when the best solution sits outside my lane. BPO staffing from as little as USD $20,000 per year, plus other solutions as needed.<br>
+   <span style="font-size:0.95rem;"><em>Pricing varies by solution.</em></span>
+  </li>
+</ul>
+
+    <p><strong>Let’s start with a no-strings conversation to see how I can best serve you.</strong></p>
+
+    <!-- 5) Contact -->
+    <h2>Contact</h2>
     <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="event.preventDefault(); this.style.display='none'; document.getElementById('thanks').style.display='block';">
       <p style="display:none;">
-        <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+        <label>Do not fill this out if you are human: <input name="bot-field" /></label>
       </p>
       <label for="name">Name</label>
       <input type="text" name="name" id="name" required>
@@ -155,16 +282,27 @@
       <textarea name="message" id="message" rows="5" required></textarea>
       <button type="submit">Send Message</button>
     </form>
-    <div id="thanks" class="thank-you">Thank you for your message! I’ll get back to you soon.</div>
+    <div id="thanks" class="thank-you">Thank you for your message. I will get back to you soon.</div>
 
-    <footer class="footer">
-      <p><a href="/es/index.html">También disponible en español</a></p>
-    </footer>
-
-    <!-- SEO keyword block (invisible to users, indexed by crawlers) -->
+      <!-- SEO keyword block (invisible to users, indexed by crawlers) -->
     <div style="display:none;">
-      fractional COO New Zealand, remote business operations specialist, executive operational advisor, team development Christchurch, sustainable business systems NZ, SME operations strategy, business leadership support, part-time COO consultant, scalable structure expert, operations execution advisor, NZ strategic business coach, founder operations partner, non-profit operations leadership, government agency advisor, organisational design consultant, Christchurch business leadership consultant
+      business advisor New Zealand, business advisor Australia, leadership development Christchurch, organisational effectiveness, continuous improvement Deming PDCA, SME strategy advisory, practical problem solving, trusted connections outsourcing BPO, senior technology advisor network, Christchurch business consultant, Australia business consultant
     </div>
   </main>
+
+  <script>
+    (function() {
+      var root = document.documentElement;
+      var btn = document.getElementById('themeToggle');
+
+      // Non-persistent toggle: flips light/dark for this session only
+      btn.addEventListener('click', function() {
+  var current = root.getAttribute('data-theme') || 'light';
+  var next = current === 'light' ? 'dark' : 'light';
+  root.setAttribute('data-theme', next);
+  btn.textContent = next === 'dark' ? '☀️' : '🌙';
+});
+    })();
+  </script>
 </body>
 </html>
