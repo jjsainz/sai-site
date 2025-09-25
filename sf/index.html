@@ -20,8 +20,15 @@
     .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
     .toggle{cursor:pointer;border:1px solid rgba(0,0,0,.2);padding:6px 10px;border-radius:6px;font-size:14px}
 
-    .hero{display:grid;grid-template-columns:1.1fr 0.9fr;gap:28px;align-items:center;padding:32px 0}
+    .hero{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:28px;
+      align-items:start;
+      padding:16px 0;   /* reduced vertical padding */
+    }
     @media(max-width:880px){.hero{grid-template-columns:1fr}}
+
     .card{border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.1);transition:background .3s,border .3s,color .3s}
     body.dark .card{background:var(--panel-dark);border:1px solid rgba(255,255,255,.08)}
     body.light .card{background:var(--panel-light);border:1px solid rgba(0,0,0,.08)}
@@ -55,129 +62,105 @@
     body.dark footer{color:var(--muted-dark)}
     body.light footer{color:var(--muted-light)}
 
-/* Shared styles for client & cert logos */
-.logos, .certs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 20px;
-}
-
-.logos img, .certs img {
-  width: 100px;        /* force square */
-  height: 100px;       /* force square */
-  object-fit: contain; /* shrink/expand while preserving aspect ratio */
-  background: #fff;    /* optional: gives a clean background */
-  padding: 6px;        /* spacing inside the square */
-  border-radius: 8px;  /* optional: rounded corners */
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08); /* subtle lift */
-}
-
     /* Logo in header */
-.brand-logo {
-  height: 48px;      /* larger so it balances with JJ Sainz text */
-  width: auto;
-  display: block;
-}
-.logo strong {
-  font-size: 20px;   /* match the logo’s visual weight */
-}
+    .brand-logo {
+      height:48px;
+      width:auto;
+      display:block;
+    }
+    .logo strong {
+      font-size:20px;
+    }
 
+    /* Client & cert logos grid */
+    .logos, .certs {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(90px,1fr));
+      gap:12px;
+      margin-top:12px;
+    }
+    .logos img, .certs img {
+      width:90px;
+      height:90px;
+      object-fit:contain;
+      background:#fff;
+      padding:6px;
+      border-radius:6px;
+      box-shadow:0 1px 3px rgba(0,0,0,0.06);
+      justify-self:center;
+    }
   </style>
 </head>
 <body class="dark">
   <div class="wrap">
     <header>
-  <a class="logo" href="/">
-  <img src="/assets/sainz-logo.svg" alt="SAI.NZ Logo" class="brand-logo"/>
-  <strong>JJ Sainz</strong>
-</a>
+      <a class="logo" href="/">
+        <img src="/assets/sainz-logo.svg" alt="SAI.NZ Logo" class="brand-logo"/>
+        <strong>JJ Sainz</strong>
+      </a>
       <nav>
         <a href="/" class="quiet">About JJ</a>
         <span class="toggle" onclick="toggleTheme()">☀️/🌙</span>
       </nav>
     </header>
 
-  <section class="hero">
-  <div>
-    <h1>Scale your team without adding overhead</h1>
-    <p class="lead">
-      Low-friction pathway to vetted offshore talent for AU/NZ businesses.
-      Quick suitability check → warm introduction → partner handles assessment & hiring.
-    </p>
+    <section class="hero">
+      <div>
+        <h1>Scale your team without adding overhead</h1>
+        <p class="lead">
+          Low-friction pathway to vetted offshore talent for AU/NZ businesses.
+          Quick suitability check → warm introduction → partner handles assessment & hiring.
+        </p>
 
-    <!-- Client logos inside hero -->
-    <div class="logos">
-      <img src="/assets/client-vodafone.png" alt="Vodafone">
-      <img src="/assets/client-pg.png" alt="Procter & Gamble">
-      <img src="/assets/eyebuydirect.png" alt="Eyebuydirect">
-      <img src="/assets/client-stg.png" alt="Scandinavian Tobacco Group">
-    </div>
+        <!-- Client logos inside hero -->
+        <div class="logos">
+          <img src="/assets/client-vodafone.png" alt="Vodafone">
+          <img src="/assets/client-pg.png" alt="Procter & Gamble">
+          <img src="/assets/eyebuydirect.png" alt="Eyebuydirect">
+          <img src="/assets/client-stg.png" alt="Scandinavian Tobacco Group">
+        </div>
 
-    <!-- Certifications inside hero -->
-    <div class="certs">
-      <img src="/assets/cert-great-place-to-work.png" alt="Great Place to Work Certified">
-      <img src="/assets/cert-iso-9001.png" alt="ISO 9001 Certified">
-      <img src="/assets/cert-iso-27001.png" alt="ISO 27001 Certified">
-      <img src="/assets/cert-soc2.png" alt="SOC2 Certified">
-      <img src="/assets/cert-stevie-awards.png" alt="Stevie Awards">
-    </div>
-  </div>
-
-  <!-- Form stays on the right -->
-  <form class="card form" id="leadForm" name="sf-lead" method="POST"
-        data-netlify="true" netlify-honeypot="bot-field" action="/thanks/">
-    <input type="hidden" name="form-name" value="sf-lead" />
-    <p style="display:none;"><label>Don’t fill this out if you’re human:
-      <input name="bot-field" /></label></p>
-    <h2>Start a quick suitability check</h2>
-    <p>Share a few details. We’ll introduce you to the right partner if there’s a fit.</p>
-    <label for="name">Full name</label>
-    <input id="name" name="name" required />
-    <label for="email">Work email</label>
-    <input id="email" name="email" type="email" required />
-    <label for="company">Company</label>
-    <input id="company" name="company" />
-    <label for="region">Country/Region</label>
-    <select id="region" name="region">
-      <option>Australia</option><option>New Zealand</option>
-      <option>United Kingdom</option><option>Other</option>
-    </select>
-    <label for="roles">Roles you’re exploring</label>
-    <select id="roles" name="roles" multiple size="4">
-      <option>Customer Service</option>
-      <option>Customer Accounts / Collections</option>
-      <option>Admin / Back-Office</option>
-      <option>Bookkeeping Support</option>
-    </select>
-    <label for="notes">Anything else (optional)</label>
-    <textarea id="notes" name="notes" rows="3"></textarea>
-    <button class="btn" type="submit">Request Intro</button>
-  </form>
-</section>
-
-
-    <!-- Client logos -->
-    <section class="panel">
-      <h3>Trusted by global brands</h3>
-      <div class="logos">
-        <img src="/assets/client-vodafone.png" alt="Vodafone">
-        <img src="/assets/client-pg.png" alt="Procter & Gamble">
-        <img src="/assets/eyebuydirect.png" alt="Eyebuydirect">
-        <img src="/assets/client-stg.png" alt="Scandinavian Tobacco Group">
+        <!-- Certifications inside hero -->
+        <div class="certs">
+          <img src="/assets/cert-great-place-to-work.png" alt="Great Place to Work Certified">
+          <img src="/assets/cert-iso-9001.png" alt="ISO 9001 Certified">
+          <img src="/assets/cert-iso-27001.png" alt="ISO 27001 Certified">
+          <img src="/assets/cert-soc2.png" alt="SOC2 Certified">
+          <img src="/assets/cert-stevie-awards.png" alt="Stevie Awards">
+        </div>
       </div>
-    </section>
 
-    <!-- Certifications -->
-    <section class="panel">
-      <h3>Certifications & Recognition</h3>
-      <div class="certs">
-        <img src="/assets/cert-great-place-to-work.png" alt="Great Place to Work Certified">
-        <img src="/assets/cert-iso-9001.png" alt="ISO 9001 Certified">
-        <img src="/assets/cert-iso-27001.png" alt="ISO 27001 Certified">
-        <img src="/assets/cert-soc2.png" alt="SOC2 Certified">
-        <img src="/assets/cert-stevie-awards.png" alt="Stevie Awards">
-      </div>
+      <!-- Form stays on the right -->
+      <form class="card form" id="leadForm" name="sf-lead" method="POST"
+            data-netlify="true" netlify-honeypot="bot-field" action="/thanks/">
+        <input type="hidden" name="form-name" value="sf-lead" />
+        <p style="display:none;">
+          <label>Don’t fill this out if you’re human:<input name="bot-field" /></label>
+        </p>
+        <h2>Start a quick suitability check</h2>
+        <p>Share a few details. We’ll introduce you to the right partner if there’s a fit.</p>
+        <label for="name">Full name</label>
+        <input id="name" name="name" required />
+        <label for="email">Work email</label>
+        <input id="email" name="email" type="email" required />
+        <label for="company">Company</label>
+        <input id="company" name="company" />
+        <label for="region">Country/Region</label>
+        <select id="region" name="region">
+          <option>Australia</option><option>New Zealand</option>
+          <option>United Kingdom</option><option>Other</option>
+        </select>
+        <label for="roles">Roles you’re exploring</label>
+        <select id="roles" name="roles" multiple size="4">
+          <option>Customer Service</option>
+          <option>Customer Accounts / Collections</option>
+          <option>Admin / Back-Office</option>
+          <option>Bookkeeping Support</option>
+        </select>
+        <label for="notes">Anything else (optional)</label>
+        <textarea id="notes" name="notes" rows="3"></textarea>
+        <button class="btn" type="submit">Request Intro</button>
+      </form>
     </section>
 
     <footer>
