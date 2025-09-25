@@ -56,17 +56,28 @@
     body.light footer{color:var(--muted-light)}
 
     /* Client logos */
-    .logos img {
-  max-height: 60px;     /* all logos the same visual height */
-  max-width: 140px;     /* prevent extra-wide logos */
-  object-fit: contain;  /* no distortion */
-  margin: 10px;
+   .logos {
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 20px; 
+  align-items: center;
 }
+.logos img {
+  max-height: 60px;
+  max-width: 140px;
+  object-fit: contain;
+}
+
     /* Logo in header */
 .brand-logo {
-  height: 40px;         /* make it bigger */
-  width: auto;          /* keep proportions */
+  height: 48px;      /* larger so it balances with JJ Sainz text */
+  width: auto;
+  display: block;
 }
+.logo strong {
+  font-size: 20px;   /* match the logo’s visual weight */
+}
+
   </style>
 </head>
 <body class="dark">
