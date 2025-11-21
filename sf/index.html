@@ -98,18 +98,15 @@
     body.light .card{background:var(--panel-light);border:1px solid rgba(0,0,0,.08)}
 
     .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:0 0 12px}
-   .lead,
-.body-copy{
-  font-size:15px;
-  line-height:1.6;
-  margin:0 0 18px;
-}
 
-/* colours stay the same */
-body.dark .lead,
-body.dark .body-copy{color:var(--muted-dark)}
-body.light .lead,
-body.light .body-copy{color:var(--muted-light)}
+    /* supporting body copy style (pricing, explanations, etc.) */
+    .body-copy{
+      font-size:15px;
+      line-height:1.6;
+      margin:0 0 18px;
+    }
+    body.dark .body-copy{color:var(--muted-dark)}
+    body.light .body-copy{color:var(--muted-light)}
 
     .form{padding:22px;}
     .form h2{margin:0 0 8px;font-size:20px}
@@ -187,7 +184,7 @@ body.light .body-copy{color:var(--muted-light)}
         <!-- LEFT COLUMN: STORY -->
         <div>
           <h1>Scale confidently without risk or friction — stay ahead while others battle rising costs and growing overhead.</h1>
-          <p class="lead">
+          <p>
             For AU/NZ teams of any size — from solo operators hiring their first VA to companies scaling high-performing offshore teams. Quick suitability check → warm introduction → partner handles assessment &amp; hiring.
           </p>
 
@@ -260,10 +257,10 @@ body.light .body-copy{color:var(--muted-light)}
           </div>
 
           <h3 class="subhead">Flexible offshore staffing without lock-ins or hidden fees</h3>
-         <p class="body-copy">
+          <p class="body-copy">
             In New Zealand, many frontline support roles now require a minimum salary of around <strong>NZD $51,000 per year</strong> before you even add recruitment, onboarding, and overhead. In Australia, similar roles often start from around <strong>AUD $58,000 per year</strong>.
           </p>
-         <p class="body-copy">
+          <p class="body-copy">
             Through our vetted partners, a fully loaded offshore team member typically lands at around <strong>NZD $35,000</strong> or <strong>AUD $30,000 per year</strong> — including facilities, equipment, local HR, and compliance. You get clear monthly pricing, no setup fees, and the ability to reduce headcount or cancel a role with around <strong>30 days’ notice</strong>. You can increase headcount whenever you’re ready.
           </p>
 
