@@ -17,13 +17,13 @@
   <!-- Canonical + SEO description -->
   <link rel="canonical" href="https://www.sai.nz/sf/">
   <meta name="description" content="Offshore staffing for AU/NZ businesses with NZ-based support. Transparent pricing, no setup fees, and 30-day notice flexibility.">
-<link rel="canonical" href="https://www.sai.nz/sf/">
+  <link rel="canonical" href="https://www.sai.nz/sf/">
 
-<meta name="description"
-  content="Scale your team without adding overhead. Low-friction offshore hiring for AU/NZ businesses. No setup fees, clear pricing, and cancel anytime with 30 days’ notice.">
+  <meta name="description"
+    content="Scale your team without adding overhead. Low-friction offshore hiring for AU/NZ businesses. No setup fees, clear pricing, and cancel anytime with 30 days’ notice.">
 
-<meta name="keywords"
-  content="outsourcing nz, outsourcing australia, offshore staffing, bpo services, customer service offshore, bookkeeping outsourcing, collections outsourcing, admin offshore">
+  <meta name="keywords"
+    content="outsourcing nz, outsourcing australia, offshore staffing, bpo services, customer service offshore, bookkeeping outsourcing, collections outsourcing, admin offshore">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
@@ -79,13 +79,19 @@
     .toggle{cursor:pointer;border:1px solid rgba(0,0,0,.2);padding:6px 10px;border-radius:6px;font-size:14px}
 
     .hero{
+      padding:16px 0;
+    }
+    .hero-inner{
       display:grid;
       grid-template-columns:1.1fr 0.9fr;
       gap:28px;
       align-items:start;
-      padding:16px 0;
     }
-    @media(max-width:880px){.hero{grid-template-columns:1fr}}
+    @media(max-width:880px){
+      .hero-inner{
+        grid-template-columns:1fr;
+      }
+    }
 
     .card{border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.1);transition:background .3s,border .3s,color .3s}
     body.dark .card{background:var(--panel-dark);border:1px solid rgba(255,255,255,.08)}
@@ -115,7 +121,6 @@
     body.dark .fine{color:var(--muted-dark)}
     body.light .fine{color:var(--muted-light)}
 
-    .panel{padding:22px;margin-top:20px}
     footer{padding:28px 0;font-size:13px}
     body.dark footer{color:var(--muted-dark)}
     body.light footer{color:var(--muted-light)}
@@ -138,13 +143,15 @@
       border-radius: 6px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     }
-    .how-steps {
-      list-style: decimal;
-      padding-left: 1.25rem;
-      margin: 0;
-    }
-    .how-steps li {
-      margin-bottom: 10px;
+
+    .subhead{margin-top:22px;margin-bottom:6px}
+
+    .desktop-only{display:block;}
+    .mobile-only{display:none;}
+
+    @media(max-width:880px){
+      .desktop-only{display:none;}
+      .mobile-only{display:block;}
     }
   </style>
 </head>
@@ -167,131 +174,183 @@
     </header>
 
     <section class="hero">
-      <div>
-        <h1>Scale confidently without risk or friction — stay ahead while others battle rising costs and growing overhead.</h1>
-        <p class="lead">
-          For AU/NZ teams of any size — from solo operators hiring their first VA to companies scaling high-performing offshore teams. Quick suitability check → warm introduction → partner handles assessment & hiring.
-        </p>
+      <div class="hero-inner">
+        <!-- LEFT COLUMN: STORY -->
+        <div>
+          <h1>Scale confidently without risk or friction — stay ahead while others battle rising costs and growing overhead.</h1>
+          <p class="lead">
+            For AU/NZ teams of any size — from solo operators hiring their first VA to companies scaling high-performing offshore teams. Quick suitability check → warm introduction → partner handles assessment &amp; hiring.
+          </p>
 
-        <h3 class="subhead">Trusted by top brands</h3>
-        <div class="logos">
-          <img src="/assets/client-vodafone.png" alt="Vodafone" loading="lazy" decoding="async" width="300" height="120">
-          <img src="/assets/client-pg.png" alt="Procter &amp; Gamble" loading="lazy" decoding="async" width="300" height="120">
-          <img src="/assets/eyebuydirect.png" alt="Eyebuydirect" loading="lazy" decoding="async" width="300" height="120">
-        </div>
+          <h3 class="subhead">Trusted by top brands</h3>
+          <div class="logos">
+            <img src="/assets/client-vodafone.png" alt="Vodafone" loading="lazy" decoding="async" width="300" height="120">
+            <img src="/assets/client-pg.png" alt="Procter &amp; Gamble" loading="lazy" decoding="async" width="300" height="120">
+            <img src="/assets/eyebuydirect.png" alt="Eyebuydirect" loading="lazy" decoding="async" width="300" height="120" class="desktop-only">
+          </div>
 
-        <h3 class="subhead">Award-winning &amp; certified</h3>
-        <div class="certs">
-          <img src="/assets/cert-great-place-to-work.png" alt="Great Place to Work Certified" loading="lazy" decoding="async" width="300" height="120">
-          <img src="/assets/cert-iso-9001.png" alt="ISO 9001 Certified" loading="lazy" decoding="async" width="300" height="120">
-          <img src="/assets/cert-stevie-awards.png" alt="Stevie Awards" loading="lazy" decoding="async" width="300" height="120">
-        </div>
+          <!-- MOBILE FORM (between brands and awards) -->
+          <form class="card form mobile-only" name="sf-lead" method="POST"
+                data-netlify="true" netlify-honeypot="bot-field" action="/thanks/" data-role="lead-form">
+            <input type="hidden" name="form-name" value="sf-lead" />
+            <p style="display:none;">
+              <label>Don’t fill this out if you’re human:<input name="bot-field" /></label>
+            </p>
 
-        <h3 class="subhead">Flexible solutions, transparent pricing</h3>
-        <p>
-          BPO staffing from as little as <strong>USD $20,000 per year</strong> —
-          delivering the same calibre of talent trusted by Vodafone and P&amp;G,
-          at a fraction of local hiring costs.
-        </p>
-        <p class="muted">
-          Typical AU/NZ support roles cost $50k–70k+ annually. With our partners, you’ll scale confidently knowing your pricing is clear, flexible, and commitment-free — no setup or hidden fees, and you can cancel anytime with 30 days’ notice.
-        </p>
-                <div class="panel card">
-          <h3 class="subhead">How it works</h3>
-          <ol class="how-steps">
-            <li>
-              <strong>Quick suitability check.</strong>
-              Tell us what role you need and how you like to operate. This ensures offshore support will actually work for your business.
-            </li>
-            <li>
-              <strong>We introduce a vetted offshore partner.</strong>
-              Only if your requirements match their strengths. They handle sourcing, testing, and presenting the right candidates.
-            </li>
-            <li>
-              <strong>You interview and hire directly.</strong>
-              Transparent pricing, no lock-ins, and a clean setup with ongoing support available if you need it.
-            </li>
-          </ol>
-        </div>
-        <div class="panel card">
-          <h3 class="subhead">Why businesses trust our introductions</h3>
-          <ul style="margin: 0; padding-left: 1.1rem;">
-            <li><strong>No lock-ins or long-term contracts.</strong> Scale up, down, or pause with 30 days’ notice.</li>
-            <li><strong>Transparent cost structures.</strong> Clear monthly pricing with no setup fees or hidden charges.</li>
-            <li><strong>Aligned with AU/NZ standards.</strong> Communication, reporting, and culture fit screened upfront.</li>
+            <!-- Hidden attribution fields -->
+            <input type="hidden" name="utm_source">
+            <input type="hidden" name="utm_medium">
+            <input type="hidden" name="utm_campaign">
+            <input type="hidden" name="utm_term">
+            <input type="hidden" name="utm_content">
+            <input type="hidden" name="gclid">
+            <input type="hidden" name="wbraid">
+            <input type="hidden" name="gbraid">
+            <input type="hidden" name="referrer">
+
+            <h2>Start a quick suitability check</h2>
+            <p>Share a few details. We’ll introduce you to the right partner if there’s a fit.</p>
+
+            <label for="name-mobile">Full name</label>
+            <input id="name-mobile" name="name" required />
+
+            <label for="email-mobile">Work email</label>
+            <input id="email-mobile" name="email" type="email" required />
+
+            <label for="phone-mobile">Mobile (optional)</label>
+            <input type="tel" name="phone" id="phone-mobile" placeholder="+64 21 123 456">
+
+            <label for="company-mobile">Company</label>
+            <input id="company-mobile" name="company" />
+
+            <label for="region-mobile">Country/Region</label>
+            <select id="region-mobile" name="region">
+              <option>Australia</option><option>New Zealand</option>
+              <option>United Kingdom</option><option>Other</option>
+            </select>
+
+            <label for="roles-mobile">Roles you’re exploring</label>
+            <select id="roles-mobile" name="roles" multiple size="4">
+              <option>Customer Service</option>
+              <option>Customer Accounts / Collections</option>
+              <option>Admin / Back-Office</option>
+              <option>Bookkeeping Support</option>
+            </select>
+
+            <label for="notes-mobile">Anything else (optional)</label>
+            <textarea id="notes-mobile" name="notes" rows="3"></textarea>
+
+            <button class="btn" type="submit" aria-label="Book free consultation">Book Free Consult</button>
+          </form>
+
+          <h3 class="subhead">Award-winning &amp; certified</h3>
+          <div class="certs">
+            <img src="/assets/cert-great-place-to-work.png" alt="Great Place to Work Certified" loading="lazy" decoding="async" width="300" height="120">
+            <img src="/assets/cert-iso-9001.png" alt="ISO 9001 Certified" loading="lazy" decoding="async" width="300" height="120">
+            <img src="/assets/cert-stevie-awards.png" alt="Stevie Awards" loading="lazy" decoding="async" width="300" height="120" class="desktop-only">
+          </div>
+
+          <h3 class="subhead">Flexible offshore staffing without lock-ins or hidden fees</h3>
+          <p>
+            In New Zealand, many frontline support roles now require a minimum salary of around <strong>NZD $51,000 per year</strong> before you even add recruitment, onboarding, and overhead. In Australia, similar roles often start from around <strong>AUD $58,000 per year</strong>.
+          </p>
+          <p>
+            Through our vetted partners, a fully loaded offshore team member typically lands at around <strong>NZD $35,000</strong> or <strong>AUD $30,000 per year</strong> — including facilities, equipment, local HR, and compliance. You get clear monthly pricing, no setup fees, and the ability to reduce headcount or cancel a role with around <strong>30 days’ notice</strong>. You can increase headcount whenever you’re ready.
+          </p>
+
+          <h3 class="subhead">A low-friction pathway that actually works for AU/NZ businesses</h3>
+          <p>
+            Every business operates differently — workflows, communication style, culture, and risk appetite. That’s why things start with a <strong>quick suitability check</strong>. It’s a short, practical conversation to confirm that offshore support will genuinely work for your business before any introductions are made.
+          </p>
+          <p>
+            When there’s a fit, we introduce you to a <strong>vetted offshore partner</strong> whose strengths match your needs. They handle sourcing, testing, shortlisting, and presenting candidates. You’re only talking to people who are likely to work in your environment.
+          </p>
+
+          <h3 class="subhead">Hire and manage the way that suits you</h3>
+          <p>
+            All hiring and HR — sourcing, assessments, contracts, payroll, and local compliance — is handled by the partner. You choose how hands-on you want to be operationally:
+          </p>
+          <p>
+            At one end, your offshore team can feel like an extension of your in-house staff, reporting directly to you day-to-day. At the other, you can treat it as a fully managed pod where you focus on outcomes and don’t interact with individual staff unless you want to. You always have the option to make the final hiring decision — or delegate it to the partner if you prefer a more hands-off approach.
+          </p>
+
+          <h3 class="subhead">Why businesses choose this pathway</h3>
+          <p>
+            The goal is simple: reduce overhead and friction without compromising standards.
+          </p>
+          <ul>
+            <li><strong>No long-term contracts.</strong> Roles can be reduced or cancelled with around 30 days’ notice.</li>
+            <li><strong>Transparent cost structures.</strong> Clear monthly pricing with no setup fees or hidden add-ons.</li>
+            <li><strong>Aligned with AU/NZ expectations.</strong> Communication, reporting, and culture fit are screened up front, not discovered months later.</li>
           </ul>
-        </div>
-        <div class="panel card">
-          <h3 class="subhead">Common questions</h3>
-          <p><strong>“Is this still worth it if I only need one role?”</strong><br>
-          Yes. Many businesses start with a single VA or support role. The process and care we take are the same whether you’re hiring one person or building a full team.</p>
 
-          <p><strong>“Is there a minimum commitment?”</strong><br>
-          There are no long-term lock-ins. In most cases you can scale up, down, or pause with around 30 days’ notice, depending on the partner and role.</p>
-
-          <p><strong>“Who actually employs and manages the staff day-to-day?”</strong><br>
-          Your offshore team is employed and managed by the vetted BPO partner. You direct the work; they handle HR, payroll, facilities, and local compliance.</p>
+          <h3 class="subhead">Built for teams of any size</h3>
+          <p>
+            Many businesses start with a single VA or support role to take pressure off the core team. Others use this pathway to build multi-layered offshore capability across customer service, collections, admin, back-office, or bookkeeping.
+          </p>
+          <p>
+            Whether you’re hiring <strong>one person or one hundred</strong>, the approach stays the same: keep risk low, keep options open, and help you scale confidently while others struggle with overhead and rising costs.
+          </p>
         </div>
 
+        <!-- DESKTOP FORM (right column) -->
+        <form class="card form desktop-only" name="sf-lead" method="POST"
+              data-netlify="true" netlify-honeypot="bot-field" action="/thanks/" data-role="lead-form">
+          <input type="hidden" name="form-name" value="sf-lead" />
+          <p style="display:none;">
+            <label>Don’t fill this out if you’re human:<input name="bot-field" /></label>
+          </p>
+
+          <!-- Hidden attribution fields -->
+          <input type="hidden" name="utm_source">
+          <input type="hidden" name="utm_medium">
+          <input type="hidden" name="utm_campaign">
+          <input type="hidden" name="utm_term">
+          <input type="hidden" name="utm_content">
+          <input type="hidden" name="gclid">
+          <input type="hidden" name="wbraid">
+          <input type="hidden" name="gbraid">
+          <input type="hidden" name="referrer">
+
+          <h2>Start a quick suitability check</h2>
+          <p>Share a few details. We’ll introduce you to the right partner if there’s a fit.</p>
+
+          <label for="name-desktop">Full name</label>
+          <input id="name-desktop" name="name" required />
+
+          <label for="email-desktop">Work email</label>
+          <input id="email-desktop" name="email" type="email" required />
+
+          <label for="phone-desktop">Mobile (optional)</label>
+          <input type="tel" name="phone" id="phone-desktop" placeholder="+64 21 123 456">
+
+          <label for="company-desktop">Company</label>
+          <input id="company-desktop" name="company" />
+
+          <label for="region-desktop">Country/Region</label>
+          <select id="region-desktop" name="region">
+            <option>Australia</option><option>New Zealand</option>
+            <option>United Kingdom</option><option>Other</option>
+          </select>
+
+          <label for="roles-desktop">Roles you’re exploring</label>
+          <select id="roles-desktop" name="roles" multiple size="4">
+            <option>Customer Service</option>
+            <option>Customer Accounts / Collections</option>
+            <option>Admin / Back-Office</option>
+            <option>Bookkeeping Support</option>
+          </select>
+
+          <label for="notes-desktop">Anything else (optional)</label>
+          <textarea id="notes-desktop" name="notes" rows="3"></textarea>
+
+          <button class="btn" type="submit" aria-label="Book free consultation">Book Free Consult</button>
+        </form>
       </div>
-
-      <!-- Netlify form -->
-      <form class="card form" id="leadForm" name="sf-lead" method="POST"
-            data-netlify="true" netlify-honeypot="bot-field" action="/thanks/">
-        <input type="hidden" name="form-name" value="sf-lead" />
-        <p style="display:none;">
-          <label>Don’t fill this out if you’re human:<input name="bot-field" /></label>
-        </p>
-
-        <!-- Hidden attribution fields -->
-        <input type="hidden" name="utm_source" id="utm_source">
-        <input type="hidden" name="utm_medium" id="utm_medium">
-        <input type="hidden" name="utm_campaign" id="utm_campaign">
-        <input type="hidden" name="utm_term" id="utm_term">
-        <input type="hidden" name="utm_content" id="utm_content">
-        <input type="hidden" name="gclid" id="gclid">
-        <input type="hidden" name="wbraid" id="wbraid">
-        <input type="hidden" name="gbraid" id="gbraid">
-        <input type="hidden" name="referrer" id="referrer">
-
-        <h2>Start a quick suitability check</h2>
-        <p>Share a few details. We’ll introduce you to the right partner if there’s a fit.</p>
-
-        <label for="name">Full name</label>
-        <input id="name" name="name" required />
-
-        <label for="email">Work email</label>
-        <input id="email" name="email" type="email" required />
-
-        <label for="phone">Mobile (optional)</label>
-        <input type="tel" name="phone" id="phone" placeholder="+64 21 123 456">
-
-        <label for="company">Company</label>
-        <input id="company" name="company" />
-
-        <label for="region">Country/Region</label>
-        <select id="region" name="region">
-          <option>Australia</option><option>New Zealand</option>
-          <option>United Kingdom</option><option>Other</option>
-        </select>
-
-        <label for="roles">Roles you’re exploring</label>
-        <select id="roles" name="roles" multiple size="4">
-          <option>Customer Service</option>
-          <option>Customer Accounts / Collections</option>
-          <option>Admin / Back-Office</option>
-          <option>Bookkeeping Support</option>
-        </select>
-
-        <label for="notes">Anything else (optional)</label>
-        <textarea id="notes" name="notes" rows="3"></textarea>
-
-        <button class="btn" type="submit" aria-label="Book free consultation">Book Free Consult</button>
-      </form>
     </section>
 
     <footer>
-      <div> <span id="y"></span> SAI.NZ • Low-friction offshore introductions for AU/NZ</div>
+      <div><span id="y"></span> SAI.NZ • Low-friction offshore introductions for AU/NZ</div>
     </footer>
   </div>
 
@@ -301,26 +360,39 @@
     }
     document.getElementById('y').textContent=new Date().getFullYear();
 
-    // Attribution + GA4 event signals via GTM
     (function () {
       const params = new URLSearchParams(location.search);
-      const get = k => params.get(k) || "";
-      const ids = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","gclid","wbraid","gbraid"];
-      ids.forEach(id => { const el = document.getElementById(id); if (el) el.value = get(id); });
-      const ref = document.getElementById("referrer"); if (ref) ref.value = document.referrer || "";
+      const getParam = k => params.get(k) || "";
 
-      // Improve browser autofill semantics
-      const n = document.getElementById('name'); if (n) n.setAttribute('autocomplete','name');
-      const e = document.getElementById('email'); if (e) e.setAttribute('autocomplete','email');
-      const c = document.getElementById('company'); if (c) c.setAttribute('autocomplete','organization');
-      const p = document.getElementById('phone'); if (p) p.setAttribute('autocomplete','tel');
+      // Fill hidden attribution fields in all forms
+      const hiddenNames = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","gclid","wbraid","gbraid"];
+      hiddenNames.forEach(name => {
+        document.querySelectorAll(`input[name="${name}"]`).forEach(el => {
+          el.value = getParam(name);
+        });
+      });
+      document.querySelectorAll('input[name="referrer"]').forEach(el => {
+        el.value = document.referrer || "";
+      });
 
-      // DataLayer events for GTM
+      // Improve browser autofill semantics (all forms)
+      [
+        ["name","name"],
+        ["email","email"],
+        ["company","organization"],
+        ["phone","tel"]
+      ].forEach(([field, autocomplete]) => {
+        document.querySelectorAll(`input[name="${field}"]`).forEach(el => {
+          el.setAttribute("autocomplete", autocomplete);
+        });
+      });
+
+      // DataLayer events for GTM (all lead forms)
       window.dataLayer = window.dataLayer || [];
-      const form = document.getElementById('leadForm');
+      const forms = document.querySelectorAll('form[data-role="lead-form"]');
       let started = false;
 
-      if (form) {
+      forms.forEach(form => {
         form.addEventListener('input', function(){
           if (!started) {
             started = true;
@@ -332,13 +404,13 @@
           window.dataLayer.push({
             event: 'generate_lead',
             form_name: 'sf-lead',
-            utm_source: get('utm_source'),
-            utm_medium: get('utm_medium'),
-            utm_campaign: get('utm_campaign'),
-            gclid: get('gclid')
+            utm_source: getParam('utm_source'),
+            utm_medium: getParam('utm_medium'),
+            utm_campaign: getParam('utm_campaign'),
+            gclid: getParam('gclid')
           });
         });
-      }
+      });
     })();
   </script>
 </body>
