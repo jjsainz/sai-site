@@ -98,9 +98,18 @@
     body.light .card{background:var(--panel-light);border:1px solid rgba(0,0,0,.08)}
 
     .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:0 0 12px}
-    .lead{margin:0 0 18px}
-    body.dark .lead{color:var(--muted-dark)}
-    body.light .lead{color:var(--muted-light)}
+   .lead,
+.body-copy{
+  font-size:15px;
+  line-height:1.6;
+  margin:0 0 18px;
+}
+
+/* colours stay the same */
+body.dark .lead,
+body.dark .body-copy{color:var(--muted-dark)}
+body.light .lead,
+body.light .body-copy{color:var(--muted-light)}
 
     .form{padding:22px;}
     .form h2{margin:0 0 8px;font-size:20px}
