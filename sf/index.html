@@ -159,6 +159,44 @@
       .desktop-only{display:none;}
       .mobile-only{display:block;}
     }
+
+    /* Mobile floating CTA bar */
+    #mobile-cta-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.75rem 1rem;
+      background: #020617;
+      border-top: 1px solid #1f2937;
+      display: none; /* default hidden (desktop) */
+      z-index: 9999;
+      transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    }
+
+    #mobile-cta-bar button {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+      background: linear-gradient(135deg,var(--brand),var(--brand-2));
+      color: #031219;
+    }
+
+    #mobile-cta-bar.hidden {
+      transform: translateY(100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @media(max-width:880px){
+      #mobile-cta-bar{
+        display:block;
+      }
+    }
   </style>
 </head>
 <body class="dark">
@@ -202,66 +240,6 @@
         <img src="/assets/client-pg.png" alt="Procter &amp; Gamble" loading="lazy" decoding="async" width="300" height="120">
         <img src="/assets/eyebuydirect.png" alt="Eyebuydirect" loading="lazy" decoding="async" width="300" height="120" class="desktop-only">
       </div>
-
-      <!-- MOBILE FORM (between brands and awards) -->
-      <form class="card form mobile-only" name="sf-lead" method="POST"
-            data-netlify="true" netlify-honeypot="bot-field" action="/thanks/" data-role="lead-form">
-        <input type="hidden" name="form-name" value="sf-lead" />
-        <p style="display:none;">
-          <label>Don’t fill this out if you’re human:<input name="bot-field" /></label>
-        </p>
-
-        <!-- Hidden attribution fields -->
-        <input type="hidden" name="utm_source">
-        <input type="hidden" name="utm_medium">
-        <input type="hidden" name="utm_campaign">
-        <input type="hidden" name="utm_term">
-        <input type="hidden" name="utm_content">
-        <input type="hidden" name="gclid">
-        <input type="hidden" name="wbraid">
-        <input type="hidden" name="gbraid">
-        <input type="hidden" name="referrer">
-
-        <h2>Start a quick suitability check</h2>
-        <p>
-          Share a few details below. If there's a fit, we’ll introduce you to the right offshore provider. If not, we’ll tell you directly and save you the time.
-        </p>
-        <p>
-          No sales pressure. No lengthy process. Just a practical conversation about whether offshore capability makes sense for your business.
-        </p>
-
-        <label for="name-mobile">Full name</label>
-        <input id="name-mobile" name="name" required />
-
-        <label for="email-mobile">Work email</label>
-        <input id="email-mobile" name="email" type="email" required />
-
-        <label for="phone-mobile">Mobile (optional)</label>
-        <input type="tel" name="phone" id="phone-mobile" placeholder="+64 21 123 456">
-
-        <label for="company-mobile">Company</label>
-        <input id="company-mobile" name="company" />
-
-        <label for="region-mobile">Country/Region</label>
-        <select id="region-mobile" name="region" multiple size="3">
-          <option>Australia</option>
-          <option>New Zealand</option>
-         <option>Other</option>
-        </select>
-
-        <label for="roles-mobile">Roles you’re exploring</label>
-        <select id="roles-mobile" name="roles" multiple size="4">
-          <option>Customer Service</option>
-          <option>Customer Accounts / Collections</option>
-          <option>VA / Admin / Back-Office</option>
-          <option>Accounting Support</option>
-        </select>
-
-        <label for="notes-mobile">Anything else (optional)</label>
-        <textarea id="notes-mobile" name="notes" rows="3"></textarea>
-
-        <button class="btn" type="submit" aria-label="Start My Suitability Check">Start My Suitability Check</button>
-      </form>
 
       <div class="certs">
         <img src="/assets/cert-great-place-to-work.png" alt="Great Place to Work Certified" loading="lazy" decoding="async" width="300" height="120">
@@ -433,10 +411,78 @@
   </div>
 </section>
 
+    <!-- MOBILE-ONLY FORM AT BOTTOM -->
+    <section class="mobile-only" style="padding: 32px 0;">
+      <form class="card form" id="lead-form-mobile" name="sf-lead-mobile" method="POST"
+            data-netlify="true" netlify-honeypot="bot-field" action="/thanks/" data-role="lead-form">
+        <input type="hidden" name="form-name" value="sf-lead-mobile" />
+        <p style="display:none;">
+          <label>Don’t fill this out if you’re human:<input name="bot-field" /></label>
+        </p>
+
+        <!-- Hidden attribution fields -->
+        <input type="hidden" name="utm_source">
+        <input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_term">
+        <input type="hidden" name="utm_content">
+        <input type="hidden" name="gclid">
+        <input type="hidden" name="wbraid">
+        <input type="hidden" name="gbraid">
+        <input type="hidden" name="referrer">
+
+        <h2>Start a quick suitability check</h2>
+        <p>
+          Share a few details below. If there's a fit, we’ll introduce you to the right offshore provider. If not, we’ll tell you directly and save you the time.
+        </p>
+        <p>
+          No sales pressure. No lengthy process. Just a practical conversation about whether offshore capability makes sense for your business.
+        </p>
+
+        <label for="name-mobile">Full name</label>
+        <input id="name-mobile" name="name" required />
+
+        <label for="email-mobile">Work email</label>
+        <input id="email-mobile" name="email" type="email" required />
+
+        <label for="phone-mobile">Mobile (optional)</label>
+        <input type="tel" name="phone" id="phone-mobile" placeholder="+64 21 123 456">
+
+        <label for="company-mobile">Company</label>
+        <input id="company-mobile" name="company" />
+
+        <label for="region-mobile">Country/Region</label>
+        <select id="region-mobile" name="region" multiple size="3">
+          <option>Australia</option>
+          <option>New Zealand</option>
+         <option>Other</option>
+        </select>
+
+        <label for="roles-mobile">Roles you’re exploring</label>
+        <select id="roles-mobile" name="roles" multiple size="4">
+          <option>Customer Service</option>
+          <option>Customer Accounts / Collections</option>
+          <option>VA / Admin / Back-Office</option>
+          <option>Accounting Support</option>
+        </select>
+
+        <label for="notes-mobile">Anything else (optional)</label>
+        <textarea id="notes-mobile" name="notes" rows="3"></textarea>
+
+        <button class="btn" type="submit" aria-label="Start My Suitability Check">Start My Suitability Check</button>
+      </form>
+    </section>
 
     <footer>
       <div><span id="y"></span> Zero-friction offshore staffing for AU/NZ — clear pricing, flexible terms.</div>
     </footer>
+  </div>
+
+  <!-- MOBILE FLOATING CTA BAR -->
+  <div id="mobile-cta-bar">
+    <button type="button" onclick="scrollToLeadForm()">
+      Check fit for your business
+    </button>
   </div>
 
   <script>
@@ -444,6 +490,13 @@
       const b=document.body; b.classList.toggle('dark'); b.classList.toggle('light');
     }
     document.getElementById('y').textContent=new Date().getFullYear();
+
+    function scrollToLeadForm() {
+      var form = document.getElementById('lead-form-mobile');
+      if (form) {
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
 
     (function () {
       const params = new URLSearchParams(location.search);
@@ -496,6 +549,24 @@
           });
         });
       });
+
+      // Floating CTA hide/show based on mobile form visibility
+      var mobileCtaBar = document.getElementById('mobile-cta-bar');
+      var mobileForm = document.getElementById('lead-form-mobile');
+
+      if (mobileCtaBar && mobileForm && 'IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              mobileCtaBar.classList.add('hidden');
+            } else {
+              mobileCtaBar.classList.remove('hidden');
+            }
+          });
+        }, { threshold: 0.1 });
+
+        observer.observe(mobileForm);
+      }
     })();
   </script>
 </body>
