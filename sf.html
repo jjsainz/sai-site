@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url=https://www.sai.nz/sf/">
+    <title>Redirecting...</title>
     <link rel="canonical" href="https://www.sai.nz/sf/">
-    <script>window.location.replace("https://www.sai.nz/sf/");</script>
+    <script>
+      // Only redirect if the path does NOT end in a slash
+      if (!window.location.pathname.endsWith('/')) {
+        window.location.replace("https://www.sai.nz/sf/");
+      }
+    </script>
+    <noscript>
+      <meta http-equiv="refresh" content="1; url=https://www.sai.nz/sf/">
+    </noscript>
   </head>
   <body>
     <p>Redirecting to <a href="https://www.sai.nz/sf/">https://www.sai.nz/sf/</a></p>
