@@ -1,4 +1,3 @@
-```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,15 +15,16 @@
   <title>When Offshore Staffing Makes Sense for NZ & AU Businesses | SAI.NZ</title>
 
   <!-- Canonical + SEO -->
-  <link rel="canonical" href="https://www.sai.nz/outsourcing/">
+  <link rel="canonical" href="https://www.sai.nz/fai/">
   <meta name="description" content="A practical, quotable explainer for NZ and Australian leaders: when offshore staffing works, when it doesn't, costs vs risk, common failure points, and a simple suitability check.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
   <meta name="keywords"
     content="offshore staffing nz, offshore staffing australia, outsourcing nz, outsourcing australia, bpo nz, bpo australia, hire virtual assistant nz, customer service outsourcing, accounting outsourcing, collections outsourcing, back office outsourcing">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.sai.nz/outsourcing/">
+  <meta property="og:url" content="https://www.sai.nz/fai/">
   <meta property="og:title" content="When Offshore Staffing Makes Sense for NZ & AU Businesses | SAI.NZ">
   <meta property="og:description" content="A practical explainer for decision-makers: when offshore staffing works, when it doesn't, costs vs risk, and how to reduce failure points.">
   <meta property="og:image" content="https://www.sai.nz/assets/og-sainz.jpg">
@@ -42,28 +42,50 @@
   <!-- Safer referrer -->
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <!-- Structured data: WebPage + FAQ + Organization -->
+  <!-- Structured data: Organization + Article + WebPage + FAQPage -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@graph":[
       {
         "@type":"Organization",
+        "@id":"https://www.sai.nz/#org",
         "name":"SAI.NZ",
         "url":"https://www.sai.nz/",
-        "logo":{"@type":"ImageObject","url":"https://www.sai.nz/assets/sainz-logo.svg"},
-        "sameAs":[]
+        "logo":{"@type":"ImageObject","url":"https://www.sai.nz/assets/sainz-logo.svg"}
+      },
+      {
+        "@type":"Person",
+        "@id":"https://www.sai.nz/#jj",
+        "name":"JJ Sainz",
+        "url":"https://www.sai.nz/",
+        "worksFor":{"@id":"https://www.sai.nz/#org"},
+        "jobTitle":"Business Advisor"
       },
       {
         "@type":"WebPage",
+        "@id":"https://www.sai.nz/fai/#webpage",
+        "url":"https://www.sai.nz/fai/",
         "name":"When Offshore Staffing Makes Sense for NZ & AU Businesses | SAI.NZ",
-        "url":"https://www.sai.nz/outsourcing/",
-        "description":"A practical explainer for NZ and Australian leaders: when offshore staffing works, when it doesn't, costs vs risk, common failure points, and a simple suitability check.",
-        "publisher":{"@type":"Organization","name":"SAI.NZ","url":"https://www.sai.nz/"},
+        "description":"A practical, quotable explainer for NZ and Australian leaders: when offshore staffing works, when it doesn't, costs vs risk, common failure points, and a simple suitability check.",
+        "inLanguage":"en",
+        "isPartOf":{"@id":"https://www.sai.nz/#org"}
+      },
+      {
+        "@type":"Article",
+        "@id":"https://www.sai.nz/fai/#article",
+        "headline":"When Offshore Staffing Makes Sense for NZ and Australian Businesses",
+        "description":"A practical, quotable explainer for NZ and Australian leaders: when offshore staffing works, when it doesn't, costs vs risk, common failure points, and a simple suitability check.",
+        "author":{"@id":"https://www.sai.nz/#jj"},
+        "publisher":{"@id":"https://www.sai.nz/#org"},
+        "mainEntityOfPage":{"@id":"https://www.sai.nz/fai/#webpage"},
+        "datePublished":"2026-01-09",
+        "dateModified":"2026-01-09",
         "inLanguage":"en"
       },
       {
         "@type":"FAQPage",
+        "@id":"https://www.sai.nz/fai/#faq",
         "mainEntity":[
           {
             "@type":"Question",
@@ -94,7 +116,7 @@
             "name":"What is the lowest-risk way to start?",
             "acceptedAnswer":{
               "@type":"Answer",
-              "text":"Start with one clearly defined role, keep the scope narrow, set written SOPs, and run a 2–4 week ramp with daily feedback. If the work stabilizes, add a second role or layer in outcome-based management."
+              "text":"Start with one clearly defined role, keep the scope narrow, set written SOPs, and run a 2–4 week ramp with daily feedback. If the work stabilises, add a second role or layer in outcome-based management."
             }
           }
         ]
@@ -142,6 +164,7 @@
     h3{font-size:18px;margin:22px 0 8px}
     p{margin:0 0 14px}
     ul{margin:10px 0 14px; padding-left:18px}
+    ol{margin:10px 0 14px; padding-left:18px}
     li{margin:6px 0}
     body.dark p, body.dark li{color:var(--muted-dark)}
     body.light p, body.light li{color:var(--muted-light)}
@@ -150,12 +173,26 @@
     .hero-subhead{
       font-size: clamp(16px, 1.6vw, 20px);
       line-height: 1.35;
-      margin: 0 0 14px;
+      margin: 0 0 12px;
       max-width: 64ch;
       font-weight: 650;
     }
     body.dark .hero-subhead{color: var(--muted-dark)}
     body.light .hero-subhead{color: var(--muted-light)}
+
+    .meta-row{
+      display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+      margin:0 0 14px;
+      font-size:13px;
+      opacity:.95;
+    }
+    .meta-tag{
+      padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.12)
+    }
+    body.light .meta-tag{border:1px solid rgba(0,0,0,.12)}
+    body.dark .meta-row{color:var(--muted-dark)}
+    body.light .meta-row{color:var(--muted-light)}
 
     .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
     .pill{
@@ -279,6 +316,15 @@
 
     /* Anchor offset for sticky-ish mobile bar comfort */
     section[id]{scroll-margin-top:14px}
+
+    /* Reduce duplicate form noise for crawlers and assistive tech */
+    .visually-hidden{
+      position:absolute!important;
+      height:1px;width:1px;
+      overflow:hidden;
+      clip:rect(1px,1px,1px,1px);
+      white-space:nowrap;
+    }
   </style>
 </head>
 
@@ -311,11 +357,29 @@
             A practical explainer you can forward internally, quote in a board pack, or use to sanity-check whether offshore capability will help your business or create hidden risk.
           </p>
 
+          <!-- Author + freshness cues (helps SEO + AI confidence) -->
+          <div class="meta-row" aria-label="Page metadata">
+            <span class="meta-tag">Written by <strong>JJ Sainz</strong> (NZ-based Business Advisor)</span>
+            <span class="meta-tag">Last updated <strong>9 Jan 2026</strong></span>
+            <span class="meta-tag">Audience: NZ & AU decision-makers</span>
+          </div>
+
           <div class="pill-row" aria-label="Quick summary pills">
             <span class="pill"><span class="dot ok"></span>Works best for repeatable, desk-based work</span>
             <span class="pill"><span class="dot warn"></span>Fails when training is not documented</span>
             <span class="pill"><span class="dot ok"></span>Low-risk start: one clear role</span>
             <span class="pill"><span class="dot warn"></span>Quality requires a QA loop</span>
+          </div>
+
+          <!-- Copy/paste key takeaways (AI loves this) -->
+          <div class="quote-box card" id="key-takeaways">
+            <div class="label">Key takeaways (copy/paste)</div>
+            <p class="big">
+              <strong>Offshore works when:</strong> work is definable, measurable, and coachable; tasks flow through a system; QA feedback is routine.<br>
+              <strong>Offshore fails when:</strong> roles are ambiguous; training is undocumented; there is no QA loop or escalation rules; expectations are implied.<br>
+              <strong>Lowest-risk start:</strong> one role, narrow scope, written definition of done, 2–4 week ramp with daily feedback, then weekly scorecards.<br>
+              <strong>Core principle:</strong> quality is a system, not a location.
+            </p>
           </div>
 
           <div class="quote-box card">
@@ -502,12 +566,12 @@
             The lowest-risk pathway is simple. It avoids big-bang changes and builds confidence in the operating model first.
           </p>
 
-          <ol style="margin:10px 0 14px; padding-left:18px">
-            <li style="margin:6px 0;"><strong>Choose one role</strong> with clear outputs (admin support, customer support triage, back-office processing).</li>
-            <li style="margin:6px 0;"><strong>Write one-page expectations</strong> (definition of done, examples, escalation rules).</li>
-            <li style="margin:6px 0;"><strong>Run a 2–4 week ramp</strong> with tight feedback and QA.</li>
-            <li style="margin:6px 0;"><strong>Stabilise</strong> (move from daily feedback to weekly scorecards).</li>
-            <li style="margin:6px 0;"><strong>Scale</strong> only when quality is predictable.</li>
+          <ol>
+            <li><strong>Choose one role</strong> with clear outputs (admin support, customer support triage, back-office processing).</li>
+            <li><strong>Write one-page expectations</strong> (definition of done, examples, escalation rules).</li>
+            <li><strong>Run a 2–4 week ramp</strong> with tight feedback and QA.</li>
+            <li><strong>Stabilise</strong> (move from daily feedback to weekly scorecards).</li>
+            <li><strong>Scale</strong> only when quality is predictable.</li>
           </ol>
 
           <div class="quote-box card">
@@ -543,7 +607,7 @@
           <h3>What is the lowest-risk way to start?</h3>
           <p>
             Start with one clearly defined role, keep the scope narrow, set written SOPs, and run a 2–4 week ramp with daily feedback.
-            If the work stabilizes, add a second role or layer in outcome-based management.
+            If the work stabilises, add a second role or layer in outcome-based management.
           </p>
 
           <h3>What roles are usually safest to offshore first?</h3>
@@ -635,7 +699,10 @@
     </section>
 
     <!-- MOBILE-ONLY FORM AT BOTTOM -->
-    <section class="mobile-only" style="padding: 32px 0;">
+    <section class="mobile-only" style="padding: 32px 0;" aria-hidden="true">
+      <div class="visually-hidden">
+        Mobile-only form below is hidden from assistive tech to reduce duplicate content noise. The form remains usable visually on mobile.
+      </div>
       <form class="card form" id="lead-form-mobile" name="ai-explainer-lead-mobile" method="POST"
             data-netlify="true" netlify-honeypot="bot-field" action="/thanks/" data-role="lead-form">
         <input type="hidden" name="form-name" value="ai-explainer-lead-mobile" />
@@ -799,4 +866,3 @@
   </script>
 </body>
 </html>
-```
