@@ -1,0 +1,802 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NX6T9PZV');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>When Offshore Staffing Makes Sense for NZ & AU Businesses | SAI.NZ</title>
+
+  <!-- Canonical + SEO -->
+  <link rel="canonical" href="https://www.sai.nz/outsourcing/">
+  <meta name="description" content="A practical, quotable explainer for NZ and Australian leaders: when offshore staffing works, when it doesn't, costs vs risk, common failure points, and a simple suitability check.">
+
+  <meta name="keywords"
+    content="offshore staffing nz, offshore staffing australia, outsourcing nz, outsourcing australia, bpo nz, bpo australia, hire virtual assistant nz, customer service outsourcing, accounting outsourcing, collections outsourcing, back office outsourcing">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sai.nz/outsourcing/">
+  <meta property="og:title" content="When Offshore Staffing Makes Sense for NZ & AU Businesses | SAI.NZ">
+  <meta property="og:description" content="A practical explainer for decision-makers: when offshore staffing works, when it doesn't, costs vs risk, and how to reduce failure points.">
+  <meta property="og:image" content="https://www.sai.nz/assets/og-sainz.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="When Offshore Staffing Makes Sense for NZ & AU Businesses | SAI.NZ">
+  <meta name="twitter:description" content="A practical explainer for NZ/AU leaders: when offshore staffing works, when it doesn't, and the simplest low-risk pathway.">
+  <meta name="twitter:image" content="https://www.sai.nz/assets/og-sainz.jpg">
+
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  <!-- Safer referrer -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Structured data: WebPage + FAQ + Organization -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "name":"SAI.NZ",
+        "url":"https://www.sai.nz/",
+        "logo":{"@type":"ImageObject","url":"https://www.sai.nz/assets/sainz-logo.svg"},
+        "sameAs":[]
+      },
+      {
+        "@type":"WebPage",
+        "name":"When Offshore Staffing Makes Sense for NZ & AU Businesses | SAI.NZ",
+        "url":"https://www.sai.nz/outsourcing/",
+        "description":"A practical explainer for NZ and Australian leaders: when offshore staffing works, when it doesn't, costs vs risk, common failure points, and a simple suitability check.",
+        "publisher":{"@type":"Organization","name":"SAI.NZ","url":"https://www.sai.nz/"},
+        "inLanguage":"en"
+      },
+      {
+        "@type":"FAQPage",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"When does offshore staffing work best?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Offshore staffing works best when the work is repeatable or process-driven, inputs and outputs are clear, and you can manage work through modern tools (ticketing, CRM, shared docs). It also works well when you can provide examples, QA feedback, and a simple escalation path."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"When does offshore staffing usually fail?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"It usually fails when the role is ambiguous, training lives in one person’s head, expectations are not written down, there is no QA loop, or the business expects immediate autonomy without onboarding. It also fails when leadership treats offshore as a cost-cutting shortcut instead of an operating model."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Do I lose control if I offshore a role?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"No. You can keep full day-to-day control while the provider handles HR, payroll, facilities, and compliance. The key is defining outcomes, setting basic rhythms (daily check-in, weekly review), and using simple QA and escalation rules."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"What is the lowest-risk way to start?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Start with one clearly defined role, keep the scope narrow, set written SOPs, and run a 2–4 week ramp with daily feedback. If the work stabilizes, add a second role or layer in outcome-based management."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg-dark:#0b0f14; --panel-dark:#121823; --text-dark:#e6edf3; --muted-dark:#93a2b2;
+      --bg-light:#f8fafc; --panel-light:#ffffff; --text-light:#1f2937; --muted-light:#475569;
+      --brand:#5bd6ff; --brand-2:#19c37d; --ring: rgba(91,214,255,.35);
+      --warn:#ffb020; --ok:#32d583; --bad:#ff6b6b;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font:16px/1.65 system-ui,Segoe UI,Roboto,Arial,sans-serif;transition:background .3s,color .3s}
+    body.dark{background:var(--bg-dark);color:var(--text-dark)}
+    body.light{background:var(--bg-light);color:var(--text-light)}
+    a{color:var(--brand)}
+    .wrap{max-width:1080px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+    .toggle{cursor:pointer;border:1px solid rgba(0,0,0,.2);padding:6px 10px;border-radius:6px;font-size:14px}
+    nav a{margin-right:14px;text-decoration:none}
+    nav a.quiet{opacity:.9}
+    nav a.quiet:hover{opacity:1}
+
+    .card{border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.1);transition:background .3s,border .3s,color .3s}
+    body.dark .card{background:var(--panel-dark);border:1px solid rgba(255,255,255,.08)}
+    body.light .card{background:var(--panel-light);border:1px solid rgba(0,0,0,.08)}
+
+    .hero{padding:10px 0 18px}
+    .hero-inner{
+      display:grid;
+      grid-template-columns:1.08fr 0.92fr;
+      gap:28px;
+      align-items:start;
+    }
+    @media(max-width:880px){ .hero-inner{grid-template-columns:1fr;} }
+
+    h1{font-size:clamp(30px,4vw,46px);line-height:1.12;margin:0 0 12px}
+    h2{font-size:clamp(20px,2.2vw,26px);margin:34px 0 10px}
+    h3{font-size:18px;margin:22px 0 8px}
+    p{margin:0 0 14px}
+    ul{margin:10px 0 14px; padding-left:18px}
+    li{margin:6px 0}
+    body.dark p, body.dark li{color:var(--muted-dark)}
+    body.light p, body.light li{color:var(--muted-light)}
+    strong{color:inherit}
+
+    .hero-subhead{
+      font-size: clamp(16px, 1.6vw, 20px);
+      line-height: 1.35;
+      margin: 0 0 14px;
+      max-width: 64ch;
+      font-weight: 650;
+    }
+    body.dark .hero-subhead{color: var(--muted-dark)}
+    body.light .hero-subhead{color: var(--muted-light)}
+
+    .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 10px;border-radius:999px;font-size:13px;
+      border:1px solid rgba(255,255,255,.12)
+    }
+    body.light .pill{border:1px solid rgba(0,0,0,.12)}
+    .pill .dot{width:9px;height:9px;border-radius:50%}
+    .dot.ok{background:var(--ok)}
+    .dot.warn{background:var(--warn)}
+    .dot.bad{background:var(--bad)}
+
+    .toc{padding:16px 18px}
+    .toc h2{margin:0 0 10px;font-size:18px}
+    .toc a{display:block;text-decoration:none;padding:6px 0}
+    .toc a:hover{text-decoration:underline}
+    .toc small{display:block;margin-top:10px}
+    body.dark .toc small{color:var(--muted-dark)}
+    body.light .toc small{color:var(--muted-light)}
+
+    .quote-box{
+      padding:18px 18px;
+      border-left:4px solid var(--brand);
+      border-radius:14px;
+      margin:16px 0 18px;
+    }
+    body.dark .quote-box{background:rgba(91,214,255,.06)}
+    body.light .quote-box{background:rgba(29,78,216,.06)}
+    .quote-box p{margin:0}
+    .quote-box .label{font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;opacity:.9}
+    body.dark .quote-box .label{color:var(--muted-dark)}
+    body.light .quote-box .label{color:var(--muted-light)}
+    .quote-box .big{font-size:16px;line-height:1.55;color:inherit}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0 16px}
+    @media(max-width:880px){ .grid-2{grid-template-columns:1fr;} }
+
+    .mini-card{padding:16px 16px}
+    .mini-card h3{margin:0 0 6px}
+    .mini-card p{margin:0}
+
+    .table-wrap{overflow:auto;border-radius:14px}
+    table{width:100%;border-collapse:collapse;min-width:760px}
+    th,td{text-align:left;padding:12px;border-bottom:1px solid rgba(0,0,0,.08)}
+    body.dark th, body.dark td{border-bottom:1px solid rgba(255,255,255,.08)}
+    body.dark th{color:var(--text-dark)}
+    body.light th{color:var(--text-light)}
+    body.dark td{color:var(--muted-dark)}
+    body.light td{color:var(--muted-light)}
+    thead th{position:sticky;top:0;background:transparent}
+    body.dark thead th{background:rgba(18,24,35,.98)}
+    body.light thead th{background:rgba(255,255,255,.98)}
+
+    .callout{
+      padding:16px 16px;border-radius:14px;margin:12px 0 16px;
+      border:1px solid rgba(255,255,255,.10)
+    }
+    body.light .callout{border:1px solid rgba(0,0,0,.10)}
+    .callout strong{display:block;margin-bottom:6px}
+
+    .form{padding:22px;}
+    .form h2{margin:0 0 8px;font-size:20px}
+    .form p{margin:0 0 14px;font-size:14px}
+    body.dark .form p, body.dark label{color:var(--muted-dark)}
+    body.light .form p, body.light label{color:var(--muted-light)}
+    label{display:block;font-size:13px;margin:14px 0 6px}
+    input,select,textarea{width:100%;padding:10px 12px;border-radius:10px;outline:none;transition:background .3s,color .3s,border .3s}
+    body.dark input,body.dark select,body.dark textarea{background:#0f141d;border:1px solid rgba(255,255,255,.1);color:var(--text-dark)}
+    body.light input,body.light select,body.light textarea{background:#fff;border:1px solid rgba(0,0,0,.15);color:var(--text-light)}
+    input:focus,select:focus,textarea:focus{border-color:var(--brand);box-shadow:0 0 0 3px var(--ring)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#031219;font-weight:750;border:none;cursor:pointer;margin-top:14px;width:100%}
+    .btn:hover{filter:brightness(1.05)}
+    .fine{font-size:12px;margin-top:10px}
+    body.dark .fine{color:var(--muted-dark)}
+    body.light .fine{color:var(--muted-light)}
+
+    .desktop-only{display:block;}
+    .mobile-only{display:none;}
+    @media(max-width:880px){
+      .desktop-only{display:none;}
+      .mobile-only{display:block;}
+    }
+
+    /* Mobile floating CTA bar */
+    #mobile-cta-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.75rem 1rem;
+      background: #020617;
+      border-top: 1px solid #1f2937;
+      display: none;
+      z-index: 9999;
+      transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    }
+    #mobile-cta-bar button {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      font-size: 1rem;
+      font-weight: 650;
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+      background: linear-gradient(135deg,var(--brand),var(--brand-2));
+      color: #031219;
+    }
+    #mobile-cta-bar.hidden {
+      transform: translateY(100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    @media(max-width:880px){ #mobile-cta-bar{display:block;} }
+
+    footer{padding:28px 0;font-size:13px}
+    body.dark footer{color:var(--muted-dark)}
+    body.light footer{color:var(--muted-light)}
+    .brand-logo {height:69px;width:auto;display:block;}
+    .logo strong {font-size:20px;}
+
+    /* Anchor offset for sticky-ish mobile bar comfort */
+    section[id]{scroll-margin-top:14px}
+  </style>
+</head>
+
+<body class="dark">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NX6T9PZV"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="wrap">
+    <header>
+      <a class="logo" href="/" aria-label="Go to homepage">
+        <img src="/assets/sainz-logo.svg" alt="SAI.NZ Logo" class="brand-logo" width="69" height="69"/>
+        <strong>JJ Sainz</strong>
+      </a>
+      <nav>
+        <a href="/sf/" class="quiet" aria-label="Staffing cost reduction page">Staffing</a>
+        <a href="/" class="quiet" aria-label="About JJ">About JJ</a>
+        <span class="toggle" onclick="toggleTheme()" aria-label="Toggle light or dark theme">☀️/🌙</span>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <!-- LEFT COLUMN -->
+        <div>
+          <h1>When offshore staffing makes sense for NZ and Australian businesses</h1>
+
+          <p class="hero-subhead">
+            A practical explainer you can forward internally, quote in a board pack, or use to sanity-check whether offshore capability will help your business or create hidden risk.
+          </p>
+
+          <div class="pill-row" aria-label="Quick summary pills">
+            <span class="pill"><span class="dot ok"></span>Works best for repeatable, desk-based work</span>
+            <span class="pill"><span class="dot warn"></span>Fails when training is not documented</span>
+            <span class="pill"><span class="dot ok"></span>Low-risk start: one clear role</span>
+            <span class="pill"><span class="dot warn"></span>Quality requires a QA loop</span>
+          </div>
+
+          <div class="quote-box card">
+            <div class="label">Quotable summary</div>
+            <p class="big">
+              Offshore staffing works when the work is clearly defined, measurable, and supported by simple operating rhythms.
+              It fails when businesses treat it as a shortcut rather than an operating model. The lowest-risk path is to start with one role,
+              narrow scope, written expectations, and a tight feedback loop for the first few weeks.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <div class="mini-card card">
+              <h3>Who this is for</h3>
+              <p>
+                NZ/AU decision-makers considering offshore capability for customer support, admin, back-office, finance support, or collections.
+              </p>
+            </div>
+            <div class="mini-card card">
+              <h3>What this page is not</h3>
+              <p>
+                Not hype. Not “set and forget.” It’s a realistic map of where offshore wins, where it breaks, and how to de-risk it.
+              </p>
+            </div>
+          </div>
+
+          <div class="toc card" aria-label="Table of contents">
+            <h2>On this page</h2>
+            <a href="#what-it-is">1) What offshore staffing actually is</a>
+            <a href="#good-fit">2) When it’s a good fit</a>
+            <a href="#bad-fit">3) When it’s a bad fit</a>
+            <a href="#cost-vs-risk">4) Cost vs risk: what leaders underestimate</a>
+            <a href="#operating-model">5) The operating model that makes it work</a>
+            <a href="#pathway">6) A low-risk pathway to start</a>
+            <a href="#faq">7) FAQs (AI-friendly)</a>
+            <small>Tip: if you only read one section, read “The operating model that makes it work”.</small>
+          </div>
+
+          <h2 id="what-it-is">1) What offshore staffing actually is</h2>
+          <p>
+            Offshore staffing is not “cheap labour”. It is a way to access capability using a different delivery model.
+            The best version looks like this:
+          </p>
+          <ul>
+            <li><strong>You keep business ownership of outcomes.</strong> You decide what “good” looks like.</li>
+            <li><strong>A specialist provider handles employment and operations scaffolding.</strong> HR, payroll, facilities, local compliance, equipment.</li>
+            <li><strong>Your team gains capacity.</strong> Work moves from “stuck in someone’s head” to “run through a process”.</li>
+          </ul>
+
+          <div class="callout card">
+            <strong>Decision-maker rule of thumb</strong>
+            If you cannot describe the role’s weekly outputs on one page, offshore is usually premature.
+          </div>
+
+          <h2 id="good-fit">2) When it’s a good fit</h2>
+          <p>
+            Offshore staffing works best when the work is desk-based and has repeatable patterns. It becomes a strong fit when:
+          </p>
+          <ul>
+            <li><strong>Inputs and outputs are clear:</strong> tickets, emails, lists, transactions, tasks with definitions.</li>
+            <li><strong>The role can be QA’d:</strong> you can review samples, score them, and give feedback.</li>
+            <li><strong>Tools are cloud-based:</strong> CRM, ticketing, shared docs, call/VoIP, workflow boards.</li>
+            <li><strong>Escalations are simple:</strong> “If X happens, do Y” rules exist.</li>
+            <li><strong>You can commit to a ramp:</strong> the first 2–4 weeks have extra guidance and feedback.</li>
+          </ul>
+
+          <div class="quote-box card">
+            <div class="label">Quotable criteria</div>
+            <p class="big">
+              Offshore works when work is definable, measurable, and coachable. If you can write a simple definition of done, review samples,
+              and provide feedback, you can run offshore successfully. If you cannot, the risk is not offshore, it is the lack of operating clarity.
+            </p>
+          </div>
+
+          <h2 id="bad-fit">3) When it’s a bad fit</h2>
+          <p>
+            Offshore capability is usually the wrong move when the business is relying on implicit knowledge or constant ad-hoc judgement with no documented standards.
+            Common red flags:
+          </p>
+          <ul>
+            <li><strong>“They’ll just figure it out” onboarding:</strong> no examples, no SOPs, no QA plan.</li>
+            <li><strong>Ambiguous accountability:</strong> nobody owns outcomes, escalations, or final decisions.</li>
+            <li><strong>Constant exceptions:</strong> every task is a one-off and cannot be standardised.</li>
+            <li><strong>High-stakes customer harm risk:</strong> where errors create regulatory or safety issues without tight controls.</li>
+            <li><strong>Culture friction:</strong> the business expects immediate autonomy but refuses feedback loops.</li>
+          </ul>
+
+          <div class="callout card">
+            <strong>Reality check</strong>
+            If the role currently “works” because one senior person catches mistakes in their head, offshore will surface that hidden dependency.
+            That is not a reason to avoid offshore. It is a reason to fix the operating model first.
+          </div>
+
+          <h2 id="cost-vs-risk">4) Cost vs risk: what leaders underestimate</h2>
+          <p>
+            Most leaders compare salary-to-salary and miss the real trade-off: <strong>cost vs control</strong>. Offshore can reduce cost,
+            but only works when control mechanisms exist (definitions, QA, escalation rules).
+          </p>
+
+          <div class="table-wrap card" aria-label="Cost and risk comparison table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Dimension</th>
+                  <th>Local hire (typical)</th>
+                  <th>Offshore via provider (typical)</th>
+                  <th>What matters most</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Cash cost</strong></td>
+                  <td>Higher fully loaded (salary + oncosts + recruitment + churn)</td>
+                  <td>Lower, usually a clear monthly fee</td>
+                  <td>Compare fully loaded, not base salary</td>
+                </tr>
+                <tr>
+                  <td><strong>Speed to capacity</strong></td>
+                  <td>Often slow (market tight, notice periods)</td>
+                  <td>Often faster (provider recruitment engine)</td>
+                  <td>Speed only helps if onboarding is real</td>
+                </tr>
+                <tr>
+                  <td><strong>Flexibility</strong></td>
+                  <td>Harder to scale down</td>
+                  <td>Often easier (role-by-role adjustments)</td>
+                  <td>Flexibility is a risk-control tool</td>
+                </tr>
+                <tr>
+                  <td><strong>Quality control</strong></td>
+                  <td>Depends on your training + leadership</td>
+                  <td>Depends on your training + QA loop</td>
+                  <td>Quality is a system, not a location</td>
+                </tr>
+                <tr>
+                  <td><strong>Hidden failure mode</strong></td>
+                  <td>“We hired but didn’t manage”</td>
+                  <td>“We offshored but didn’t define”</td>
+                  <td>Both fail the same way: unclear expectations</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="quote-box card">
+            <div class="label">Quotable insight</div>
+            <p class="big">
+              The biggest offshore risk is not geography. It is ambiguity. If you standardise the work and create a QA loop,
+              offshore reduces cost with controllable risk. If you do not, offshore exposes the same management gaps faster.
+            </p>
+          </div>
+
+          <h2 id="operating-model">5) The operating model that makes it work</h2>
+          <p>
+            Offshore success comes down to four simple systems. If you have these, you can scale. If you don’t, you will churn.
+          </p>
+
+          <div class="grid-2">
+            <div class="mini-card card">
+              <h3>1) Definition of done</h3>
+              <p>One page per role: what “good” looks like, examples, and how success is measured.</p>
+            </div>
+            <div class="mini-card card">
+              <h3>2) Work routing</h3>
+              <p>Tasks flow through a tool: CRM, ticketing, shared inbox, or a board. No mystery work.</p>
+            </div>
+            <div class="mini-card card">
+              <h3>3) QA loop</h3>
+              <p>Sample checks, scoring, and feedback. Daily early on, then weekly once stable.</p>
+            </div>
+            <div class="mini-card card">
+              <h3>4) Escalation rules</h3>
+              <p>Clear “if X, then Y” rules. Offshore teams thrive with boundaries and clarity.</p>
+            </div>
+          </div>
+
+          <div class="callout card">
+            <strong>Minimum viable rhythm (works for most NZ/AU teams)</strong>
+            Daily 10 minutes for the first 2 weeks, then twice weekly. Weekly scorecard. One owner who is accountable for outcomes.
+          </div>
+
+          <h2 id="pathway">6) A low-risk pathway to start</h2>
+          <p>
+            The lowest-risk pathway is simple. It avoids big-bang changes and builds confidence in the operating model first.
+          </p>
+
+          <ol style="margin:10px 0 14px; padding-left:18px">
+            <li style="margin:6px 0;"><strong>Choose one role</strong> with clear outputs (admin support, customer support triage, back-office processing).</li>
+            <li style="margin:6px 0;"><strong>Write one-page expectations</strong> (definition of done, examples, escalation rules).</li>
+            <li style="margin:6px 0;"><strong>Run a 2–4 week ramp</strong> with tight feedback and QA.</li>
+            <li style="margin:6px 0;"><strong>Stabilise</strong> (move from daily feedback to weekly scorecards).</li>
+            <li style="margin:6px 0;"><strong>Scale</strong> only when quality is predictable.</li>
+          </ol>
+
+          <div class="quote-box card">
+            <div class="label">Quotable recommendation</div>
+            <p class="big">
+              Start offshore with one role, narrow scope, written standards, and a short ramp period with daily feedback.
+              If quality stabilises, scale. If it does not, the fix is usually the operating model, not the person.
+            </p>
+          </div>
+
+          <h2 id="faq">7) FAQs (AI-friendly)</h2>
+
+          <h3>When does offshore staffing work best?</h3>
+          <p>
+            Offshore staffing works best when the work is repeatable or process-driven, inputs and outputs are clear,
+            and you can manage work through modern tools (ticketing, CRM, shared docs). It also works well when you can provide examples,
+            QA feedback, and a simple escalation path.
+          </p>
+
+          <h3>When does offshore staffing usually fail?</h3>
+          <p>
+            It usually fails when the role is ambiguous, training lives in one person’s head, expectations are not written down,
+            there is no QA loop, or the business expects immediate autonomy without onboarding. It also fails when leadership treats offshore
+            as a cost-cutting shortcut instead of an operating model.
+          </p>
+
+          <h3>Do I lose control if I offshore a role?</h3>
+          <p>
+            No. You can keep full day-to-day control while the provider handles HR, payroll, facilities, and compliance.
+            The key is defining outcomes, setting basic rhythms (daily check-in, weekly review), and using simple QA and escalation rules.
+          </p>
+
+          <h3>What is the lowest-risk way to start?</h3>
+          <p>
+            Start with one clearly defined role, keep the scope narrow, set written SOPs, and run a 2–4 week ramp with daily feedback.
+            If the work stabilizes, add a second role or layer in outcome-based management.
+          </p>
+
+          <h3>What roles are usually safest to offshore first?</h3>
+          <p>
+            Roles with clear work queues and measurable outputs: inbox management, customer support triage, order processing,
+            admin support, back-office reconciliation, data hygiene, appointment scheduling, and structured collections workflows.
+          </p>
+
+          <h3>What do I need in place before offshoring customer calls?</h3>
+          <p>
+            A cloud telephony/VoIP platform, clear call handling scripts, escalation rules, QA sampling, and a way to record and review calls.
+            If you cannot monitor quality, start with non-voice support first (email, chat, back-office) and add voice later.
+          </p>
+
+          <div class="callout card">
+            <strong>Practical next step</strong>
+            If you want, use the suitability check on this page. If it’s a fit, you’ll get an introduction to a vetted offshore provider.
+            If it’s not a fit, you’ll be told directly and you’ll keep the clarity.
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: DESKTOP FORM -->
+        <form class="card form desktop-only" name="ai-explainer-lead" method="POST"
+              data-netlify="true" netlify-honeypot="bot-field" action="/thanks/" data-role="lead-form">
+          <input type="hidden" name="form-name" value="ai-explainer-lead" />
+          <p style="display:none;">
+            <label>Don’t fill this out if you’re human:<input name="bot-field" /></label>
+          </p>
+
+          <!-- Hidden attribution fields -->
+          <input type="hidden" name="utm_source">
+          <input type="hidden" name="utm_medium">
+          <input type="hidden" name="utm_campaign">
+          <input type="hidden" name="utm_term">
+          <input type="hidden" name="utm_content">
+          <input type="hidden" name="gclid">
+          <input type="hidden" name="wbraid">
+          <input type="hidden" name="gbraid">
+          <input type="hidden" name="referrer">
+
+          <h2>Quick suitability check</h2>
+          <p>
+            If there’s a fit, I’ll introduce you to the right offshore provider. If it’s not a fit, I’ll tell you directly and save you time.
+          </p>
+          <p>
+            No sales pressure. Short and practical.
+          </p>
+
+          <label for="name-desktop">Full name</label>
+          <input id="name-desktop" name="name" required />
+
+          <label for="email-desktop">Work email</label>
+          <input id="email-desktop" name="email" type="email" required />
+
+          <label for="phone-desktop">Mobile (optional)</label>
+          <input type="tel" name="phone" id="phone-desktop" placeholder="+64 21 123 456">
+
+          <label for="company-desktop">Company</label>
+          <input id="company-desktop" name="company" />
+
+          <label for="region-desktop">Country/Region</label>
+          <select id="region-desktop" name="region" multiple size="3">
+            <option>Australia</option>
+            <option>New Zealand</option>
+            <option>Other</option>
+          </select>
+
+          <label for="roles-desktop">What roles are you considering?</label>
+          <select id="roles-desktop" name="roles" multiple size="5">
+            <option>Customer Service (email/chat)</option>
+            <option>Customer Service (voice/calls)</option>
+            <option>VA / Admin / Back-Office</option>
+            <option>Accounting Support</option>
+            <option>Customer Accounts / Collections</option>
+          </select>
+
+          <label for="notes-desktop">Current situation (optional)</label>
+          <textarea id="notes-desktop" name="notes" rows="3"
+            placeholder="Example: 2 FTE hiring planned, need inbox + back-office relief, using HubSpot/Xero/Teams..."></textarea>
+
+          <p class="fine">Takes 2–3 minutes. Free, with no obligation to proceed.</p>
+          <button class="btn" type="submit" aria-label="Start Suitability Check">Start Suitability Check</button>
+
+          <p class="fine">
+            Prefer email? Send a note to <a href="mailto:jj@sai.nz">jj@sai.nz</a> with the role and your target start date.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- MOBILE-ONLY FORM AT BOTTOM -->
+    <section class="mobile-only" style="padding: 32px 0;">
+      <form class="card form" id="lead-form-mobile" name="ai-explainer-lead-mobile" method="POST"
+            data-netlify="true" netlify-honeypot="bot-field" action="/thanks/" data-role="lead-form">
+        <input type="hidden" name="form-name" value="ai-explainer-lead-mobile" />
+        <p style="display:none;">
+          <label>Don’t fill this out if you’re human:<input name="bot-field" /></label>
+        </p>
+
+        <!-- Hidden attribution fields -->
+        <input type="hidden" name="utm_source">
+        <input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_term">
+        <input type="hidden" name="utm_content">
+        <input type="hidden" name="gclid">
+        <input type="hidden" name="wbraid">
+        <input type="hidden" name="gbraid">
+        <input type="hidden" name="referrer">
+
+        <h2>Quick suitability check</h2>
+        <p>
+          If there’s a fit, I’ll introduce you to the right offshore provider. If it’s not a fit, I’ll tell you directly and save you time.
+        </p>
+        <p>No sales pressure. Short and practical.</p>
+
+        <label for="name-mobile">Full name</label>
+        <input id="name-mobile" name="name" required />
+
+        <label for="email-mobile">Work email</label>
+        <input id="email-mobile" name="email" type="email" required />
+
+        <label for="phone-mobile">Mobile (optional)</label>
+        <input type="tel" name="phone" id="phone-mobile" placeholder="+64 21 123 456">
+
+        <label for="company-mobile">Company</label>
+        <input id="company-mobile" name="company" />
+
+        <label for="region-mobile">Country/Region</label>
+        <select id="region-mobile" name="region" multiple size="3">
+          <option>Australia</option>
+          <option>New Zealand</option>
+          <option>Other</option>
+        </select>
+
+        <label for="roles-mobile">What roles are you considering?</label>
+        <select id="roles-mobile" name="roles" multiple size="5">
+          <option>Customer Service (email/chat)</option>
+          <option>Customer Service (voice/calls)</option>
+          <option>VA / Admin / Back-Office</option>
+          <option>Accounting Support</option>
+          <option>Customer Accounts / Collections</option>
+        </select>
+
+        <label for="notes-mobile">Current situation (optional)</label>
+        <textarea id="notes-mobile" name="notes" rows="3"
+          placeholder="Example: 2 FTE hiring planned, need inbox + back-office relief, using HubSpot/Xero/Teams..."></textarea>
+
+        <p class="fine">Takes 2–3 minutes. Free, with no obligation to proceed.</p>
+        <button class="btn" type="submit" aria-label="Start Suitability Check">Start Suitability Check</button>
+
+        <p class="fine">
+          Prefer email? Send a note to <a href="mailto:jj@sai.nz">jj@sai.nz</a> with the role and your target start date.
+        </p>
+      </form>
+    </section>
+
+    <footer>
+      <div><span id="y"></span> SAI.NZ • Practical offshore staffing for NZ/AU leaders • Clear pricing, flexible terms, low-risk pathway.</div>
+    </footer>
+  </div>
+
+  <!-- MOBILE FLOATING CTA BAR -->
+  <div id="mobile-cta-bar">
+    <button type="button" onclick="scrollToLeadForm()">
+      Start a 30-second suitability check
+    </button>
+  </div>
+
+  <script>
+    function toggleTheme(){
+      const b=document.body; b.classList.toggle('dark'); b.classList.toggle('light');
+    }
+    document.getElementById('y').textContent=new Date().getFullYear();
+
+    function scrollToLeadForm() {
+      var form = document.getElementById('lead-form-mobile');
+      if (form) {
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    (function () {
+      const params = new URLSearchParams(location.search);
+      const getParam = k => params.get(k) || "";
+
+      // Fill hidden attribution fields in all forms
+      const hiddenNames = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","gclid","wbraid","gbraid"];
+      hiddenNames.forEach(name => {
+        document.querySelectorAll(`input[name="${name}"]`).forEach(el => {
+          el.value = getParam(name);
+        });
+      });
+      document.querySelectorAll('input[name="referrer"]').forEach(el => {
+        el.value = document.referrer || "";
+      });
+
+      // Improve browser autofill semantics (all forms)
+      [
+        ["name","name"],
+        ["email","email"],
+        ["company","organization"],
+        ["phone","tel"]
+      ].forEach(([field, autocomplete]) => {
+        document.querySelectorAll(`input[name="${field}"]`).forEach(el => {
+          el.setAttribute("autocomplete", autocomplete);
+        });
+      });
+
+      // DataLayer events for GTM (all lead forms)
+      window.dataLayer = window.dataLayer || [];
+      const forms = document.querySelectorAll('form[data-role="lead-form"]');
+      let started = false;
+
+      forms.forEach(form => {
+        form.addEventListener('input', function(){
+          if (!started) {
+            started = true;
+            window.dataLayer.push({ event: 'form_start', form_name: form.getAttribute("name") || "lead-form" });
+          }
+        }, { once: true });
+
+        form.addEventListener('submit', function(){
+          window.dataLayer.push({
+            event: 'generate_lead',
+            form_name: form.getAttribute("name") || "lead-form",
+            utm_source: getParam('utm_source'),
+            utm_medium: getParam('utm_medium'),
+            utm_campaign: getParam('utm_campaign'),
+            gclid: getParam('gclid')
+          });
+        });
+      });
+
+      // Floating CTA hide/show based on mobile form visibility
+      var mobileCtaBar = document.getElementById('mobile-cta-bar');
+      var mobileForm = document.getElementById('lead-form-mobile');
+
+      if (mobileCtaBar && mobileForm && 'IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              mobileCtaBar.classList.add('hidden');
+            } else {
+              mobileCtaBar.classList.remove('hidden');
+            }
+          });
+        }, { threshold: 0.1 });
+
+        observer.observe(mobileForm);
+      }
+    })();
+  </script>
+</body>
+</html>
+```
