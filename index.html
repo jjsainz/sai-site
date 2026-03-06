@@ -53,363 +53,1307 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <style>
     /*
-      SAI.NZ palette aligned to logo:
-      - Brand Blue: #1D4ED8
-      - Neutrals: slate/ink for depth, white for clarity
-      - Light mode stays clean and professional
-      - Dark mode stays calm, controlled, premium
+      High-end boutique advisory — calm, airy, confident, premium
+      SAI.NZ palette: Brand Blue #1D4ED8
     */
 
     :root {
-      /* Light theme */
-      --bg: #F8FAFC;                /* page background */
-      --card: #FFFFFF;              /* main container */
-      --text: #0F172A;              /* primary text */
-      --muted: #475569;             /* secondary text */
-      --accent: #1D4ED8;            /* brand blue */
-      --accent-hover: #1E40AF;      /* darker blue for hover */
-      --accent-weak: rgba(29, 78, 216, 0.18); /* focus ring */
-      --panel: #F1F5F9;             /* blockquote / subtle sections */
-      --success: #0F766E;           /* teal-ish success (restrained) */
-      --border: #E2E8F0;            /* borders */
-      --shadow: rgba(2, 6, 23, 0.10); /* soft shadow */
+      --bg: #FAFBFC;
+      --bg-alt: #F4F6F8;
+      --card: #FFFFFF;
+      --card-border: #E8ECF0;
+      --surface: #FFFFFF;
+      --surface-elevated: #FFFFFF;
+      --text: #0D1320;
+      --text-secondary: #3D4A5C;
+      --muted: #5C6B7E;
+      --accent: #1D4ED8;
+      --accent-hover: #1639A8;
+      --accent-muted: rgba(29, 78, 216, 0.08);
+      --accent-focus: rgba(29, 78, 216, 0.15);
+      --success: #0F766E;
+      --border: #DDE3E9;
+      --shadow-sm: 0 1px 3px rgba(13, 19, 32, 0.04);
+      --shadow-md: 0 4px 12px rgba(13, 19, 32, 0.06);
+      --shadow-card: 0 2px 8px rgba(13, 19, 32, 0.04);
       --input-bg: #FFFFFF;
       --input-border: #CBD5E1;
       --btn-text: #FFFFFF;
-
       --link: #1D4ED8;
-      --link-underline: rgba(29, 78, 216, 0.35);
-
-      --base-font: 16px;
+      --link-underline: rgba(29, 78, 216, 0.3);
+      --base-font: 17px;
       --line: 1.65;
-      --radius: 10px;
+      --line-tight: 1.45;
+      --radius: 6px;
+      --radius-lg: 10px;
+      --nav-height: 76px;
+      --section-padding: 100px;
+      --section-padding-sm: 80px;
+      --content-max: 640px;
+      --grid-max: 1100px;
+      --banner-bg: #E8ECF0;
+      --banner-text: #475569;
     }
 
     html[data-theme="dark"] {
-      /* Dark theme */
-      --bg: #0B0F19;                 /* deep blue-black */
-      --card: #111827;               /* slate surface */
-      --text: #FFFFFF;               /* primary text */
-      --muted: #9CA3AF;              /* secondary text */
-      --accent: #1D4ED8;             /* brand blue */
-      --accent-hover: #3B82F6;       /* lighter blue for hover */
-      --accent-weak: rgba(29, 78, 216, 0.28);
-      --panel: #0E1628;              /* subtle panel behind blockquote */
-      --success: #16A34A;            /* restrained green for success */
-      --border: #243045;             /* dark border */
-      --shadow: rgba(0, 0, 0, 0.35);
-      --input-bg: #0B1220;
-      --input-border: #2B364C;
-      --btn-text: #FFFFFF;
-
-      --link: #93C5FD;               /* readable blue for links on dark */
+      --bg: #0A0E16;
+      --bg-alt: #0F141C;
+      --card: #121922;
+      --card-border: #1E2836;
+      --surface: #151D28;
+      --surface-elevated: #1A232F;
+      --text: #F4F6F9;
+      --text-secondary: #B8C4D0;
+      --muted: #8896A8;
+      --accent: #1D4ED8;
+      --accent-hover: #3B82F6;
+      --accent-muted: rgba(29, 78, 216, 0.12);
+      --accent-focus: rgba(29, 78, 216, 0.2);
+      --success: #16A34A;
+      --border: #243045;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+      --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.2);
+      --input-bg: #0E1520;
+      --input-border: #2A3548;
+      --link: #93C5FD;
       --link-underline: rgba(147, 197, 253, 0.35);
+      --banner-bg: #1A2332;
+      --banner-text: #94A3B8;
     }
 
+    /* Site refresh banner — subtle, above nav */
+    .site-refresh-banner {
+      background: var(--banner-bg);
+      color: var(--banner-text);
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 8px 16px;
+      line-height: 1.4;
+    }
+
+    html { scroll-behavior: smooth; }
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
       font-size: var(--base-font);
       line-height: var(--line);
       transition: background 0.2s ease, color 0.2s ease;
-      position: relative;
     }
 
-    .container {
-      position: relative;
-      max-width: 850px;
-      margin: 60px auto 40px auto;
-      padding: 30px;
+    a {
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid var(--link-underline);
+      transition: opacity 0.15s ease, border-color 0.15s ease;
+    }
+    a:hover { opacity: 0.88; }
+    .inline-link {
+      color: inherit;
+      border-bottom: 1px solid var(--link-underline);
+    }
+
+    /* ===== Top Navigation ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: 0 8px 30px var(--shadow);
-      border: 1px solid var(--border);
-      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .nav-menu-btn { position: relative; z-index: 101; }
+
+    .nav-inner {
+      max-width: var(--grid-max);
+      margin: 0 auto;
+      padding: 0 32px;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
     }
 
-    h1, h2, h3 { color: var(--text); margin: 0 0 10px 0; }
-    h1 { text-align: center; margin-bottom: 6px; }
-    h2 {
-      margin-top: 2rem;
-      padding-bottom: 0.35rem;
-      border-bottom: 2px solid var(--accent);
+    .nav-logo-link {
+      text-decoration: none;
+      border: none;
+      display: flex;
+      align-items: center;
     }
-    h3 { margin-top: 1.25rem; }
-
-    p, li {
-      color: var(--text);
-      font-size: 1rem;
-      line-height: var(--line);
-      margin: 0.7rem 0;
+    .nav-logo-link:hover { opacity: 0.9; }
+    .nav-logo {
+      height: 52px;
+      width: auto;
+      display: block;
     }
-    ul { padding-left: 1.2em; margin: 0.5rem 0 0.75rem 0; }
-    .muted { color: var(--muted); font-size: 0.98rem; }
 
-    .subtitle {
-      text-align: center;
-      font-style: italic;
-      margin: 0 0 14px 0;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
       color: var(--muted);
+      border: none;
+      letter-spacing: 0.01em;
     }
-    .tagline {
-      text-align: center;
-      font-size: 1.15rem;
-      margin: 10px 0 26px 0;
+    .nav-links a:hover { color: var(--text); }
+
+    /* Mobile menu button — hidden on desktop */
+    .nav-menu-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .nav-menu-btn:hover {
+      background: var(--bg-alt);
+    }
+    .nav-menu-icon {
+      position: relative;
+      width: 20px;
+      height: 14px;
+    }
+    .nav-menu-icon::before,
+    .nav-menu-icon::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--text);
+      border-radius: 1px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .nav-menu-icon::before { top: 0; }
+    .nav-menu-icon::after { bottom: 0; }
+    .nav-menu-btn[aria-expanded="true"] .nav-menu-icon::before {
+      transform: translateY(6px) rotate(45deg);
+    }
+    .nav-menu-btn[aria-expanded="true"] .nav-menu-icon::after {
+      transform: translateY(-6px) rotate(-45deg);
     }
 
-    blockquote {
-      margin: 1rem 0;
-      padding: 14px 16px;
-      border-left: 3px solid var(--accent);
-      background: var(--panel);
-      border-radius: 8px;
+    /* Theme toggle — both words always visible, full control clickable */
+    .nav-theme-wrap { flex-shrink: 0; }
+    .theme-toggle-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      min-width: 100px;
+      min-height: 44px;
+      padding: 0 14px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .theme-toggle-btn:hover {
+      border-color: var(--card-border);
+    }
+    .theme-toggle-btn .theme-sep {
+      color: var(--muted);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .theme-toggle-btn .theme-option {
+      pointer-events: none;
+    }
+    .theme-toggle-btn .theme-option.active {
+      color: var(--text);
+      font-weight: 600;
+    }
+    html[data-theme="dark"] .theme-toggle-btn .theme-option[data-theme="dark"].active { color: var(--text); }
+
+    /* ===== Section layout ===== */
+    section {
+      padding: var(--section-padding) 32px;
+      max-width: var(--grid-max);
+      margin: 0 auto;
+    }
+
+    section.section-alt {
+      background: var(--bg-alt);
+    }
+
+    .section-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 14px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0 0 20px 0;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .section-lead {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin: 0 0 36px 0;
+      max-width: var(--content-max);
+      line-height: var(--line);
+    }
+
+    .body-text {
+      font-size: 1rem;
+      color: var(--text);
+      line-height: var(--line);
+      margin: 0 0 18px 0;
+      max-width: var(--content-max);
+    }
+
+    .body-text.muted {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* ===== Hero ===== */
+    #hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 32px 140px;
+      text-align: center;
+      background-color: #E2E8F0;
+      background-image:
+        linear-gradient(to bottom, rgba(248,250,252,0.45) 0%, rgba(241,245,249,0.25) 40%, rgba(226,232,240,0.2) 100%),
+        url('/assets/v2/hero-light.jpg'),
+        linear-gradient(165deg, #F1F5F9 0%, #E2E8F0 50%, #CBD5E1 100%);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+    #hero .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      animation: heroFadeIn 1.8s ease-out;
+    }
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    html[data-theme="dark"] #hero {
+      background-color: #060910;
+      background-image:
+        linear-gradient(to bottom, rgba(10,14,22,0.52) 0%, rgba(10,14,22,0.32) 45%, rgba(6,9,16,0.4) 100%),
+        radial-gradient(ellipse 120% 80% at 50% 90%, rgba(29,78,216,0.06) 0%, transparent 50%),
+        url('/assets/v2/hero-dark.jpg'),
+        linear-gradient(180deg, #0A0E16 0%, #060910 50%, #030508 100%);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 24px 0;
+    }
+
+    .hero-title {
+      font-size: 3.25rem;
+      font-weight: 600;
+      margin: 0 0 12px 0;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin: 0 0 28px 0;
       font-style: italic;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-tagline {
+      font-size: 1.35rem;
+      font-weight: 500;
+      margin: 0 0 40px 0;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .hero-intro {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 12px auto;
+      line-height: var(--line);
+    }
+
+    .hero-note {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 48px auto;
+      line-height: var(--line);
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--btn-text);
+      background: var(--accent);
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      text-decoration: none;
+      border-bottom: none;
+      transition: background 0.15s ease, transform 0.05s ease;
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      opacity: 1;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .btn-secondary:hover {
+      background: var(--bg-alt);
+      border-color: var(--card-border);
+      opacity: 1;
+    }
+
+    /* ===== Services ===== */
+    #services {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: var(--section-padding) 32px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 44px;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+
+    .service-card {
+      padding: 36px 32px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    @media (hover: hover) {
+      .service-card:hover {
+        border-color: var(--accent);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
+      }
+    }
+
+    .service-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 0 0 12px 0;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: var(--line);
+    }
+
+    /* ===== Guiding Principles ===== */
+    #principles {
+      background: var(--bg);
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      margin-top: 44px;
+      max-width: 800px;
+    }
+
+    @media (max-width: 700px) {
+      .principles-grid { grid-template-columns: 1fr; }
+    }
+
+    .principle-item {
+      padding: 28px 32px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      margin: -1px 0 0 -1px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    @media (hover: hover) {
+      .principle-item:hover {
+        background: var(--surface-elevated);
+        transform: translateY(-1px);
+      }
+    }
+
+    .principle-item strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
       color: var(--text);
     }
 
-    /* Global form elements */
-    label, input, textarea, button {
+    .principle-item span {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: var(--line);
+    }
+
+    /* ===== Proof / Credibility ===== */
+    #proof {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+    }
+
+    .testimonials {
+      margin-top: 44px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .testimonial {
+      margin: 0;
+      padding: 36px 40px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      font-style: normal;
+      color: var(--text);
+      font-size: 1.02rem;
+      line-height: var(--line);
+      position: relative;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    @media (hover: hover) {
+      .testimonial:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-1px);
+      }
+    }
+
+    .testimonial::before {
+      content: '"';
+      position: absolute;
+      top: 24px;
+      left: 28px;
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--accent);
+      opacity: 0.2;
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+
+    .testimonial-quote {
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-attribution {
+      font-style: normal;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .credibility-heading {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 56px 0 20px 0;
+    }
+
+    .credibility-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .credibility-item {
+      padding: 20px 24px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: var(--line);
+    }
+
+    /* ===== How We Work Together ===== */
+    #how-we-work {
+      background: var(--bg);
+    }
+
+    /* ===== Engagement Models ===== */
+    #engagement {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+    }
+
+    .engagement-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-top: 44px;
+    }
+
+    .engagement-card {
+      padding: 32px 36px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .engagement-card.featured {
+      border-color: var(--accent);
+      background: var(--card);
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (hover: hover) {
+      .engagement-card:hover {
+        border-color: var(--accent);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
+      }
+    }
+
+    .engagement-card .badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .engagement-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 10px 0;
+      color: var(--text);
+    }
+
+    .engagement-card p {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+      margin: 0 0 12px 0;
+      line-height: var(--line);
+    }
+
+    .engagement-card .price {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .engagement-cta {
+      margin-top: 36px;
+      font-weight: 500;
+      font-size: 1.05rem;
+      max-width: var(--content-max);
+    }
+
+    /* ===== Contact ===== */
+    #contact {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 120px 32px 120px;
+    }
+
+    .contact-wrapper {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .contact-intro {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin: 0 0 40px 0;
+      line-height: var(--line);
+    }
+
+    .contact-form {
+      padding: 48px 52px;
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin: 20px 0 8px 0;
+      letter-spacing: 0.02em;
+    }
+    .contact-form label:first-of-type { margin-top: 0; }
+
+    .contact-form input,
+    .contact-form textarea {
       display: block;
       width: 100%;
-      margin-top: 0.5rem;
+      padding: 14px 16px;
       font-size: 1rem;
-    }
-    label { color: var(--muted); }
-
-    input, textarea {
-      padding: 12px;
       border: 1px solid var(--input-border);
-      border-radius: 6px;
-      background-color: var(--input-bg);
+      border-radius: var(--radius);
+      background: var(--input-bg);
       color: var(--text);
       outline: none;
-      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    input::placeholder, textarea::placeholder { color: var(--muted); opacity: 0.85; }
 
-    input:focus, textarea:focus {
+    .contact-form input:focus,
+    .contact-form textarea:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px var(--accent-weak);
+      box-shadow: 0 0 0 3px var(--accent-focus);
     }
 
-    button {
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: var(--muted);
+      opacity: 0.8;
+    }
+
+    .contact-form button {
+      margin-top: 24px;
+      padding: 14px 28px;
       background: var(--accent);
       color: var(--btn-text);
-      border: 1px solid transparent;
-      padding: 12px 20px;
-      margin-top: 1rem;
-      border-radius: 6px;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
-      font-weight: bold;
-      transition: background 0.15s ease, transform 0.05s ease, filter 0.15s ease;
+      transition: background 0.15s ease;
     }
-    button:hover { background: var(--accent-hover); }
-    button:active { transform: translateY(1px); }
+    .contact-form button:hover { background: var(--accent-hover); }
 
     .thank-you {
       display: none;
       background: var(--success);
-      padding: 14px;
-      margin-top: 1rem;
-      border-radius: 6px;
+      padding: 16px 20px;
+      margin-top: 20px;
+      border-radius: var(--radius);
       color: #ffffff;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 2rem;
       font-size: 0.95rem;
+    }
+
+    /* ===== Footer ===== */
+    .site-footer {
+      padding: 48px 32px;
+      text-align: center;
+      font-size: 0.9rem;
       color: var(--muted);
-    }
-    a {
-      color: var(--link);
-      text-decoration: none;
-      border-bottom: 1px dotted var(--link-underline);
-      transition: opacity 0.15s ease, border-color 0.15s ease;
-    }
-    a:hover { opacity: 0.9; }
-
-    /* Top bar: logo left, toggle right */
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-      gap: 12px;
-    }
-    .top-bar .brand-logo {
-      height: 150px;
-      width: auto;
-      display: block;
+      border-top: 1px solid var(--border);
+      background: var(--bg-alt);
     }
 
-    /* Theme toggle button */
-    .top-bar .theme-toggle {
+    .seo-hidden { display: none; }
+
+    /* ===== Floating CTA ===== */
+    .floating-cta {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      z-index: 90;
       display: inline-flex;
-      width: auto;
       align-items: center;
       justify-content: center;
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      padding: 6px 10px;
-      flex: 0 0 auto;
-      transition: background 0.15s ease, border-color 0.15s ease;
+      padding: 14px 28px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--btn-text);
+      background: var(--accent);
+      border: none;
+      border-radius: var(--radius);
+      text-decoration: none;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.35s ease, opacity 0.3s ease, visibility 0.3s ease;
     }
-    .top-bar .theme-toggle:hover {
-      background: var(--panel);
-      border-color: var(--input-border);
+    .floating-cta.visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    .floating-cta:hover {
+      background: var(--accent-hover);
+      color: var(--btn-text);
     }
 
-    /* Keep inline link styling consistent when "inherit" was used */
-    .inline-link {
-      color: inherit;
-      text-decoration: none;
-      border-bottom: 1px dotted var(--link-underline);
+    /* ===== Mobile: tablet and down ===== */
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: 1fr; }
     }
-    .inline-link:hover { opacity: 0.9; }
+
+    @media (max-width: 768px) {
+      .nav-inner {
+        padding: 0 20px;
+        height: 64px;
+        gap: 0;
+      }
+      .nav-logo { height: 46px; }
+      .nav-menu-btn {
+        display: flex;
+        order: 2;
+        margin-left: auto;
+      }
+      .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--card);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        padding: 80px 24px 40px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+        z-index: 99;
+      }
+      .nav-links.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+      .nav-links a {
+        padding: 14px 20px;
+        font-size: 1.1rem;
+        min-height: 48px;
+        min-width: 200px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .nav-theme-wrap {
+        margin-top: 24px;
+      }
+      .theme-toggle-btn {
+        min-height: 48px;
+        min-width: 120px;
+        padding: 0 18px;
+        font-size: 0.85rem;
+      }
+      section {
+        padding: 64px 20px;
+      }
+      #hero {
+        min-height: 70vh;
+        padding: 80px 20px 100px;
+      }
+      .hero-inner { max-width: 100%; }
+      .hero-eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        margin-bottom: 18px;
+      }
+      .hero-title {
+        font-size: 2.35rem;
+        margin-bottom: 10px;
+      }
+      .hero-subtitle { font-size: 1.05rem; margin-bottom: 20px; }
+      .hero-tagline {
+        font-size: 1.15rem;
+        margin-bottom: 28px;
+        max-width: 100%;
+      }
+      .hero-intro, .hero-note {
+        font-size: 0.9375rem;
+        max-width: 100%;
+      }
+      .hero-note { margin-bottom: 36px; }
+      .hero-ctas {
+        flex-direction: column;
+        gap: 14px;
+        align-items: center;
+      }
+      .hero-ctas .btn-primary {
+        width: 100%;
+        max-width: 280px;
+        min-height: 48px;
+        padding: 14px 24px;
+      }
+      .floating-cta {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        transform: translateY(80px);
+      }
+      .floating-cta.visible {
+        transform: translateY(0);
+      }
+      .section-title { font-size: 1.5rem; margin-bottom: 16px; }
+      .section-lead { font-size: 0.9375rem; margin-bottom: 28px; }
+      .section-eyebrow { font-size: 0.75rem; }
+      .services-grid {
+        gap: 20px;
+        margin-top: 32px;
+      }
+      .service-card {
+        padding: 28px 24px;
+      }
+      .principles-grid {
+        margin-top: 32px;
+      }
+      .principle-item {
+        padding: 24px 24px;
+      }
+      .testimonials { gap: 20px; margin-top: 32px; }
+      .testimonial {
+        padding: 28px 24px;
+        font-size: 0.9375rem;
+      }
+      .testimonial::before { font-size: 2.25rem; left: 20px; top: 20px; }
+      .credibility-heading { margin: 44px 0 18px 0; font-size: 0.8rem; }
+      .credibility-grid {
+        gap: 14px;
+      }
+      .credibility-item {
+        padding: 18px 20px;
+        font-size: 0.9rem;
+      }
+      .engagement-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 32px;
+      }
+      .engagement-card {
+        padding: 26px 24px;
+      }
+      .engagement-card .badge { font-size: 0.7rem; }
+      .engagement-cta { margin-top: 28px; font-size: 1rem; }
+      #contact {
+        padding: 72px 20px 88px;
+      }
+      .contact-wrapper { max-width: 100%; }
+      .contact-intro { margin-bottom: 32px; font-size: 1rem; }
+      .contact-form {
+        padding: 32px 24px;
+      }
+      .contact-form label { margin: 18px 0 6px 0; }
+      .contact-form input,
+      .contact-form textarea {
+        min-height: 48px;
+        padding: 12px 14px;
+      }
+      .contact-form textarea { min-height: 120px; }
+      .contact-form button {
+        min-height: 48px;
+        margin-top: 20px;
+      }
+      .body-text { font-size: 0.9375rem; margin-bottom: 14px; }
+      .site-footer { padding: 40px 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-inner {
+        padding: 0 16px;
+        height: 60px;
+      }
+      .nav-logo { height: 42px; }
+      .nav-links a {
+        padding: 8px 10px;
+        font-size: 0.8125rem;
+      }
+      .theme-toggle-btn {
+        min-width: 72px;
+        font-size: 0.75rem;
+      }
+      section { padding: 52px 16px; }
+      #hero {
+        min-height: 65vh;
+        padding: 64px 16px 80px;
+      }
+      .hero-title { font-size: 2rem; }
+      .hero-tagline { font-size: 1.0625rem; }
+      .hero-intro, .hero-note { font-size: 0.9rem; }
+      .hero-ctas .btn-primary { max-width: 100%; }
+      .floating-cta {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        transform: translateY(80px);
+      }
+      .floating-cta.visible { transform: translateY(0); }
+      .section-title { font-size: 1.375rem; }
+      .services-grid { gap: 16px; }
+      .service-card { padding: 24px 20px; }
+      .principle-item { padding: 20px 20px; }
+      .testimonial { padding: 24px 20px; }
+      .credibility-item { padding: 16px 18px; }
+      .engagement-card { padding: 22px 20px; }
+      #contact { padding: 56px 16px 72px; }
+      .contact-form { padding: 28px 20px; }
+    }
   </style>
 </head>
 <body>
+  <p class="site-refresh-banner" role="status">Site refresh in progress — some sections are still being refined.</p>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NX6T9PZV"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <main class="container">
-    <div class="top-bar">
-      <img src="/assets/sainz-logo.svg" alt="SAI.NZ Logo" class="brand-logo">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">☀️/🌙</button>
+<!-- End Google Tag Manager -->
+
+  <!-- 1. Top Navigation
+       Recommendation: Keep single-page for now. Content length and focus are appropriate.
+       If the site grows, consider splitting "Engagement" (pricing) or "Proof" (testimonials)
+       into dedicated pages for deeper focus and SEO; not required at current scope. -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo-link" aria-label="Home">
+        <img src="/assets/sainz-logo.svg" alt="SAI.NZ Logo" class="nav-logo">
+      </a>
+      <button type="button" class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu" aria-expanded="false">
+        <span class="nav-menu-icon"></span>
+      </button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#principles">Principles</a>
+        <a href="#proof">Proof</a>
+        <a href="#how-we-work">How We Work</a>
+        <a href="#engagement">Engagement</a>
+        <a href="#contact">Contact</a>
+        <div class="nav-theme-wrap">
+          <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+            <span class="theme-option" data-theme="light">Light</span>
+            <span class="theme-sep" aria-hidden="true">/</span>
+            <span class="theme-option" data-theme="dark">Dark</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 2. Hero Section (images: assets/v2/hero-light.jpg, assets/v2/hero-dark.jpg) -->
+  <section id="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Christchurch, New Zealand</p>
+      <h1 class="hero-title">JJ Sainz</h1>
+      <p class="hero-subtitle">Business Advisor</p>
+      <p class="hero-tagline">Turning chaos into clarity and growth.</p>
+      <p class="hero-intro">I work with leaders who want practical clarity and sustainable results. If your business feels harder to run than it should be, or progress is stalling due to internal friction, I can help.</p>
+      <p class="hero-note">I primarily take on engagements by referral, but I will consider new opportunities if there is a strong fit.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">Start a conversation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating CTA: visible until contact section is in view -->
+  <a href="#contact" class="floating-cta" id="floatingCta" aria-label="Start a conversation">Start a conversation</a>
+
+  <!-- 3. Services Section -->
+  <section id="services">
+    <p class="section-eyebrow">What I Do</p>
+    <h2 class="section-title">Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Business Problem Solving</h3>
+        <p>Practical strategies that cut through noise and make decisions obvious.</p>
+      </div>
+      <div class="service-card">
+        <h3>Leadership Development</h3>
+        <p>One-on-one conversations that unlock performance, from rising talent to senior executives.</p>
+      </div>
+      <div class="service-card">
+        <h3>Trusted Connections</h3>
+        <p>When the best solution is outside my lane, I connect you to partners I trust, from outsourcing and <a href="https://www.sai.nz/sf/" class="inline-link">BPO</a> through to senior technology, engineering, credit data, and telephony providers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Guiding Principles Section -->
+  <section id="principles">
+    <p class="section-eyebrow">How I Work</p>
+    <h2 class="section-title">Guiding Principles</h2>
+    <p class="section-lead">The way I work is shaped by four guiding principles I return to in every engagement.</p>
+    <div class="principles-grid">
+      <div class="principle-item">
+        <strong>Effectiveness over efficiency.</strong>
+        <span>Direction before optimisation.</span>
+      </div>
+      <div class="principle-item">
+        <strong>Leadership drives leverage.</strong>
+        <span>Invest in people.</span>
+      </div>
+      <div class="principle-item">
+        <strong>Clarity creates momentum.</strong>
+        <span>Strategy plus problem solving equals results.</span>
+      </div>
+      <div class="principle-item">
+        <strong>The right structures, at the right time.</strong>
+        <span>Systems support growth, not stifle it.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Proof / Credibility Section -->
+  <section id="proof">
+    <p class="section-eyebrow">Why This Works</p>
+    <h2 class="section-title">Proof</h2>
+    <p class="section-lead">Many leaders feel stuck in complexity. The right perspective creates clarity, and clarity creates results. I focus on people, strategy, and simple steps that compound into lasting growth.</p>
+
+    <div class="testimonials">
+      <blockquote class="testimonial">
+        <span class="testimonial-quote">JJ is a highly effective strategist and integrator of ideas, bringing clarity and focus to complex initiatives. He has a strong ability to realign teams and drive execution, ensuring outcomes are achieved with impact.</span>
+        <span class="testimonial-attribution">— CEO, Subscription Ventures</span>
+      </blockquote>
+      <blockquote class="testimonial">
+        <span class="testimonial-quote">JJ's leadership creates an environment where people feel supported, valued, and motivated to grow. Working with him has been one of the most rewarding experiences of my career.</span>
+        <span class="testimonial-attribution">— Customer Accounts Manager, Multi-Industry Operations</span>
+      </blockquote>
+      <blockquote class="testimonial">
+        <span class="testimonial-quote">JJ's perceptive leadership and clear, open communication shaped how I approach my work every day. The lessons I learned under his guidance continue to influence my career.</span>
+        <span class="testimonial-attribution">— Collections Agent, Fintech Sector</span>
+      </blockquote>
     </div>
 
-    <h1>JJ Sainz</h1>
-    <p class="subtitle">Business Advisor</p>
-    <p class="tagline"><strong>Turning chaos into clarity and growth.</strong></p>
+    <p class="credibility-heading">What I'm Known For</p>
+    <div class="credibility-grid">
+      <div class="credibility-item">Recognised as <strong>Executive of the Year, 2024.</strong></div>
+      <div class="credibility-item">Guided multiple leaders into senior roles through tailored coaching and mentoring.</div>
+      <div class="credibility-item">Known for <strong>building teams with near-zero attrition</strong> by creating clarity and trust.</div>
+      <div class="credibility-item">Delivered $500K+ in savings through structural clarity and execution within FY2024.</div>
+      <div class="credibility-item">Rated <strong>Outstanding Performance</strong>, MBIE, 2018.</div>
+    </div>
+  </section>
 
-    <!-- Who I Work With -->
-    <h2>Who I Work With</h2>
-    <p>I work with leaders who want practical clarity and sustainable results. If your business feels harder to run than it should be, or progress is stalling due to internal friction, I can help.</p>
-    <p class="muted">I primarily take on engagements by referral, but I will consider new opportunities if there is a strong fit.</p>
+  <!-- 6. How We Work Together Section -->
+  <section id="how-we-work">
+    <p class="section-eyebrow">Approach</p>
+    <h2 class="section-title">How We Work Together</h2>
+    <p class="body-text">I do not believe in overly formal meetings in stiff boardrooms. I prefer honest conversations where everyone feels comfortable, whether that is over coffee, a video call, or in your office. What matters is the clarity we create.</p>
+    <p class="body-text">For change initiatives, I may speak one-on-one with affected team members at different levels to surface reality, align goals, and inform decisions. For coaching and advisory work, we keep it focused and lightweight so you get value quickly.</p>
+    <p class="body-text muted">I work remotely or locally in Christchurch, New Zealand. I can also work with you in Spanish if preferred.</p>
+  </section>
 
-    <!-- What I Do -->
-    <h2>What I Do</h2>
-    <p><strong>Business problem solving.</strong> Practical strategies that cut through noise and make decisions obvious.</p>
-    <p><strong>Leadership development.</strong> One-on-one conversations that unlock performance, from rising talent to senior executives.</p>
-    <p><strong>Trusted connections.</strong> When the best solution is outside my lane, I connect you to partners I trust, from outsourcing and
-      <a href="https://www.sai.nz/sf/" class="inline-link">BPO</a>
-      through to senior technology, engineering, credit data, and telephony providers.</p>
+  <!-- 7. Engagement Models Section -->
+  <section id="engagement">
+    <p class="section-eyebrow">Pricing</p>
+    <h2 class="section-title">Engagement Models</h2>
+    <div class="engagement-grid">
+      <div class="engagement-card featured">
+        <span class="badge">Recommended starting point</span>
+        <h3>Clarity Session</h3>
+        <p>Focused 90-minute session designed to surface priorities, risks, and immediate next steps rapidly.</p>
+        <span class="price">From $NZD 650 per session (or $AUD 560).</span>
+      </div>
+      <div class="engagement-card">
+        <h3>Advisory Sessions</h3>
+        <p>In-depth 3-hour working session to tackle complex challenges or strategic opportunities.</p>
+        <span class="price">From $NZD 1,300 per session (or $AUD 1,120).</span>
+      </div>
+      <div class="engagement-card">
+        <h3>Strategic Consulting</h3>
+        <p>Hourly support for urgent or specialised matters when short, precise input is required.</p>
+        <span class="price">From $NZD 450 per hour (or $AUD 385).</span>
+      </div>
+      <div class="engagement-card">
+        <h3>Strategic Projects</h3>
+        <p>Defined scope, practical delivery, and measurable outcomes designed to unlock meaningful progress.</p>
+        <span class="price">From $NZD 10,000 per project (or $AUD 8,600).</span>
+      </div>
+      <div class="engagement-card">
+        <h3>Ongoing Partnership</h3>
+        <p>A light retainer for leaders who prefer regular check-ins, guidance, and accountability. Includes up to 10 hours of advisory per month (additional time billed separately).</p>
+        <span class="price">From $NZD 5,000 per month (or $AUD 4,300).</span>
+      </div>
+      <div class="engagement-card">
+        <h3>Connector Pathway</h3>
+        <p>Access to trusted partners when the best solution sits outside my lane. <a href="https://www.sai.nz/sf/" class="inline-link">BPO staffing</a> from as little as USD $20,000 per year, plus other solutions as needed.</p>
+        <span class="price">Pricing varies by solution.</span>
+      </div>
+    </div>
+    <p class="engagement-cta">Let's start with a no-strings conversation to see how I can best serve you.</p>
+  </section>
 
-    <h2>Guiding Principles</h2>
-    <p>The way I work is shaped by four guiding principles I return to in every engagement.</p>
-    <ul>
-      <li><strong>Effectiveness over efficiency.</strong> Direction before optimisation.</li>
-      <li><strong>Leadership drives leverage.</strong> Invest in people.</li>
-      <li><strong>Clarity creates momentum.</strong> Strategy plus problem solving equals results.</li>
-      <li><strong>The right structures, at the right time.</strong> Systems support growth, not stifle it.</li>
-    </ul>
+  <!-- 8. Contact Section -->
+  <section id="contact">
+    <div class="contact-wrapper">
+      <p class="section-eyebrow">Get in Touch</p>
+      <h2 class="section-title">Contact</h2>
+      <p class="contact-intro">Share what's on your mind. I respond to every message and will suggest a time for a no-obligation conversation.</p>
+      <form class="contact-form" name="contact"
+        method="POST"
+        action="/thanks/"
+        data-netlify="true"
+        netlify-honeypot="bot-field">
+        <p style="display:none;">
+          <input type="hidden" name="form-name" value="contact">
+          <label>Do not fill this out if you are human: <input name="bot-field" /></label>
+        </p>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+        <label for="phone">Mobile (optional)</label>
+        <input type="tel" name="phone" id="phone" placeholder="+64 21 123 456">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <div id="thanks" class="thank-you">Thank you for your message. I will get back to you soon.</div>
+    </div>
+  </section>
 
-    <!-- Why This Works -->
-    <h2>Why This Works</h2>
-    <p>Many leaders feel stuck in complexity. The right perspective creates clarity, and clarity creates results. I focus on people, strategy, and simple steps that compound into lasting growth.</p>
-
-    <p><strong>Testimonials</strong></p>
-    <blockquote>
-      “JJ is a highly effective strategist and integrator of ideas, bringing clarity and focus to complex initiatives. He has a strong ability to realign teams and drive execution, ensuring outcomes are achieved with impact.”
-      <br>— CEO, Subscription Ventures
-    </blockquote>
-    <blockquote>
-      “JJ’s leadership creates an environment where people feel supported, valued, and motivated to grow. Working with him has been one of the most rewarding experiences of my career.”
-      <br>— Customer Accounts Manager, Multi-Industry Operations
-    </blockquote>
-    <blockquote>
-      “JJ’s perceptive leadership and clear, open communication shaped how I approach my work every day. The lessons I learned under his guidance continue to influence my career.”
-      <br>— Collections Agent, Fintech Sector
-    </blockquote>
-
-    <p><strong>What I’m Known For</strong></p>
-    <ul>
-      <li>Recognised as <strong>Executive of the Year, 2024.</strong></li>
-      <li>Guided multiple leaders into senior roles through tailored coaching and mentoring.</li>
-      <li>Known for <strong>building teams with near-zero attrition</strong> by creating clarity and trust.</li>
-      <li>Delivered $500K+ in savings through structural clarity and execution within FY2024.</li>
-      <li>Rated <strong>Outstanding Performance</strong>, MBIE, 2018.</li>
-    </ul>
-
-    <!-- How We Work Together -->
-    <h2>How We Work Together</h2>
-
-    <p>I do not believe in overly formal meetings in stiff boardrooms. I prefer honest conversations where everyone feels comfortable, whether that is over coffee, a video call, or in your office. What matters is the clarity we create.</p>
-
-    <p>For change initiatives, I may speak one-on-one with affected team members at different levels to surface reality, align goals, and inform decisions. For coaching and advisory work, we keep it focused and lightweight so you get value quickly.</p>
-
-    <p class="muted">I work remotely or locally in Christchurch, New Zealand. I can also work with you in Spanish if preferred.</p>
-
-    <h3>Engagement models</h3>
-
-    <ul>
-      <li><strong>Clarity Session:</strong> Focused 90-minute session designed to surface priorities, risks, and immediate next steps rapidly.<br><em>From $NZD 650 per session (or $AUD 560).</em></li>
-
-      <li><strong>Advisory Sessions:</strong> In-depth 3-hour working session to tackle complex challenges or strategic opportunities.<br><em>From $NZD 1,300 per session (or $AUD 1,120).</em></li>
-
-      <li><strong>Strategic Consulting:</strong> Hourly support for urgent or specialised matters when short, precise input is required.<br><em>From $NZD 450 per hour (or $AUD 385).</em></li>
-
-      <li><strong>Strategic Projects:</strong> Defined scope, practical delivery, and measurable outcomes designed to unlock meaningful progress.<br><em>From $NZD 10,000 per project (or $AUD 8,600).</em></li>
-
-      <li><strong>Ongoing Partnership:</strong> A light retainer for leaders who prefer regular check-ins, guidance, and accountability. Includes up to 10 hours of advisory per month (additional time billed separately).<br><em>From $NZD 5,000 per month (or $AUD 4,300).</em></li>
-
-      <li><strong>Connector Pathway:</strong> Access to trusted partners when the best solution sits outside my lane.
-        <a href="https://www.sai.nz/sf/" class="inline-link">BPO staffing</a>
-        from as little as USD $20,000 per year, plus other solutions as needed.<br><em>Pricing varies by solution.</em>
-      </li>
-    </ul>
-
-    <p><strong>Let’s start with a no-strings conversation to see how I can best serve you.</strong></p>
-
-    <!-- Contact -->
-    <h2>Contact</h2>
-    <form name="contact"
-      method="POST"
-      action="/thanks/"
-      data-netlify="true"
-      netlify-honeypot="bot-field">
-      <p style="display:none;">
-        <input type="hidden" name="form-name" value="contact">
-        <label>Do not fill this out if you are human: <input name="bot-field" /></label>
-      </p>
-      <label for="name">Name</label>
-      <input type="text" name="name" id="name" required>
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" required>
-      <label for="phone">Mobile (optional)</label>
-      <input type="tel" name="phone" id="phone" placeholder="+64 21 123 456">
-      <label for="message">Message</label>
-      <textarea name="message" id="message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <div id="thanks" class="thank-you">Thank you for your message. I will get back to you soon.</div>
-
-    <!-- SEO keyword block -->
-    <div style="display:none;">
+  <!-- 9. Footer -->
+  <footer class="site-footer">
+    <p>SAI.NZ — Christchurch, New Zealand</p>
+    <div class="seo-hidden">
       business advisor New Zealand, business advisor Australia, leadership development Christchurch, organisational effectiveness, continuous improvement Deming PDCA, SME strategy advisory, practical problem solving, trusted connections outsourcing BPO, senior technology advisor network, Christchurch business consultant, Australia business consultant, BPO staffing, call centre outsourcing, business process outsourcing
     </div>
-  </main>
+  </footer>
 
   <script>
     (function() {
       var root = document.documentElement;
-      var btn = document.getElementById('themeToggle');
-      btn.addEventListener('click', function() {
-        var current = root.getAttribute('data-theme') || 'light';
-        var next = current === 'light' ? 'dark' : 'light';
-        root.setAttribute('data-theme', next);
-      });
+
+      // Mobile menu
+      var menuBtn = document.getElementById('navMenuBtn');
+      var navLinks = document.getElementById('navLinks');
+      if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', function() {
+          var open = navLinks.classList.toggle('open');
+          menuBtn.setAttribute('aria-expanded', open);
+          menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        });
+        navLinks.querySelectorAll('a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            navLinks.classList.remove('open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.setAttribute('aria-label', 'Open menu');
+          });
+        });
+      }
+
+      // Theme toggle — both words visible, whole control clickable
+      var themeBtn = document.getElementById('themeToggle');
+      if (themeBtn) {
+        var options = themeBtn.querySelectorAll('.theme-option');
+        function setTheme(theme) {
+          root.setAttribute('data-theme', theme);
+          options.forEach(function(el) {
+            el.classList.toggle('active', el.getAttribute('data-theme') === theme);
+          });
+          themeBtn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
+        }
+        themeBtn.addEventListener('click', function() {
+          var current = root.getAttribute('data-theme') || 'light';
+          setTheme(current === 'light' ? 'dark' : 'light');
+        });
+        setTheme(root.getAttribute('data-theme') || 'light');
+      }
+
+      // Floating CTA — show after hero, hide when contact section is in view
+      var floatingCta = document.getElementById('floatingCta');
+      var contactSection = document.getElementById('contact');
+      var heroSection = document.getElementById('hero');
+      if (floatingCta && contactSection && heroSection) {
+        function updateFloatingCta() {
+          var pastHero = window.scrollY > heroSection.offsetHeight * 0.4;
+          var contactTop = contactSection.getBoundingClientRect().top;
+          var contactInView = contactTop < window.innerHeight * 0.6;
+          floatingCta.classList.toggle('visible', pastHero && !contactInView);
+        }
+        window.addEventListener('scroll', updateFloatingCta, { passive: true });
+        window.addEventListener('resize', updateFloatingCta);
+        updateFloatingCta();
+      }
     })();
   </script>
 </body>
 </html>
-```
