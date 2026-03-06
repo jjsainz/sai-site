@@ -152,6 +152,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border-bottom: 1px solid var(--border);
       transition: background 0.2s ease, border-color 0.2s ease;
     }
+    .nav-menu-btn { position: relative; z-index: 101; }
 
     .nav-inner {
       max-width: var(--grid-max);
@@ -194,28 +195,84 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .nav-links a:hover { color: var(--text); }
 
-    /* Theme toggle — single control, full hit area */
+    /* Mobile menu button — hidden on desktop */
+    .nav-menu-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .nav-menu-btn:hover {
+      background: var(--bg-alt);
+    }
+    .nav-menu-icon {
+      position: relative;
+      width: 20px;
+      height: 14px;
+    }
+    .nav-menu-icon::before,
+    .nav-menu-icon::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--text);
+      border-radius: 1px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .nav-menu-icon::before { top: 0; }
+    .nav-menu-icon::after { bottom: 0; }
+    .nav-menu-btn[aria-expanded="true"] .nav-menu-icon::before {
+      transform: translateY(6px) rotate(45deg);
+    }
+    .nav-menu-btn[aria-expanded="true"] .nav-menu-icon::after {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* Theme toggle — both words always visible, full control clickable */
+    .nav-theme-wrap { flex-shrink: 0; }
     .theme-toggle-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-width: 88px;
+      gap: 4px;
+      min-width: 100px;
       min-height: 44px;
-      padding: 0 16px;
+      padding: 0 14px;
       font-size: 0.8rem;
       font-weight: 500;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
       color: var(--muted);
       background: var(--bg-alt);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       cursor: pointer;
-      transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+      transition: border-color 0.15s ease, background 0.15s ease;
     }
     .theme-toggle-btn:hover {
-      color: var(--text);
       border-color: var(--card-border);
     }
+    .theme-toggle-btn .theme-sep {
+      color: var(--muted);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .theme-toggle-btn .theme-option {
+      pointer-events: none;
+    }
+    .theme-toggle-btn .theme-option.active {
+      color: var(--text);
+      font-weight: 600;
+    }
+    html[data-theme="dark"] .theme-toggle-btn .theme-option[data-theme="dark"].active { color: var(--text); }
 
     /* ===== Section layout ===== */
     section {
@@ -764,6 +821,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     .seo-hidden { display: none; }
 
+    /* ===== Floating CTA ===== */
+    .floating-cta {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      z-index: 90;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--btn-text);
+      background: var(--accent);
+      border: none;
+      border-radius: var(--radius);
+      text-decoration: none;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.35s ease, opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .floating-cta.visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    .floating-cta:hover {
+      background: var(--accent-hover);
+      color: var(--btn-text);
+    }
+
     /* ===== Mobile: tablet and down ===== */
     @media (max-width: 900px) {
       .services-grid { grid-template-columns: 1fr; }
@@ -773,25 +863,54 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .nav-inner {
         padding: 0 20px;
         height: 64px;
-        gap: 20px;
+        gap: 0;
       }
       .nav-logo { height: 46px; }
+      .nav-menu-btn {
+        display: flex;
+        order: 2;
+        margin-left: auto;
+      }
       .nav-links {
-        gap: 0;
-        flex-wrap: wrap;
-        justify-content: flex-end;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--card);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        padding: 80px 24px 40px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+        z-index: 99;
+      }
+      .nav-links.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
       }
       .nav-links a {
-        padding: 10px 12px;
-        font-size: 0.875rem;
-        min-height: 44px;
+        padding: 14px 20px;
+        font-size: 1.1rem;
+        min-height: 48px;
+        min-width: 200px;
         display: inline-flex;
         align-items: center;
+        justify-content: center;
+      }
+      .nav-theme-wrap {
+        margin-top: 24px;
       }
       .theme-toggle-btn {
-        min-height: 44px;
-        min-width: 80px;
-        padding: 0 14px;
+        min-height: 48px;
+        min-width: 120px;
+        padding: 0 18px;
+        font-size: 0.85rem;
       }
       section {
         padding: 64px 20px;
@@ -826,12 +945,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         gap: 14px;
         align-items: center;
       }
-      .hero-ctas .btn-primary,
-      .hero-ctas .btn-secondary {
+      .hero-ctas .btn-primary {
         width: 100%;
         max-width: 280px;
         min-height: 48px;
         padding: 14px 24px;
+      }
+      .floating-cta {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        transform: translateY(80px);
+      }
+      .floating-cta.visible {
+        transform: translateY(0);
       }
       .section-title { font-size: 1.5rem; margin-bottom: 16px; }
       .section-lead { font-size: 0.9375rem; margin-bottom: 28px; }
@@ -918,8 +1045,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .hero-title { font-size: 2rem; }
       .hero-tagline { font-size: 1.0625rem; }
       .hero-intro, .hero-note { font-size: 0.9rem; }
-      .hero-ctas .btn-primary,
-      .hero-ctas .btn-secondary { max-width: 100%; }
+      .hero-ctas .btn-primary { max-width: 100%; }
+      .floating-cta {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        transform: translateY(80px);
+      }
+      .floating-cta.visible { transform: translateY(0); }
       .section-title { font-size: 1.375rem; }
       .services-grid { gap: 16px; }
       .service-card { padding: 24px 20px; }
@@ -947,14 +1080,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="#hero" class="nav-logo-link" aria-label="Home">
         <img src="/assets/sainz-logo.svg" alt="SAI.NZ Logo" class="nav-logo">
       </a>
-      <nav class="nav-links">
+      <button type="button" class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu" aria-expanded="false">
+        <span class="nav-menu-icon"></span>
+      </button>
+      <nav class="nav-links" id="navLinks">
         <a href="#services">Services</a>
         <a href="#principles">Principles</a>
         <a href="#proof">Proof</a>
         <a href="#how-we-work">How We Work</a>
         <a href="#engagement">Engagement</a>
         <a href="#contact">Contact</a>
-        <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">Light</button>
+        <div class="nav-theme-wrap">
+          <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+            <span class="theme-option" data-theme="light">Light</span>
+            <span class="theme-sep" aria-hidden="true">/</span>
+            <span class="theme-option" data-theme="dark">Dark</span>
+          </button>
+        </div>
       </nav>
     </div>
   </header>
@@ -962,7 +1104,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- 2. Hero Section (images: assets/v2/hero-light.jpg, assets/v2/hero-dark.jpg) -->
   <section id="hero">
     <div class="hero-inner">
-      <p class="hero-eyebrow">Business Advisor · Christchurch, New Zealand</p>
+      <p class="hero-eyebrow">Christchurch, New Zealand</p>
       <h1 class="hero-title">JJ Sainz</h1>
       <p class="hero-subtitle">Business Advisor</p>
       <p class="hero-tagline">Turning chaos into clarity and growth.</p>
@@ -970,10 +1112,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="hero-note">I primarily take on engagements by referral, but I will consider new opportunities if there is a strong fit.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btn-primary">Start a conversation</a>
-        <a href="#services" class="btn-secondary">Explore services</a>
       </div>
     </div>
   </section>
+
+  <!-- Floating CTA: visible until contact section is in view -->
+  <a href="#contact" class="floating-cta" id="floatingCta" aria-label="Start a conversation">Start a conversation</a>
 
   <!-- 3. Services Section -->
   <section id="services">
@@ -1140,16 +1284,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script>
     (function() {
       var root = document.documentElement;
-      var btn = document.getElementById('themeToggle');
-      function setTheme(theme) {
-        root.setAttribute('data-theme', theme);
-        btn.textContent = theme === 'light' ? 'Dark' : 'Light';
-        btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
+
+      // Mobile menu
+      var menuBtn = document.getElementById('navMenuBtn');
+      var navLinks = document.getElementById('navLinks');
+      if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', function() {
+          var open = navLinks.classList.toggle('open');
+          menuBtn.setAttribute('aria-expanded', open);
+          menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        });
+        navLinks.querySelectorAll('a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            navLinks.classList.remove('open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.setAttribute('aria-label', 'Open menu');
+          });
+        });
       }
-      btn.addEventListener('click', function() {
-        var current = root.getAttribute('data-theme') || 'light';
-        setTheme(current === 'light' ? 'dark' : 'light');
-      });
+
+      // Theme toggle — both words visible, whole control clickable
+      var themeBtn = document.getElementById('themeToggle');
+      if (themeBtn) {
+        var options = themeBtn.querySelectorAll('.theme-option');
+        function setTheme(theme) {
+          root.setAttribute('data-theme', theme);
+          options.forEach(function(el) {
+            el.classList.toggle('active', el.getAttribute('data-theme') === theme);
+          });
+          themeBtn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
+        }
+        themeBtn.addEventListener('click', function() {
+          var current = root.getAttribute('data-theme') || 'light';
+          setTheme(current === 'light' ? 'dark' : 'light');
+        });
+        setTheme(root.getAttribute('data-theme') || 'light');
+      }
+
+      // Floating CTA — show after hero, hide when contact section is in view
+      var floatingCta = document.getElementById('floatingCta');
+      var contactSection = document.getElementById('contact');
+      var heroSection = document.getElementById('hero');
+      if (floatingCta && contactSection && heroSection) {
+        function updateFloatingCta() {
+          var pastHero = window.scrollY > heroSection.offsetHeight * 0.4;
+          var contactTop = contactSection.getBoundingClientRect().top;
+          var contactInView = contactTop < window.innerHeight * 0.6;
+          floatingCta.classList.toggle('visible', pastHero && !contactInView);
+        }
+        window.addEventListener('scroll', updateFloatingCta, { passive: true });
+        window.addEventListener('resize', updateFloatingCta);
+        updateFloatingCta();
+      }
     })();
   </script>
 </body>
