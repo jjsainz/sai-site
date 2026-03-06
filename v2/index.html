@@ -187,22 +187,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .nav-links a:hover { color: var(--text); }
 
-    .theme-toggle {
-      display: inline-flex;
+    /* Theme toggle — minimal, executive */
+    .theme-toggle-wrap {
+      display: flex;
       align-items: center;
-      justify-content: center;
-      background: transparent;
-      color: var(--text);
+      background: var(--bg-alt);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      font-size: 1rem;
-      cursor: pointer;
-      padding: 8px 12px;
-      transition: background 0.15s ease, border-color 0.15s ease;
+      padding: 2px;
+      gap: 2px;
     }
-    .theme-toggle:hover {
-      background: var(--bg-alt);
-      border-color: var(--card-border);
+    .theme-toggle-wrap button {
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+      background: transparent;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: color 0.15s ease, background 0.15s ease;
+    }
+    .theme-toggle-wrap button:hover {
+      color: var(--text);
+    }
+    .theme-toggle-wrap button.active {
+      color: var(--text);
+      background: var(--card);
+      box-shadow: var(--shadow-sm);
     }
 
     /* ===== Section layout ===== */
@@ -256,11 +269,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     /* ===== Hero ===== */
+    /* Hero image paths: add /assets/v2/hero-light.jpg and /assets/v2/hero-dark.jpg to enable */
     #hero {
-      padding-top: 140px;
-      padding-bottom: 140px;
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 32px 140px;
       text-align: center;
-      background: var(--bg);
+      background-color: #E2E8F0;
+      background-image:
+        linear-gradient(to bottom, rgba(248,250,252,0.8) 0%, rgba(241,245,249,0.55) 40%, rgba(226,232,240,0.45) 100%),
+        url('/assets/v2/hero-light.jpg'),
+        linear-gradient(165deg, #F1F5F9 0%, #E2E8F0 50%, #CBD5E1 100%);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+    #hero .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      animation: heroFadeIn 1.8s ease-out;
+    }
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    html[data-theme="dark"] #hero {
+      background-color: #060910;
+      background-image:
+        linear-gradient(to bottom, rgba(10,14,22,0.85) 0%, rgba(10,14,22,0.55) 50%, rgba(6,9,16,0.7) 100%),
+        radial-gradient(ellipse 120% 80% at 50% 90%, rgba(29,78,216,0.08) 0%, transparent 50%),
+        url('/assets/v2/hero-dark.jpg'),
+        linear-gradient(180deg, #0A0E16 0%, #060910 50%, #030508 100%);
+      background-size: cover;
+      background-position: center;
     }
 
     .hero-eyebrow {
@@ -703,6 +749,97 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .seo-hidden { display: none; }
+
+    /* ===== Mobile refinement ===== */
+    @media (max-width: 768px) {
+      :root {
+        --section-padding: 56px;
+      }
+      .nav-inner {
+        padding: 0 20px;
+        height: 64px;
+      }
+      .nav-links {
+        gap: 2px;
+      }
+      .nav-links a {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+      }
+      .nav-logo { height: 38px; }
+      #hero {
+        min-height: auto;
+        padding: 72px 20px 88px;
+      }
+      .hero-title { font-size: 2.25rem; }
+      .hero-subtitle { font-size: 1.05rem; }
+      .hero-tagline { font-size: 1.15rem; }
+      .hero-intro, .hero-note { font-size: 0.95rem; }
+      .hero-ctas {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .hero-ctas .btn-primary,
+      .hero-ctas .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+      }
+      section {
+        padding: 56px 20px;
+      }
+      .section-title { font-size: 1.5rem; }
+      .section-lead { font-size: 0.98rem; }
+      .services-grid {
+        gap: 16px;
+        margin-top: 28px;
+      }
+      .service-card {
+        padding: 24px 20px;
+      }
+      .principles-grid {
+        margin-top: 28px;
+      }
+      .principle-item {
+        padding: 20px 20px;
+      }
+      .testimonial {
+        padding: 24px 20px;
+        font-size: 0.96rem;
+      }
+      .testimonial::before { font-size: 2.25rem; left: 16px; top: 18px; }
+      .credibility-grid {
+        gap: 12px;
+        margin-top: 0;
+      }
+      .credibility-item { padding: 16px 18px; font-size: 0.9rem; }
+      .credibility-heading { margin: 40px 0 16px 0; }
+      .engagement-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 28px;
+      }
+      .engagement-card {
+        padding: 24px 20px;
+      }
+      .engagement-card.featured .badge { font-size: 0.7rem; }
+      #contact {
+        padding: 64px 20px 80px;
+      }
+      .contact-form {
+        padding: 28px 24px;
+      }
+      .contact-intro { margin-bottom: 28px; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-inner { padding: 0 16px; }
+      .nav-logo { height: 36px; }
+      .nav-links a { font-size: 0.8rem; padding: 6px 8px; }
+      .theme-toggle-wrap button { padding: 5px 10px; font-size: 0.75rem; }
+      .hero-title { font-size: 2rem; }
+      .hero-eyebrow { font-size: 0.7rem; letter-spacing: 0.1em; }
+      .contact-form { padding: 24px 20px; }
+    }
   </style>
 </head>
 <body>
@@ -724,22 +861,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="#how-we-work">How We Work</a>
         <a href="#engagement">Engagement</a>
         <a href="#contact">Contact</a>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">☀️/🌙</button>
+        <div class="theme-toggle-wrap">
+          <button type="button" class="theme-option active" id="themeLight" aria-label="Light theme">Light</button>
+          <button type="button" class="theme-option" id="themeDark" aria-label="Dark theme">Dark</button>
+        </div>
       </nav>
     </div>
   </header>
 
-  <!-- 2. Hero Section -->
+  <!-- 2. Hero Section
+       Image placeholders: Add these files to enable hero imagery:
+       - /assets/v2/hero-light.jpg — calm, architectural, airy (no people, no branding)
+       - /assets/v2/hero-dark.jpg — night sky / atmospheric (works with SAI.NZ blue)
+       Fallback gradients display when images are absent. -->
   <section id="hero">
-    <p class="hero-eyebrow">Business Advisor · Christchurch, New Zealand</p>
-    <h1 class="hero-title">JJ Sainz</h1>
-    <p class="hero-subtitle">Business Advisor</p>
-    <p class="hero-tagline">Turning chaos into clarity and growth.</p>
-    <p class="hero-intro">I work with leaders who want practical clarity and sustainable results. If your business feels harder to run than it should be, or progress is stalling due to internal friction, I can help.</p>
-    <p class="hero-note">I primarily take on engagements by referral, but I will consider new opportunities if there is a strong fit.</p>
-    <div class="hero-ctas">
-      <a href="#contact" class="btn-primary">Start a conversation</a>
-      <a href="#services" class="btn-secondary">Explore services</a>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Business Advisor · Christchurch, New Zealand</p>
+      <h1 class="hero-title">JJ Sainz</h1>
+      <p class="hero-subtitle">Business Advisor</p>
+      <p class="hero-tagline">Turning chaos into clarity and growth.</p>
+      <p class="hero-intro">I work with leaders who want practical clarity and sustainable results. If your business feels harder to run than it should be, or progress is stalling due to internal friction, I can help.</p>
+      <p class="hero-note">I primarily take on engagements by referral, but I will consider new opportunities if there is a strong fit.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">Start a conversation</a>
+        <a href="#services" class="btn-secondary">Explore services</a>
+      </div>
     </div>
   </section>
 
@@ -908,12 +1054,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script>
     (function() {
       var root = document.documentElement;
-      var btn = document.getElementById('themeToggle');
-      btn.addEventListener('click', function() {
-        var current = root.getAttribute('data-theme') || 'light';
-        var next = current === 'light' ? 'dark' : 'light';
-        root.setAttribute('data-theme', next);
-      });
+      var btnLight = document.getElementById('themeLight');
+      var btnDark = document.getElementById('themeDark');
+      function setTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        btnLight.classList.toggle('active', theme === 'light');
+        btnDark.classList.toggle('active', theme === 'dark');
+      }
+      btnLight.addEventListener('click', function() { setTheme('light'); });
+      btnDark.addEventListener('click', function() { setTheme('dark'); });
     })();
   </script>
 </body>
