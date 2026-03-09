@@ -46,8 +46,8 @@
         linear-gradient(180deg, #0A0E16 0%, #060910 100%);
     }
     .hero-title { font-size: 2.75rem; font-weight: 600; margin: 0 0 14px 0; letter-spacing: -0.03em; line-height: 1.1; color: var(--text); text-shadow: 0 2px 8px rgba(0,0,0,0.25); }
-    .hero-slogan { font-size: 1.25rem; font-weight: 500; margin: 0 0 20px 0; color: var(--text); opacity: 0.98; text-shadow: 0 2px 6px rgba(0,0,0,0.2); }
-    .hero-support { font-size: 1rem; color: var(--text-secondary); margin: 0 0 32px 0; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.5; text-shadow: 0 1px 4px rgba(0,0,0,0.2); }
+    .hero-slogan { font-size: 1.15rem; font-weight: 500; margin: 0 0 18px 0; color: var(--text); opacity: 0.98; text-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+    .hero-support { font-size: 0.9375rem; color: var(--text-secondary); margin: 0 0 32px 0; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.5; text-shadow: 0 1px 4px rgba(0,0,0,0.2); }
     .hero-ctas { display: flex; flex-direction: column; align-items: center; gap: 0; }
     .hero-ctas .btn-primary { min-height: 48px; }
 
@@ -61,39 +61,42 @@
     .recognition-block { max-width: var(--content-max); margin-top: 8px; }
     .recognition-block p { margin: 0 0 14px 0; color: var(--text-secondary); }
 
-    /* Proof: testimonial + known-for same proportion, smooth rotation */
-    .proof-block { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; margin-top: 24px; }
+    /* Proof: testimonial + known-for, artifact-free rotation */
+    .proof-block { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; margin-top: 20px; }
     .proof-block .proof-card { padding: 28px 32px; background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); min-height: 200px; display: flex; flex-direction: column; }
-    .proof-block .proof-card h3 { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px 0; }
-    .testimonial-carousel { position: relative; min-height: 160px; flex: 1; }
+    .proof-block .proof-card h3 { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px 0; }
+    .testimonial-carousel { position: relative; min-height: 160px; flex: 1; contain: layout style; }
     .testimonial-slide {
       position: absolute; left: 0; right: 0; top: 0;
-      padding: 0;
-      font-size: 0.9375rem;
+      padding: 0; margin: 0;
+      font-size: 0.875rem;
       line-height: var(--line);
       color: var(--text);
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.6s ease, visibility 0.6s ease;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+      backface-visibility: hidden;
     }
     .testimonial-slide.active { position: relative; opacity: 1; visibility: visible; }
     .testimonial-slide .t-quote { display: block; }
-    .testimonial-slide .t-attribution { font-size: 0.85rem; color: var(--muted); margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); }
-    .known-for-carousel { position: relative; min-height: 160px; flex: 1; }
+    .testimonial-slide .t-attribution { font-size: 0.8125rem; color: var(--muted); margin-top: 10px; padding-top: 8px; border-top: none; }
+    .known-for-carousel { position: relative; min-height: 160px; flex: 1; contain: layout style; }
     .known-for-item {
       position: absolute; left: 0; right: 0; top: 0;
-      padding: 0;
-      font-size: 0.9375rem;
+      padding: 0; margin: 0;
+      font-size: 0.875rem;
       line-height: var(--line);
       color: var(--text-secondary);
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.6s ease, visibility 0.6s ease;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+      backface-visibility: hidden;
     }
     .known-for-item.active { position: relative; opacity: 1; visibility: visible; }
     @media (max-width: 768px) {
-      .proof-block { grid-template-columns: 1fr; gap: 20px; }
-      .proof-block .proof-card { min-height: 180px; }
+      .proof-block { grid-template-columns: 1fr; gap: 16px; margin-top: 16px; }
+      .proof-block .proof-card { min-height: 160px; padding: 18px 20px; }
+      .testimonial-carousel, .known-for-carousel { min-height: 140px; }
     }
 
     /* Ways to engage */
@@ -151,6 +154,10 @@
       <a href="/v2/" class="nav-logo-link" aria-label="Home">
         <img src="/assets/sainz-logo.svg" alt="SAI.NZ" class="nav-logo">
       </a>
+      <div class="nav-priority" aria-label="Primary navigation">
+        <a href="/philosophy/">Philosophy</a>
+        <a href="/how/">Approach</a>
+      </div>
       <nav class="nav-links" id="navLinks">
         <a href="/v2/">Home</a>
         <a href="/philosophy/">Philosophy</a>
@@ -205,7 +212,6 @@
 
   <section class="page-section" id="testimonials">
     <p class="section-eyebrow">Proof</p>
-    <h2 class="section-title">What people say &amp; what I’m known for</h2>
     <div class="proof-block">
       <div class="proof-card">
         <h3>What people say</h3>

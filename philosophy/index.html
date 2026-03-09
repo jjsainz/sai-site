@@ -14,13 +14,17 @@
   <link rel="stylesheet" href="/assets/v2/site.css" />
   <style>
     .phil-block { margin-bottom: 36px; }
-    .phil-block h2 { font-size: 0.9rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px 0; }
-    .phil-block p { margin: 0 0 10px 0; }
-    .phil-list { list-style: none; padding: 0; margin: 12px 0 0 0; }
-    .phil-list li { padding: 12px 0; border-bottom: 1px solid var(--border); border-radius: var(--radius-sm); }
+    .phil-block h2 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin: 0 0 8px 0; }
+    .phil-block p { margin: 0 0 8px 0; }
+    .phil-list { list-style: none; padding: 0; margin: 10px 0 0 0; }
+    .phil-list li { padding: 10px 0; border-bottom: 1px solid var(--border); border-radius: var(--radius-sm); }
     .phil-list li:last-child { border-bottom: none; }
-    .phil-list strong { display: block; margin-bottom: 4px; }
-    .phil-list span { font-size: 0.95rem; color: var(--text-secondary); }
+    .phil-list strong { display: block; margin-bottom: 2px; font-size: 0.875rem; }
+    .phil-list span { font-size: 0.8125rem; color: var(--text-secondary); }
+    .phil-two-col { display: block; }
+    @media (min-width: 769px) {
+      .phil-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+    }
     .satellite-hero.philosophy-hero { background-image: linear-gradient(135deg, var(--bg-alt) 0%, var(--card) 50%); }
     html[data-theme="dark"] .satellite-hero.philosophy-hero { background-image: linear-gradient(135deg, var(--bg-alt) 0%, var(--surface) 50%); }
   </style>
@@ -30,6 +34,10 @@
   <header class="site-header">
     <div class="nav-inner">
       <a href="/v2/" class="nav-logo-link" aria-label="Home"><img src="/assets/sainz-logo.svg" alt="SAI.NZ" class="nav-logo"></a>
+      <div class="nav-priority" aria-label="Primary navigation">
+        <a href="/philosophy/">Philosophy</a>
+        <a href="/how/">Approach</a>
+      </div>
       <nav class="nav-links" id="navLinks">
         <a href="/v2/">Home</a>
         <a href="/philosophy/">Philosophy</a>
@@ -77,24 +85,25 @@
       <p class="body-text">People turn to SAI.NZ when something important needs thinking through.</p>
     </div>
 
-    <div class="phil-block">
-      <h2>Values</h2>
-      <ul class="phil-list">
-        <li><strong>Clarity</strong> <span>See things as they are so good decisions become possible.</span></li>
-        <li><strong>Curiosity</strong> <span>Ask thoughtful questions and explore new perspectives.</span></li>
-        <li><strong>Simplicity</strong> <span>Reduce unnecessary complexity so the important things stand out.</span></li>
-        <li><strong>Growth</strong> <span>Learn, improve, and build capability with a long-term mindset.</span></li>
-      </ul>
-    </div>
-
-    <div class="phil-block">
-      <h2>Principles</h2>
-      <ul class="phil-list">
-        <li><strong>Clarity creates momentum.</strong> <span>Once the real problem is understood, progress becomes possible.</span></li>
-        <li><strong>Direction before optimisation.</strong> <span>The right direction matters more than speed.</span></li>
-        <li><strong>People are the difference.</strong> <span>When the right people have the right roles and support, leverage flows.</span></li>
-        <li><strong>Perspective reveals answers.</strong> <span>Seeing the same situation from the right place often reveals the answer.</span></li>
-      </ul>
+    <div class="phil-two-col">
+      <div class="phil-block">
+        <h2>Values</h2>
+        <ul class="phil-list">
+          <li><strong>Clarity</strong> <span>See things as they are so good decisions become possible.</span></li>
+          <li><strong>Curiosity</strong> <span>Ask thoughtful questions and explore new perspectives.</span></li>
+          <li><strong>Simplicity</strong> <span>Reduce unnecessary complexity so the important things stand out.</span></li>
+          <li><strong>Growth</strong> <span>Learn, improve, and build capability with a long-term mindset.</span></li>
+        </ul>
+      </div>
+      <div class="phil-block">
+        <h2>Principles</h2>
+        <ul class="phil-list">
+          <li><strong>Clarity creates momentum.</strong> <span>Once the real problem is understood, progress becomes possible.</span></li>
+          <li><strong>Direction before optimisation.</strong> <span>The right direction matters more than speed.</span></li>
+          <li><strong>People are the difference.</strong> <span>When the right people have the right roles and support, leverage flows.</span></li>
+          <li><strong>Perspective reveals answers.</strong> <span>Seeing the same situation from the right place often reveals the answer.</span></li>
+        </ul>
+      </div>
     </div>
   </main>
 
