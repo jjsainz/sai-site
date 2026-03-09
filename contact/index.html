@@ -8,19 +8,16 @@
   })(window,document,'script','dataLayer','GTM-NX6T9PZV');</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thank you — SAI.NZ</title>
-  <meta name="description" content="Your message has been received. JJ will be in touch." />
-  <link rel="canonical" href="https://www.sai.nz/thanks/" />
+  <title>Contact — SAI.NZ</title>
+  <meta name="description" content="Start a conversation. Talk to JJ when something important needs thinking through." />
+  <link rel="canonical" href="https://www.sai.nz/contact/" />
   <link rel="stylesheet" href="/assets/v2/site.css" />
   <style>
-    .thanks-page { min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 24px; }
-    .thanks-page h1 { font-size: 1.75rem; margin: 0 0 16px 0; }
-    .thanks-page p { max-width: 480px; margin: 0 0 12px 0; color: var(--text-secondary); }
-    .thanks-page .btn-primary { margin-top: 28px; }
+    .contact-form-wrap { max-width: 520px; margin: 40px auto 0; padding: 44px 40px; background: var(--bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
   </style>
 </head>
 <body>
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NX6T9PZV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <p class="site-refresh-banner" role="status">Site refresh in progress — some sections are still being refined.</p>
   <header class="site-header">
     <div class="nav-inner">
       <a href="/v2/" class="nav-logo-link" aria-label="Home"><img src="/assets/sainz-logo.svg" alt="SAI.NZ" class="nav-logo"></a>
@@ -43,11 +40,25 @@
     </div>
   </header>
 
-  <main class="thanks-page">
-    <h1>Thank you</h1>
-    <p>Your message has been received. JJ will be in touch — usually within a couple of business days, often sooner.</p>
-    <p>If you reached out about outsourcing or a partner solution, we’ll review your request and get back to you with the next steps.</p>
-    <a href="/v2/" class="btn-primary">Back to home</a>
+  <main class="page-section" style="padding-top: 80px; padding-bottom: 100px;">
+    <p class="section-eyebrow">Get in touch</p>
+    <h1 class="section-title" style="margin-bottom: 16px;">Start a conversation</h1>
+    <p class="section-lead">Talk to JJ. If something important needs thinking through, reach out. I respond to every message and will suggest a time for a no-obligation conversation.</p>
+
+    <form class="contact-form-wrap sainz-form" name="contact" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field">
+      <p style="display:none;"><input type="hidden" name="form-name" value="contact"><label>Don’t fill: <input name="bot-field"></label></p>
+      <label for="contact-name">Name</label>
+      <input type="text" name="name" id="contact-name" required>
+      <label for="contact-email">Email</label>
+      <input type="email" name="email" id="contact-email" required>
+      <label for="contact-phone">Phone (optional)</label>
+      <input type="tel" name="phone" id="contact-phone" placeholder="+64 21 123 4567">
+      <label for="contact-discuss">What would you like to discuss? (optional)</label>
+      <input type="text" name="discuss" id="contact-discuss" placeholder="e.g. clarity session, ongoing advisory">
+      <label for="contact-message">Message</label>
+      <textarea name="message" id="contact-message" rows="5" required></textarea>
+      <button type="submit">Send message</button>
+    </form>
   </main>
 
   <footer class="site-footer"><p>Christchurch, New Zealand</p></footer>
