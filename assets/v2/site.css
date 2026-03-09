@@ -36,6 +36,7 @@
   --section-padding: 80px;
   --content-max: 800px;
   --content-wide: 960px;
+  --content-home: 920px;
   --grid-max: 1320px;
   --banner-bg: #E8ECF0;
   --banner-text: #475569;
@@ -140,8 +141,8 @@ a:hover { opacity: 0.88; }
   gap: 2px;
 }
 .nav-priority a {
-  padding: 8px 10px;
-  font-size: 0.85rem;
+  padding: 6px 8px;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--muted);
   border: none;
@@ -226,10 +227,10 @@ a:hover { opacity: 0.88; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  min-width: 100px;
-  min-height: 44px;
-  padding: 0 14px;
+  gap: 2px;
+  min-width: 90px;
+  min-height: 40px;
+  padding: 0 12px;
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--muted);
@@ -282,7 +283,7 @@ a:hover { opacity: 0.88; }
   margin: 0 auto;
 }
 
-/* Typography hierarchy: 1. Title biggest  2. Subtitle  3. Body */
+/* Typography: eyebrow (smallest) → section title (largest) → supporting → body (smallest) */
 .page-title {
   font-size: 3rem;
   font-weight: 600;
@@ -292,36 +293,43 @@ a:hover { opacity: 0.88; }
   letter-spacing: -0.02em;
 }
 .section-eyebrow {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
-  margin: 0 0 10px 0;
+  margin: 0 0 8px 0;
 }
 .section-title {
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   font-weight: 600;
   color: var(--text);
-  margin: 0 0 14px 0;
+  margin: 0 0 12px 0;
   line-height: 1.25;
   letter-spacing: -0.02em;
 }
 .section-lead {
-  font-size: 0.9375rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  margin: 0 0 16px 0;
+  margin: 0 0 14px 0;
   max-width: var(--content-max);
   line-height: var(--line);
 }
 .body-text {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: var(--text);
   line-height: var(--line);
   margin: 0 0 12px 0;
   max-width: var(--content-max);
 }
-.body-text.muted { color: var(--muted); font-size: 0.8125rem; }
+.body-text.muted { color: var(--muted); font-size: 0.75rem; }
+
+/* Homepage: wider content for balance, less dead space on right */
+.home-page .page-section .section-lead,
+.home-page .page-section .body-text,
+.home-page .page-section .recognition-block,
+.home-page .page-section .recognition-block p { max-width: var(--content-home); }
+.home-page .page-section .invitation-form { max-width: 520px; }
 
 /* Wide content for satellite pages */
 .content-wide { max-width: var(--content-wide); }
@@ -443,18 +451,20 @@ html[data-theme="light"] .satellite-hero::before {
   border: 1px solid var(--card-border);
 }
 .pricing-list li:last-child { margin-bottom: 0; }
-.pricing-list .pricing-name { font-weight: 600; font-size: 0.875rem; margin-bottom: 4px; }
-.pricing-list .pricing-desc { font-size: 0.8125rem; color: var(--text-secondary); margin: 0 0 6px 0; }
-.pricing-list .pricing-amount { font-size: 0.8125rem; color: var(--muted); font-style: italic; }
+.pricing-list .pricing-name { font-weight: 600; font-size: 0.8125rem; margin-bottom: 4px; }
+.pricing-list .pricing-desc { font-size: 0.75rem; color: var(--text-secondary); margin: 0 0 6px 0; }
+.pricing-list .pricing-amount { font-size: 0.75rem; color: var(--muted); font-style: italic; }
 
 /* ========== MOBILE ========== */
 @media (max-width: 768px) {
-  .nav-inner { padding: 0 16px; height: 64px; gap: 8px; min-width: 0; }
-  .nav-logo { height: 67px; }
+  .nav-inner { padding: 0 12px; height: 60px; gap: 4px; min-width: 0; }
+  .nav-logo { height: 64px; }
 
   /* Mobile bar: logo | Philosophy | Approach | (push) | theme | menu */
   .nav-priority { display: flex !important; order: 2; flex-shrink: 0; }
-  .nav-theme-wrap { margin-left: auto; }
+  .nav-theme-wrap { margin-left: auto; flex-shrink: 0; }
+  .theme-toggle-btn { min-width: 78px; padding: 0 8px; font-size: 0.75rem; }
+  .nav-menu-btn { width: 44px; height: 44px; flex-shrink: 0; }
   .nav-links {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -523,9 +533,9 @@ html[data-theme="light"] .satellite-hero::before {
   .nav-menu-btn { display: flex; }
   .page-section { padding: 56px 20px; }
   .page-title { font-size: 1.85rem; }
-  .section-title { font-size: 1.35rem; }
+  .section-title { font-size: 1.4rem; }
   .section-lead { font-size: 0.875rem; }
-  .body-text { font-size: 0.875rem; }
+  .body-text { font-size: 0.8125rem; }
   .sainz-form input,
   .sainz-form textarea { min-height: 48px; }
   .satellite-hero { min-height: 160px; padding: 36px 20px; }
