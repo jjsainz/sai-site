@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -21,23 +20,23 @@
     /* Hero — v2 homepage only */
     #hero {
       position: relative;
-      min-height: 82vh;
+      min-height: 70vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 100px 32px 120px;
+      padding: 80px 32px 100px;
       text-align: center;
       background-color: #1a2333;
       background-image:
-        linear-gradient(to bottom, rgba(13,19,32,0.72) 0%, rgba(13,19,32,0.45) 50%, rgba(13,19,32,0.35) 100%),
+        linear-gradient(to bottom, rgba(13,19,32,0.78) 0%, rgba(13,19,32,0.5) 50%, rgba(13,19,32,0.4) 100%),
         url('/assets/v2/hero-light.jpg'),
         linear-gradient(165deg, #2d3748 0%, #1a202c 100%);
       background-size: cover;
       background-position: center;
       overflow: hidden;
     }
-    #hero .hero-inner { position: relative; z-index: 1; max-width: 600px; animation: heroFade 1.6s ease-out; }
-    @keyframes heroFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    #hero .hero-inner { position: relative; z-index: 1; max-width: 560px; animation: heroFade 1.4s ease-out; }
+    @keyframes heroFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     html[data-theme="dark"] #hero {
       background-color: #060910;
       background-image:
@@ -46,50 +45,57 @@
         url('/assets/v2/hero-dark.jpg'),
         linear-gradient(180deg, #0A0E16 0%, #060910 100%);
     }
-    .hero-title { font-size: 3rem; font-weight: 600; margin: 0 0 16px 0; letter-spacing: -0.03em; line-height: 1.1; color: var(--text); text-shadow: 0 1px 2px rgba(0,0,0,0.15); }
-    .hero-slogan { font-size: 1.35rem; font-weight: 500; margin: 0 0 24px 0; color: var(--text); opacity: 0.95; text-shadow: 0 1px 2px rgba(0,0,0,0.12); }
-    .hero-support { font-size: 1.05rem; color: var(--text-secondary); margin: 0 0 36px 0; max-width: 480px; margin-left: auto; margin-right: auto; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
-    .hero-ctas { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .hero-title { font-size: 2.75rem; font-weight: 600; margin: 0 0 14px 0; letter-spacing: -0.03em; line-height: 1.1; color: var(--text); text-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+    .hero-slogan { font-size: 1.25rem; font-weight: 500; margin: 0 0 20px 0; color: var(--text); opacity: 0.98; text-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+    .hero-support { font-size: 1rem; color: var(--text-secondary); margin: 0 0 32px 0; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.5; text-shadow: 0 1px 4px rgba(0,0,0,0.2); }
+    .hero-ctas { display: flex; flex-direction: column; align-items: center; gap: 0; }
     .hero-ctas .btn-primary { min-height: 48px; }
-    .hero-cta-hint { font-size: 0.9rem; color: var(--muted); }
 
     /* Light theme hero: stronger overlay for readability */
     html[data-theme="light"] #hero { background-color: #1e293b; }
     html[data-theme="light"] #hero .hero-title,
-    html[data-theme="light"] #hero .hero-slogan { color: #f8fafc; text-shadow: 0 1px 3px rgba(0,0,0,0.35); }
-    html[data-theme="light"] #hero .hero-support,
-    html[data-theme="light"] #hero .hero-cta-hint { color: #e2e8f0; text-shadow: 0 1px 2px rgba(0,0,0,0.25); }
+    html[data-theme="light"] #hero .hero-slogan { color: #f8fafc; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+    html[data-theme="light"] #hero .hero-support { color: #e2e8f0; text-shadow: 0 1px 4px rgba(0,0,0,0.35); }
 
-    /* Recognition, What I do */
-    .recognition-list { list-style: none; padding: 0; margin: 28px 0 0 0; max-width: var(--content-max); }
-    .recognition-list li { padding: 10px 0; padding-left: 1.5em; position: relative; color: var(--text-secondary); }
-    .recognition-list li::before { content: ''; position: absolute; left: 0; top: 0.85em; width: 4px; height: 4px; background: var(--accent); border-radius: 2px; }
+    /* Recognition — calmer block */
+    .recognition-block { max-width: var(--content-max); margin-top: 8px; }
+    .recognition-block p { margin: 0 0 14px 0; color: var(--text-secondary); }
 
-    /* Testimonials */
-    .testimonials { margin-top: 36px; display: grid; gap: 24px; }
-    .testimonial {
-      padding: 32px 36px;
+    /* Testimonial carousel: one visible, rotate */
+    .testimonial-carousel { position: relative; min-height: 180px; margin-top: 24px; }
+    .testimonial-slide {
+      position: absolute; left: 0; right: 0; top: 0;
+      padding: 28px 32px;
       background: var(--card);
       border: 1px solid var(--card-border);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-card);
       font-size: 1rem;
       line-height: var(--line);
-      position: relative;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
     }
-    .testimonial::before { content: '"'; position: absolute; top: 20px; left: 24px; font-size: 2.5rem; font-weight: 600; color: var(--accent); opacity: 0.2; font-family: Georgia, serif; }
-    .testimonial-quote { position: relative; z-index: 1; }
-    .testimonial-attribution { font-size: 0.9rem; color: var(--muted); margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); }
+    .testimonial-slide.active { position: relative; opacity: 1; visibility: visible; }
+    .testimonial-slide .t-quote { position: relative; }
+    .testimonial-slide .t-quote::before { content: '"'; position: absolute; top: -4px; left: -2px; font-size: 2rem; font-weight: 600; color: var(--accent); opacity: 0.2; font-family: Georgia, serif; }
+    .testimonial-slide .t-attribution { font-size: 0.9rem; color: var(--muted); margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); }
+
+    /* Accolades strip */
+    .accolades-strip { margin-top: 28px; padding: 20px 0; border-top: 1px solid var(--border); }
+    .accolades-inner { display: flex; align-items: center; justify-content: center; min-height: 2.5em; position: relative; }
+    .accolade-item { font-size: 0.9rem; color: var(--muted); text-align: center; opacity: 0; position: absolute; transition: opacity 0.4s ease; }
+    .accolade-item.active { position: relative; opacity: 1; }
 
     /* Ways to engage */
-    .engage-list { list-style: none; padding: 0; margin: 24px 0 0 0; }
-    .engage-list li { padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+    .engage-list { list-style: none; padding: 0; margin: 20px 0 0 0; }
+    .engage-list li { padding: 14px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
     .engage-list li:last-child { border-bottom: none; }
     .engage-list a { border: none; font-weight: 500; }
 
     /* Invitation + form */
-    #invitation { background: var(--card); border-top: 1px solid var(--border); padding: 100px 32px 100px; }
-    .invitation-form { max-width: 480px; margin: 32px auto 0; padding: 40px 36px; background: var(--bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); }
+    #invitation { background: var(--card); border-top: 1px solid var(--border); padding: 72px 32px; }
+    .invitation-form { max-width: 480px; margin: 28px auto 0; padding: 36px 32px; background: var(--bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); }
 
     /* Floating CTA */
     .floating-cta {
@@ -114,17 +120,17 @@
     .floating-cta:hover { background: var(--accent-hover); color: var(--btn-text); }
 
     @media (max-width: 768px) {
-      #hero { min-height: 75vh; padding: 72px 20px 88px; }
-      .hero-title { font-size: 2.25rem; }
-      .hero-slogan { font-size: 1.15rem; }
-      .hero-support { font-size: 0.98rem; }
-      .invitation-form { padding: 28px 24px; }
+      #hero { min-height: 65vh; padding: 64px 20px 80px; }
+      .hero-title { font-size: 2.15rem; }
+      .hero-slogan { font-size: 1.1rem; }
+      .hero-support { font-size: 0.95rem; }
+      .invitation-form { padding: 24px 20px; }
       .floating-cta { left: 20px; right: 20px; bottom: 20px; transform: translateY(80px); }
       .floating-cta.visible { transform: translateY(0); }
     }
     @media (max-width: 480px) {
-      #hero { min-height: 70vh; padding: 60px 16px 72px; }
-      .hero-title { font-size: 2rem; }
+      #hero { min-height: 60vh; padding: 56px 16px 64px; }
+      .hero-title { font-size: 1.9rem; }
       .floating-cta { left: 16px; right: 16px; bottom: 16px; }
     }
   </style>
@@ -136,21 +142,31 @@
       <a href="/v2/" class="nav-logo-link" aria-label="Home">
         <img src="/assets/sainz-logo.svg" alt="SAI.NZ" class="nav-logo">
       </a>
+      <div class="nav-priority" aria-label="Primary navigation">
+        <a href="/philosophy/">Philosophy</a>
+        <a href="/how/">Approach</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <div class="nav-theme-wrap">
+        <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-option" data-theme="light">Light</span>
+          <span class="theme-sep" aria-hidden="true">/</span>
+          <span class="theme-option" data-theme="dark">Dark</span>
+        </button>
+      </div>
       <button type="button" class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu" aria-expanded="false"><span class="nav-menu-icon"></span></button>
       <nav class="nav-links" id="navLinks">
         <a href="/v2/">Home</a>
         <a href="/philosophy/">Philosophy</a>
-        <a href="/how/">How</a>
-        <a href="/sf/">Outsourcing</a>
-        <a href="/ac/">Telephony</a>
-        <a href="/contact/">Contact</a>
-        <div class="nav-theme-wrap">
-          <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
-            <span class="theme-option" data-theme="light">Light</span>
-            <span class="theme-sep" aria-hidden="true">/</span>
-            <span class="theme-option" data-theme="dark">Dark</span>
-          </button>
+        <a href="/how/">Approach</a>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Partnerships</button>
+          <div class="nav-dropdown-content">
+            <a href="/sf/">Outsourcing</a>
+            <a href="/ac/">Telephony</a>
+          </div>
         </div>
+        <a href="/contact/">Contact</a>
       </nav>
     </div>
   </header>
@@ -159,10 +175,9 @@
     <div class="hero-inner">
       <h1 class="hero-title">JJ Sainz</h1>
       <p class="hero-slogan">Helping people see clearly when it matters most.</p>
-      <p class="hero-support">I help people think through important decisions.</p>
+      <p class="hero-support">For people building something meaningful who value clear thinking, honest perspective, and a trusted sounding board.</p>
       <div class="hero-ctas">
         <a href="#invitation" class="btn-primary">Start a conversation</a>
-        <p class="hero-cta-hint">Talk to JJ</p>
       </div>
     </div>
   </section>
@@ -170,40 +185,43 @@
   <a href="#invitation" class="floating-cta" id="floatingCta" aria-label="Start a conversation">Start a conversation</a>
 
   <section class="page-section" id="recognition">
-    <p class="section-eyebrow">When people reach out</p>
-    <h2 class="section-title">Recognition</h2>
-    <p class="section-lead">You might be here because something is weighing on you. A decision that matters. Complexity that won’t simplify. Or a sense that you need perspective before you act.</p>
-    <ul class="recognition-list">
-      <li>An important decision that needs thinking through</li>
-      <li>Complexity that keeps resisting simple answers</li>
-      <li>A need for clarity before moving forward</li>
-      <li>A trusted sounding board when the stakes are high</li>
-    </ul>
+    <p class="section-eyebrow">Who it’s for</p>
+    <h2 class="section-title">Built for people who value clarity</h2>
+    <div class="recognition-block">
+      <p class="section-lead" style="margin-bottom: 0;">SAI.NZ is for people building something meaningful who want a trusted sounding board. When something important needs thinking through — a decision, a direction, or a knotty problem — a calm conversation can make the path forward clearer.</p>
+    </div>
   </section>
 
   <section class="page-section" id="what-i-do" style="background: var(--bg-alt); border-top: 1px solid var(--border);">
     <p class="section-eyebrow">What I do</p>
     <h2 class="section-title">Thinking through what matters</h2>
-    <p class="body-text">I help people think through important decisions.</p>
-    <p class="body-text">Mostly I help people see things clearly when something important needs thinking through. Sometimes people simply need someone to help them hear their own thinking more clearly. I focus on understanding the real problem first. Through careful listening and a few well-placed questions, complexity becomes clearer. Once the situation is understood properly, a few simple actions can often create meaningful change.</p>
+    <p class="body-text">I help people think through important decisions. Mostly I help people see things clearly when something important needs thinking through. Sometimes people simply need someone to help them hear their own thinking more clearly.</p>
+    <p class="body-text">I focus on understanding the real problem first. Through careful listening and a few well-placed questions, complexity becomes clearer. Once the situation is understood properly, a few simple actions can often create meaningful change.</p>
   </section>
 
   <section class="page-section" id="testimonials">
     <p class="section-eyebrow">What people say</p>
     <h2 class="section-title">Testimonials</h2>
-    <div class="testimonials">
-      <blockquote class="testimonial">
-        <span class="testimonial-quote">JJ is a highly effective strategist and integrator of ideas, bringing clarity and focus to complex initiatives. He has a strong ability to realign teams and drive execution, ensuring outcomes are achieved with impact.</span>
-        <span class="testimonial-attribution">— CEO, Subscription Ventures</span>
+    <div class="testimonial-carousel" id="testimonialCarousel">
+      <blockquote class="testimonial-slide active" data-index="0">
+        <span class="t-quote">JJ is a highly effective strategist and integrator of ideas, bringing clarity and focus to complex initiatives. He has a strong ability to realign teams and drive execution, ensuring outcomes are achieved with impact.</span>
+        <span class="t-attribution">— CEO, Subscription Ventures</span>
       </blockquote>
-      <blockquote class="testimonial">
-        <span class="testimonial-quote">JJ's leadership creates an environment where people feel supported, valued, and motivated to grow. Working with him has been one of the most rewarding experiences of my career.</span>
-        <span class="testimonial-attribution">— Customer Accounts Manager, Multi-Industry Operations</span>
+      <blockquote class="testimonial-slide" data-index="1">
+        <span class="t-quote">JJ's leadership creates an environment where people feel supported, valued, and motivated to grow. Working with him has been one of the most rewarding experiences of my career.</span>
+        <span class="t-attribution">— Customer Accounts Manager, Multi-Industry Operations</span>
       </blockquote>
-      <blockquote class="testimonial">
-        <span class="testimonial-quote">JJ's perceptive leadership and clear, open communication shaped how I approach my work every day. The lessons I learned under his guidance continue to influence my career.</span>
-        <span class="testimonial-attribution">— Collections Agent, Fintech Sector</span>
+      <blockquote class="testimonial-slide" data-index="2">
+        <span class="t-quote">JJ's perceptive leadership and clear, open communication shaped how I approach my work every day. The lessons I learned under his guidance continue to influence my career.</span>
+        <span class="t-attribution">— Collections Agent, Fintech Sector</span>
       </blockquote>
+    </div>
+    <div class="accolades-strip" id="accoladesStrip">
+      <div class="accolades-inner accolades-rotating" id="accoladesInner">
+        <span class="accolade-item active" data-index="0">Member, Business Canterbury</span>
+        <span class="accolade-item" data-index="1">Trusted by AU/NZ leaders and operators</span>
+        <span class="accolade-item" data-index="2">Clarity-first advisory</span>
+      </div>
     </div>
   </section>
 
@@ -216,7 +234,6 @@
       <li><span>Ongoing advisory</span> <a href="/how/#advisory">See options</a></li>
       <li><span>Strategic projects</span> <a href="/how/#projects">See options</a></li>
     </ul>
-    <p class="body-text muted" style="margin-top: 24px;">Pricing and detail are on the <a href="/how/">How</a> page. No surprises.</p>
   </section>
 
   <section class="page-section" id="invitation">
@@ -243,7 +260,6 @@
     (function() {
       var root = document.documentElement;
 
-      // Theme: prefers-color-scheme → time of day → default dark
       function getPreferredTheme() {
         if (typeof window.matchMedia !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
         if (typeof window.matchMedia !== 'undefined' && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
@@ -269,7 +285,6 @@
         });
       }
 
-      // Mobile menu
       var menuBtn = document.getElementById('navMenuBtn');
       var navLinks = document.getElementById('navLinks');
       if (menuBtn && navLinks) {
@@ -283,7 +298,6 @@
         });
       }
 
-      // Floating CTA
       var floatingCta = document.getElementById('floatingCta');
       var invitation = document.getElementById('invitation');
       var hero = document.getElementById('hero');
@@ -297,6 +311,27 @@
         window.addEventListener('scroll', updateFloating, { passive: true });
         window.addEventListener('resize', updateFloating);
         updateFloating();
+      }
+
+      var slides = document.querySelectorAll('.testimonial-slide');
+      var accoladeItems = document.querySelectorAll('#accoladesInner .accolade-item');
+      if (slides.length) {
+        var idx = 0;
+        function rotateTestimonial() {
+          slides.forEach(function(s) { s.classList.remove('active'); });
+          slides[idx].classList.add('active');
+          idx = (idx + 1) % slides.length;
+        }
+        setInterval(rotateTestimonial, 4500);
+      }
+      if (accoladeItems.length) {
+        var aIdx = 0;
+        function rotateAccolade() {
+          accoladeItems.forEach(function(a) { a.classList.remove('active'); });
+          accoladeItems[aIdx].classList.add('active');
+          aIdx = (aIdx + 1) % accoladeItems.length;
+        }
+        setInterval(rotateAccolade, 4000);
       }
     })();
   </script>

@@ -13,32 +13,43 @@
   <link rel="canonical" href="https://www.sai.nz/thanks/" />
   <link rel="stylesheet" href="/assets/v2/site.css" />
   <style>
-    .thanks-page { min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 24px; }
-    .thanks-page h1 { font-size: 1.75rem; margin: 0 0 16px 0; }
+    .thanks-page { min-height: 65vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 72px 24px; }
+    .thanks-page h1 { font-size: 2rem; margin: 0 0 16px 0; }
     .thanks-page p { max-width: 480px; margin: 0 0 12px 0; color: var(--text-secondary); }
-    .thanks-page .btn-primary { margin-top: 28px; }
+    .thanks-page .btn-primary { margin-top: 24px; }
   </style>
 </head>
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NX6T9PZV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <p class="site-refresh-banner" role="status">Site refresh in progress — some sections are still being refined.</p>
   <header class="site-header">
     <div class="nav-inner">
       <a href="/v2/" class="nav-logo-link" aria-label="Home"><img src="/assets/sainz-logo.svg" alt="SAI.NZ" class="nav-logo"></a>
+      <div class="nav-priority" aria-label="Primary navigation">
+        <a href="/philosophy/">Philosophy</a>
+        <a href="/how/">Approach</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <div class="nav-theme-wrap">
+        <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-option" data-theme="light">Light</span>
+          <span class="theme-sep" aria-hidden="true">/</span>
+          <span class="theme-option" data-theme="dark">Dark</span>
+        </button>
+      </div>
       <button type="button" class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu" aria-expanded="false"><span class="nav-menu-icon"></span></button>
       <nav class="nav-links" id="navLinks">
         <a href="/v2/">Home</a>
         <a href="/philosophy/">Philosophy</a>
-        <a href="/how/">How</a>
-        <a href="/sf/">Outsourcing</a>
-        <a href="/ac/">Telephony</a>
-        <a href="/contact/">Contact</a>
-        <div class="nav-theme-wrap">
-          <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
-            <span class="theme-option" data-theme="light">Light</span>
-            <span class="theme-sep" aria-hidden="true">/</span>
-            <span class="theme-option" data-theme="dark">Dark</span>
-          </button>
+        <a href="/how/">Approach</a>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Partnerships</button>
+          <div class="nav-dropdown-content">
+            <a href="/sf/">Outsourcing</a>
+            <a href="/ac/">Telephony</a>
+          </div>
         </div>
+        <a href="/contact/">Contact</a>
       </nav>
     </div>
   </header>

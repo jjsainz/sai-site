@@ -13,7 +13,9 @@
   <link rel="canonical" href="https://www.sai.nz/contact/" />
   <link rel="stylesheet" href="/assets/v2/site.css" />
   <style>
-    .contact-form-wrap { max-width: 520px; margin: 40px auto 0; padding: 44px 40px; background: var(--bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
+    .contact-form-wrap { max-width: 520px; margin: 28px auto 0; padding: 36px 32px; background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
+    .satellite-hero.contact-hero { background-image: linear-gradient(200deg, var(--bg-alt) 0%, var(--card) 60%); }
+    html[data-theme="dark"] .satellite-hero.contact-hero { background-image: linear-gradient(200deg, var(--bg-alt) 0%, var(--surface) 60%); }
   </style>
 </head>
 <body>
@@ -21,28 +23,43 @@
   <header class="site-header">
     <div class="nav-inner">
       <a href="/v2/" class="nav-logo-link" aria-label="Home"><img src="/assets/sainz-logo.svg" alt="SAI.NZ" class="nav-logo"></a>
+      <div class="nav-priority" aria-label="Primary navigation">
+        <a href="/philosophy/">Philosophy</a>
+        <a href="/how/">Approach</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <div class="nav-theme-wrap">
+        <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-option" data-theme="light">Light</span>
+          <span class="theme-sep" aria-hidden="true">/</span>
+          <span class="theme-option" data-theme="dark">Dark</span>
+        </button>
+      </div>
       <button type="button" class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu" aria-expanded="false"><span class="nav-menu-icon"></span></button>
       <nav class="nav-links" id="navLinks">
         <a href="/v2/">Home</a>
         <a href="/philosophy/">Philosophy</a>
-        <a href="/how/">How</a>
-        <a href="/sf/">Outsourcing</a>
-        <a href="/ac/">Telephony</a>
-        <a href="/contact/">Contact</a>
-        <div class="nav-theme-wrap">
-          <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
-            <span class="theme-option" data-theme="light">Light</span>
-            <span class="theme-sep" aria-hidden="true">/</span>
-            <span class="theme-option" data-theme="dark">Dark</span>
-          </button>
+        <a href="/how/">Approach</a>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Partnerships</button>
+          <div class="nav-dropdown-content">
+            <a href="/sf/">Outsourcing</a>
+            <a href="/ac/">Telephony</a>
+          </div>
         </div>
+        <a href="/contact/">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="page-section" style="padding-top: 80px; padding-bottom: 100px;">
-    <p class="section-eyebrow">Get in touch</p>
-    <h1 class="section-title" style="margin-bottom: 16px;">Start a conversation</h1>
+  <section class="satellite-hero contact-hero">
+    <div class="satellite-hero-inner">
+      <p class="section-eyebrow">Get in touch</p>
+      <h1 class="page-title">Start a conversation</h1>
+    </div>
+  </section>
+
+  <main class="page-section content-wide">
     <p class="section-lead">Talk to JJ. If something important needs thinking through, reach out. I respond to every message and will suggest a time for a no-obligation conversation.</p>
 
     <form class="contact-form-wrap sainz-form" name="contact" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field">

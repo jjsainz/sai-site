@@ -12,34 +12,53 @@
   <meta name="description" content="Telephony and cloud communications. Trusted connections for when the right solution sits outside the main lane." />
   <link rel="canonical" href="https://www.sai.nz/ac/" />
   <link rel="stylesheet" href="/assets/v2/site.css" />
+  <style>
+    .satellite-hero.ac-hero { background-image: linear-gradient(220deg, var(--bg-alt) 0%, var(--card) 55%); }
+    html[data-theme="dark"] .satellite-hero.ac-hero { background-image: linear-gradient(220deg, var(--bg-alt) 0%, var(--surface) 55%); }
+  </style>
 </head>
 <body>
   <p class="site-refresh-banner" role="status">Site refresh in progress — some sections are still being refined.</p>
   <header class="site-header">
     <div class="nav-inner">
       <a href="/v2/" class="nav-logo-link" aria-label="Home"><img src="/assets/sainz-logo.svg" alt="SAI.NZ" class="nav-logo"></a>
+      <div class="nav-priority" aria-label="Primary navigation">
+        <a href="/philosophy/">Philosophy</a>
+        <a href="/how/">Approach</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <div class="nav-theme-wrap">
+        <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-option" data-theme="light">Light</span>
+          <span class="theme-sep" aria-hidden="true">/</span>
+          <span class="theme-option" data-theme="dark">Dark</span>
+        </button>
+      </div>
       <button type="button" class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu" aria-expanded="false"><span class="nav-menu-icon"></span></button>
       <nav class="nav-links" id="navLinks">
         <a href="/v2/">Home</a>
         <a href="/philosophy/">Philosophy</a>
-        <a href="/how/">How</a>
-        <a href="/sf/">Outsourcing</a>
-        <a href="/ac/">Telephony</a>
-        <a href="/contact/">Contact</a>
-        <div class="nav-theme-wrap">
-          <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
-            <span class="theme-option" data-theme="light">Light</span>
-            <span class="theme-sep" aria-hidden="true">/</span>
-            <span class="theme-option" data-theme="dark">Dark</span>
-          </button>
+        <a href="/how/">Approach</a>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Partnerships</button>
+          <div class="nav-dropdown-content">
+            <a href="/sf/">Outsourcing</a>
+            <a href="/ac/">Telephony</a>
+          </div>
         </div>
+        <a href="/contact/">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="page-section" style="padding-top: 80px; padding-bottom: 100px;">
-    <p class="section-eyebrow">Trusted connections</p>
-    <h1 class="section-title" style="margin-bottom: 24px;">Telephony</h1>
+  <section class="satellite-hero ac-hero">
+    <div class="satellite-hero-inner">
+      <p class="section-eyebrow">Trusted connections</p>
+      <h1 class="page-title">Telephony</h1>
+    </div>
+  </section>
+
+  <main class="page-section content-wide">
     <p class="section-lead">When the right solution involves cloud communications or telephony, I connect you to partners I trust. This area is for telephony and related infrastructure — coherent, no overbuild.</p>
     <p class="body-text">If you’re exploring options for voice, contact centre tech, or cloud communications, <a href="/contact/">get in touch</a>. I can point you in the right direction or introduce you to the right people.</p>
   </main>

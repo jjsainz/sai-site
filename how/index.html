@@ -8,17 +8,14 @@
   })(window,document,'script','dataLayer','GTM-NX6T9PZV');</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How I work — SAI.NZ</title>
+  <title>Approach — SAI.NZ</title>
   <meta name="description" content="How I work: coaching and advisory style, what to expect, engagement options and pricing." />
   <link rel="canonical" href="https://www.sai.nz/how/" />
   <link rel="stylesheet" href="/assets/v2/site.css" />
   <style>
-    .how-block { margin-bottom: 40px; max-width: var(--content-max); }
-    .pricing-card { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); padding: 28px 32px; margin-top: 16px; }
-    .pricing-card h3 { font-size: 1.1rem; margin: 0 0 8px 0; }
-    .pricing-card p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
-    .pricing-card .price { font-size: 0.9rem; color: var(--muted); margin-top: 12px; font-style: italic; }
-    .pricing-card.featured { border-color: var(--accent); }
+    .how-block { margin-bottom: 36px; }
+    .satellite-hero.how-hero { background-image: linear-gradient(165deg, var(--bg-alt) 0%, var(--card) 40%); }
+    html[data-theme="dark"] .satellite-hero.how-hero { background-image: linear-gradient(165deg, var(--bg-alt) 0%, var(--surface) 40%); }
     #clarity, #advisory, #projects { scroll-margin-top: 100px; }
   </style>
 </head>
@@ -27,71 +24,84 @@
   <header class="site-header">
     <div class="nav-inner">
       <a href="/v2/" class="nav-logo-link" aria-label="Home"><img src="/assets/sainz-logo.svg" alt="SAI.NZ" class="nav-logo"></a>
+      <div class="nav-priority" aria-label="Primary navigation">
+        <a href="/philosophy/">Philosophy</a>
+        <a href="/how/">Approach</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <div class="nav-theme-wrap">
+        <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-option" data-theme="light">Light</span>
+          <span class="theme-sep" aria-hidden="true">/</span>
+          <span class="theme-option" data-theme="dark">Dark</span>
+        </button>
+      </div>
       <button type="button" class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu" aria-expanded="false"><span class="nav-menu-icon"></span></button>
       <nav class="nav-links" id="navLinks">
         <a href="/v2/">Home</a>
         <a href="/philosophy/">Philosophy</a>
-        <a href="/how/">How</a>
-        <a href="/sf/">Outsourcing</a>
-        <a href="/ac/">Telephony</a>
-        <a href="/contact/">Contact</a>
-        <div class="nav-theme-wrap">
-          <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
-            <span class="theme-option" data-theme="light">Light</span>
-            <span class="theme-sep" aria-hidden="true">/</span>
-            <span class="theme-option" data-theme="dark">Dark</span>
-          </button>
+        <a href="/how/">Approach</a>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Partnerships</button>
+          <div class="nav-dropdown-content">
+            <a href="/sf/">Outsourcing</a>
+            <a href="/ac/">Telephony</a>
+          </div>
         </div>
+        <a href="/contact/">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="page-section" style="padding-top: 80px; padding-bottom: 100px;">
-    <p class="section-eyebrow">Approach</p>
-    <h1 class="section-title" style="margin-bottom: 24px;">How I work</h1>
+  <section class="satellite-hero how-hero">
+    <div class="satellite-hero-inner">
+      <p class="section-eyebrow">Approach</p>
+      <h1 class="page-title">How I work</h1>
+    </div>
+  </section>
+
+  <main class="page-section content-wide">
     <p class="section-lead">Engagements are calm, thoughtful, and grounding. People often arrive with something weighing on them and leave with clearer thinking, renewed energy, and a sense that the path forward is simpler than it first appeared.</p>
 
     <div class="how-block">
-      <h2 class="section-title" style="font-size: 1.35rem;">What to expect</h2>
+      <h2 class="section-title">What to expect</h2>
       <p class="body-text">I focus on understanding the real problem first. Through careful listening and a few well-placed questions, complexity becomes clearer. I don’t do stiff boardroom meetings by default — I prefer honest conversations where everyone can think out loud. Once the situation is understood properly, a few simple actions can often create meaningful change.</p>
       <p class="body-text muted">I work remotely or in person in Christchurch, New Zealand. I can also work with you in Spanish if that’s easier.</p>
     </div>
 
     <div class="how-block">
-      <h2 class="section-title" style="font-size: 1.35rem;">Engagement options & pricing</h2>
-      <p class="section-lead" style="margin-bottom: 0;">Pricing is transparent. These are the main ways we can work together.</p>
+      <h2 class="section-title">Engagement options & pricing</h2>
+      <p class="section-lead" style="margin-bottom: 16px;">Pricing is transparent. These are the main ways we can work together.</p>
 
-      <div class="pricing-card featured" id="clarity">
-        <h3>Clarity session</h3>
-        <p>Focused 90-minute session to surface priorities, risks, and immediate next steps. A good first step for most people.</p>
-        <p class="price">From $NZD 650 per session (or $AUD 560).</p>
-      </div>
+      <ul class="pricing-list">
+        <li id="clarity">
+          <span class="pricing-name">Clarity session</span>
+          <p class="pricing-desc">Focused 90-minute session to surface priorities, risks, and immediate next steps. A good first step for most people.</p>
+          <span class="pricing-amount">From $NZD 650 per session (or $AUD 560).</span>
+        </li>
+        <li id="advisory">
+          <span class="pricing-name">Advisory sessions</span>
+          <p class="pricing-desc">In-depth 3-hour working session for complex challenges or strategic opportunities.</p>
+          <span class="pricing-amount">From $NZD 1,300 per session (or $AUD 1,120).</span>
+        </li>
+        <li>
+          <span class="pricing-name">Strategic consulting</span>
+          <p class="pricing-desc">Hourly support when you need short, precise input on urgent or specialised matters.</p>
+          <span class="pricing-amount">From $NZD 450 per hour (or $AUD 385).</span>
+        </li>
+        <li id="projects">
+          <span class="pricing-name">Strategic projects</span>
+          <p class="pricing-desc">Defined scope, practical delivery, and measurable outcomes.</p>
+          <span class="pricing-amount">From $NZD 10,000 per project (or $AUD 8,600).</span>
+        </li>
+        <li>
+          <span class="pricing-name">Ongoing partnership</span>
+          <p class="pricing-desc">A light retainer for regular check-ins and accountability. Up to 10 hours of advisory per month included.</p>
+          <span class="pricing-amount">From $NZD 5,000 per month (or $AUD 4,300).</span>
+        </li>
+      </ul>
 
-      <div class="pricing-card" id="advisory">
-        <h3>Advisory sessions</h3>
-        <p>In-depth 3-hour working session for complex challenges or strategic opportunities.</p>
-        <p class="price">From $NZD 1,300 per session (or $AUD 1,120).</p>
-      </div>
-
-      <div class="pricing-card">
-        <h3>Strategic consulting</h3>
-        <p>Hourly support when you need short, precise input on urgent or specialised matters.</p>
-        <p class="price">From $NZD 450 per hour (or $AUD 385).</p>
-      </div>
-
-      <div class="pricing-card" id="projects">
-        <h3>Strategic projects</h3>
-        <p>Defined scope, practical delivery, and measurable outcomes.</p>
-        <p class="price">From $NZD 10,000 per project (or $AUD 8,600).</p>
-      </div>
-
-      <div class="pricing-card">
-        <h3>Ongoing partnership</h3>
-        <p>A light retainer for regular check-ins and accountability. Up to 10 hours of advisory per month included.</p>
-        <p class="price">From $NZD 5,000 per month (or $AUD 4,300).</p>
-      </div>
-
-      <p class="body-text muted" style="margin-top: 32px;">For outsourcing and partner solutions (e.g. BPO, telephony), see <a href="/sf/">Outsourcing</a> and <a href="/ac/">Telephony</a>. Pricing varies by solution.</p>
+      <p class="body-text muted" style="margin-top: 24px;">For outsourcing and partner solutions (e.g. BPO, telephony), see <a href="/sf/">Outsourcing</a> and <a href="/ac/">Telephony</a>. Pricing varies by solution.</p>
     </div>
 
     <div class="how-block">

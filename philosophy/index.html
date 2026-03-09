@@ -13,14 +13,16 @@
   <link rel="canonical" href="https://www.sai.nz/philosophy/" />
   <link rel="stylesheet" href="/assets/v2/site.css" />
   <style>
-    .phil-block { margin-bottom: 48px; max-width: var(--content-max); }
-    .phil-block h2 { font-size: 1.1rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px 0; }
-    .phil-block p { margin: 0 0 12px 0; }
-    .phil-list { list-style: none; padding: 0; margin: 16px 0 0 0; }
-    .phil-list li { padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .phil-block { margin-bottom: 36px; }
+    .phil-block h2 { font-size: 1rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px 0; }
+    .phil-block p { margin: 0 0 10px 0; }
+    .phil-list { list-style: none; padding: 0; margin: 12px 0 0 0; }
+    .phil-list li { padding: 12px 0; border-bottom: 1px solid var(--border); border-radius: var(--radius-sm); }
     .phil-list li:last-child { border-bottom: none; }
     .phil-list strong { display: block; margin-bottom: 4px; }
     .phil-list span { font-size: 0.95rem; color: var(--text-secondary); }
+    .satellite-hero.philosophy-hero { background-image: linear-gradient(135deg, var(--bg-alt) 0%, var(--card) 50%); }
+    html[data-theme="dark"] .satellite-hero.philosophy-hero { background-image: linear-gradient(135deg, var(--bg-alt) 0%, var(--surface) 50%); }
   </style>
 </head>
 <body>
@@ -28,29 +30,43 @@
   <header class="site-header">
     <div class="nav-inner">
       <a href="/v2/" class="nav-logo-link" aria-label="Home"><img src="/assets/sainz-logo.svg" alt="SAI.NZ" class="nav-logo"></a>
+      <div class="nav-priority" aria-label="Primary navigation">
+        <a href="/philosophy/">Philosophy</a>
+        <a href="/how/">Approach</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <div class="nav-theme-wrap">
+        <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-option" data-theme="light">Light</span>
+          <span class="theme-sep" aria-hidden="true">/</span>
+          <span class="theme-option" data-theme="dark">Dark</span>
+        </button>
+      </div>
       <button type="button" class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu" aria-expanded="false"><span class="nav-menu-icon"></span></button>
       <nav class="nav-links" id="navLinks">
         <a href="/v2/">Home</a>
         <a href="/philosophy/">Philosophy</a>
-        <a href="/how/">How</a>
-        <a href="/sf/">Outsourcing</a>
-        <a href="/ac/">Telephony</a>
-        <a href="/contact/">Contact</a>
-        <div class="nav-theme-wrap">
-          <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
-            <span class="theme-option" data-theme="light">Light</span>
-            <span class="theme-sep" aria-hidden="true">/</span>
-            <span class="theme-option" data-theme="dark">Dark</span>
-          </button>
+        <a href="/how/">Approach</a>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Partnerships</button>
+          <div class="nav-dropdown-content">
+            <a href="/sf/">Outsourcing</a>
+            <a href="/ac/">Telephony</a>
+          </div>
         </div>
+        <a href="/contact/">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="page-section" style="padding-top: 80px; padding-bottom: 100px;">
-    <p class="section-eyebrow">Foundation</p>
-    <h1 class="section-title" style="margin-bottom: 32px;">Philosophy</h1>
+  <section class="satellite-hero philosophy-hero">
+    <div class="satellite-hero-inner">
+      <p class="section-eyebrow">Foundation</p>
+      <h1 class="page-title">Philosophy</h1>
+    </div>
+  </section>
 
+  <main class="page-section content-wide">
     <div class="phil-block">
       <h2>Purpose</h2>
       <p class="body-text">SAI.NZ helps people see clearly, grow into their potential, and pursue meaningful work and lives.</p>
@@ -95,8 +111,7 @@
       function getPreferredTheme() {
         if (typeof window.matchMedia !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
         if (typeof window.matchMedia !== 'undefined' && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
-        var hour = new Date().getHours();
-        return (hour >= 6 && hour < 18) ? 'light' : 'dark';
+        return (new Date().getHours() >= 6 && new Date().getHours() < 18) ? 'light' : 'dark';
       }
       function applyTheme(theme) {
         root.setAttribute('data-theme', theme);
