@@ -35,7 +35,7 @@
       background-position: center;
       overflow: hidden;
     }
-    #hero .hero-inner { position: relative; z-index: 1; max-width: 560px; animation: heroFade 1.4s ease-out; }
+    #hero .hero-inner { position: relative; z-index: 1; max-width: 640px; animation: heroFade 1.4s ease-out; }
     @keyframes heroFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     html[data-theme="dark"] #hero {
       background-color: #060910;
@@ -61,31 +61,40 @@
     .recognition-block { max-width: var(--content-max); margin-top: 8px; }
     .recognition-block p { margin: 0 0 14px 0; color: var(--text-secondary); }
 
-    /* Testimonial carousel: one visible, rotate */
-    .testimonial-carousel { position: relative; min-height: 180px; margin-top: 24px; }
+    /* Proof: testimonial + known-for same proportion, smooth rotation */
+    .proof-block { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; margin-top: 24px; }
+    .proof-block .proof-card { padding: 28px 32px; background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); min-height: 200px; display: flex; flex-direction: column; }
+    .proof-block .proof-card h3 { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px 0; }
+    .testimonial-carousel { position: relative; min-height: 160px; flex: 1; }
     .testimonial-slide {
       position: absolute; left: 0; right: 0; top: 0;
-      padding: 28px 32px;
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-card);
-      font-size: 1rem;
+      padding: 0;
+      font-size: 0.9375rem;
       line-height: var(--line);
+      color: var(--text);
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
     }
     .testimonial-slide.active { position: relative; opacity: 1; visibility: visible; }
-    .testimonial-slide .t-quote { position: relative; }
-    .testimonial-slide .t-quote::before { content: '"'; position: absolute; top: -4px; left: -2px; font-size: 2rem; font-weight: 600; color: var(--accent); opacity: 0.2; font-family: Georgia, serif; }
-    .testimonial-slide .t-attribution { font-size: 0.9rem; color: var(--muted); margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); }
-
-    /* Accolades strip */
-    .accolades-strip { margin-top: 28px; padding: 20px 0; border-top: 1px solid var(--border); }
-    .accolades-inner { display: flex; align-items: center; justify-content: center; min-height: 2.5em; position: relative; }
-    .accolade-item { font-size: 0.9rem; color: var(--muted); text-align: center; opacity: 0; position: absolute; transition: opacity 0.4s ease; }
-    .accolade-item.active { position: relative; opacity: 1; }
+    .testimonial-slide .t-quote { display: block; }
+    .testimonial-slide .t-attribution { font-size: 0.85rem; color: var(--muted); margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); }
+    .known-for-carousel { position: relative; min-height: 160px; flex: 1; }
+    .known-for-item {
+      position: absolute; left: 0; right: 0; top: 0;
+      padding: 0;
+      font-size: 0.9375rem;
+      line-height: var(--line);
+      color: var(--text-secondary);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    .known-for-item.active { position: relative; opacity: 1; visibility: visible; }
+    @media (max-width: 768px) {
+      .proof-block { grid-template-columns: 1fr; gap: 20px; }
+      .proof-block .proof-card { min-height: 180px; }
+    }
 
     /* Ways to engage */
     .engage-list { list-style: none; padding: 0; margin: 20px 0 0 0; }
@@ -142,19 +151,6 @@
       <a href="/v2/" class="nav-logo-link" aria-label="Home">
         <img src="/assets/sainz-logo.svg" alt="SAI.NZ" class="nav-logo">
       </a>
-      <div class="nav-priority" aria-label="Primary navigation">
-        <a href="/philosophy/">Philosophy</a>
-        <a href="/how/">Approach</a>
-        <a href="/contact/">Contact</a>
-      </div>
-      <div class="nav-theme-wrap">
-        <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
-          <span class="theme-option" data-theme="light">Light</span>
-          <span class="theme-sep" aria-hidden="true">/</span>
-          <span class="theme-option" data-theme="dark">Dark</span>
-        </button>
-      </div>
-      <button type="button" class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu" aria-expanded="false"><span class="nav-menu-icon"></span></button>
       <nav class="nav-links" id="navLinks">
         <a href="/v2/">Home</a>
         <a href="/philosophy/">Philosophy</a>
@@ -168,6 +164,14 @@
         </div>
         <a href="/contact/">Contact</a>
       </nav>
+      <div class="nav-theme-wrap">
+        <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-option" data-theme="light">Light</span>
+          <span class="theme-sep" aria-hidden="true">/</span>
+          <span class="theme-option" data-theme="dark">Dark</span>
+        </button>
+      </div>
+      <button type="button" class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu" aria-expanded="false"><span class="nav-menu-icon"></span></button>
     </div>
   </header>
 
@@ -200,27 +204,36 @@
   </section>
 
   <section class="page-section" id="testimonials">
-    <p class="section-eyebrow">What people say</p>
-    <h2 class="section-title">Testimonials</h2>
-    <div class="testimonial-carousel" id="testimonialCarousel">
-      <blockquote class="testimonial-slide active" data-index="0">
-        <span class="t-quote">JJ is a highly effective strategist and integrator of ideas, bringing clarity and focus to complex initiatives. He has a strong ability to realign teams and drive execution, ensuring outcomes are achieved with impact.</span>
-        <span class="t-attribution">— CEO, Subscription Ventures</span>
-      </blockquote>
-      <blockquote class="testimonial-slide" data-index="1">
-        <span class="t-quote">JJ's leadership creates an environment where people feel supported, valued, and motivated to grow. Working with him has been one of the most rewarding experiences of my career.</span>
-        <span class="t-attribution">— Customer Accounts Manager, Multi-Industry Operations</span>
-      </blockquote>
-      <blockquote class="testimonial-slide" data-index="2">
-        <span class="t-quote">JJ's perceptive leadership and clear, open communication shaped how I approach my work every day. The lessons I learned under his guidance continue to influence my career.</span>
-        <span class="t-attribution">— Collections Agent, Fintech Sector</span>
-      </blockquote>
-    </div>
-    <div class="accolades-strip" id="accoladesStrip">
-      <div class="accolades-inner accolades-rotating" id="accoladesInner">
-        <span class="accolade-item active" data-index="0">Member, Business Canterbury</span>
-        <span class="accolade-item" data-index="1">Trusted by AU/NZ leaders and operators</span>
-        <span class="accolade-item" data-index="2">Clarity-first advisory</span>
+    <p class="section-eyebrow">Proof</p>
+    <h2 class="section-title">What people say &amp; what I’m known for</h2>
+    <div class="proof-block">
+      <div class="proof-card">
+        <h3>What people say</h3>
+        <div class="testimonial-carousel" id="testimonialCarousel">
+          <blockquote class="testimonial-slide active" data-index="0">
+            <span class="t-quote">JJ is a highly effective strategist and integrator of ideas, bringing clarity and focus to complex initiatives. He has a strong ability to realign teams and drive execution, ensuring outcomes are achieved with impact.</span>
+            <span class="t-attribution">— CEO, Subscription Ventures</span>
+          </blockquote>
+          <blockquote class="testimonial-slide" data-index="1">
+            <span class="t-quote">JJ's leadership creates an environment where people feel supported, valued, and motivated to grow. Working with him has been one of the most rewarding experiences of my career.</span>
+            <span class="t-attribution">— Customer Accounts Manager, Multi-Industry Operations</span>
+          </blockquote>
+          <blockquote class="testimonial-slide" data-index="2">
+            <span class="t-quote">JJ's perceptive leadership and clear, open communication shaped how I approach my work every day. The lessons I learned under his guidance continue to influence my career.</span>
+            <span class="t-attribution">— Collections Agent, Fintech Sector</span>
+          </blockquote>
+        </div>
+      </div>
+      <div class="proof-card">
+        <h3>What I’m known for</h3>
+        <div class="known-for-carousel" id="knownForCarousel">
+          <p class="known-for-item active" data-index="0">Recognised as Executive of the Year, 2024.</p>
+          <p class="known-for-item" data-index="1">Guided multiple leaders into senior roles through tailored coaching and mentoring.</p>
+          <p class="known-for-item" data-index="2">Known for building teams with near-zero attrition by creating clarity and trust.</p>
+          <p class="known-for-item" data-index="3">Delivered $500K+ in savings through structural clarity and execution within FY2024.</p>
+          <p class="known-for-item" data-index="4">Rated Outstanding Performance, MBIE, 2018.</p>
+          <p class="known-for-item" data-index="5">Business Canterbury Member.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -314,24 +327,21 @@
       }
 
       var slides = document.querySelectorAll('.testimonial-slide');
-      var accoladeItems = document.querySelectorAll('#accoladesInner .accolade-item');
-      if (slides.length) {
-        var idx = 0;
-        function rotateTestimonial() {
+      var knownForItems = document.querySelectorAll('.known-for-item');
+      var tick = 0;
+      function rotateProof() {
+        if (slides.length) {
           slides.forEach(function(s) { s.classList.remove('active'); });
-          slides[idx].classList.add('active');
-          idx = (idx + 1) % slides.length;
+          slides[tick % slides.length].classList.add('active');
         }
-        setInterval(rotateTestimonial, 4500);
+        if (knownForItems.length) {
+          knownForItems.forEach(function(k) { k.classList.remove('active'); });
+          knownForItems[tick % knownForItems.length].classList.add('active');
+        }
+        tick++;
       }
-      if (accoladeItems.length) {
-        var aIdx = 0;
-        function rotateAccolade() {
-          accoladeItems.forEach(function(a) { a.classList.remove('active'); });
-          accoladeItems[aIdx].classList.add('active');
-          aIdx = (aIdx + 1) % accoladeItems.length;
-        }
-        setInterval(rotateAccolade, 4000);
+      if (slides.length || knownForItems.length) {
+        setInterval(rotateProof, 4500);
       }
     })();
   </script>
