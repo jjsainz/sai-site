@@ -367,21 +367,29 @@
 
       var slides = document.querySelectorAll('.testimonial-slide');
       var knownForItems = document.querySelectorAll('.known-for-item');
-      var tick = 0;
-      function rotateProof() {
-        if (slides.length) {
-          slides.forEach(function(s) { s.classList.remove('active'); });
-          slides[tick % slides.length].classList.add('active');
-        }
-        if (knownForItems.length) {
-          knownForItems.forEach(function(k) { k.classList.remove('active'); });
-          knownForItems[tick % knownForItems.length].classList.add('active');
-        }
-        tick++;
+
+      function rotateTestimonial() {
+        if (!slides.length) return;
+        var current = document.querySelector('.testimonial-slide.active');
+        var idx = 0;
+        for (var i = 0; i < slides.length; i++) { if (slides[i] === current) { idx = i; break; } }
+        var next = (idx + 1) % slides.length;
+        slides.forEach(function(s) { s.classList.remove('active'); });
+        slides[next].classList.add('active');
       }
-      if (slides.length || knownForItems.length) {
-        setInterval(rotateProof, 4500);
+
+      function rotateKnownFor() {
+        if (!knownForItems.length) return;
+        var current = document.querySelector('.known-for-item.active');
+        var idx = 0;
+        for (var i = 0; i < knownForItems.length; i++) { if (knownForItems[i] === current) { idx = i; break; } }
+        var next = (idx + 1) % knownForItems.length;
+        knownForItems.forEach(function(k) { k.classList.remove('active'); });
+        knownForItems[next].classList.add('active');
       }
+
+      if (slides.length) setInterval(rotateTestimonial, 7000);
+      if (knownForItems.length) setTimeout(function() { setInterval(rotateKnownFor, 7000); }, 3500);
     })();
   </script>
 </body>
