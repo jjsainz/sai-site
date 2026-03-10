@@ -293,15 +293,15 @@ a:hover { opacity: 0.88; }
   letter-spacing: -0.02em;
 }
 .section-eyebrow {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
 }
 .section-title {
-  font-size: 1.65rem;
+  font-size: 2rem;
   font-weight: 600;
   color: var(--text);
   margin: 0 0 12px 0;
@@ -309,14 +309,14 @@ a:hover { opacity: 0.88; }
   letter-spacing: -0.02em;
 }
 .section-lead {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--text-secondary);
   margin: 0 0 14px 0;
   max-width: var(--content-max);
   line-height: var(--line);
 }
 .body-text {
-  font-size: 0.8125rem;
+  font-size: 0.8rem;
   color: var(--text);
   line-height: var(--line);
   margin: 0 0 12px 0;
@@ -363,6 +363,7 @@ html[data-theme="light"] .satellite-hero::before {
 .satellite-hero-inner { position: relative; z-index: 1; }
 .satellite-hero .section-eyebrow { margin-bottom: 8px; }
 .satellite-hero .page-title { margin-bottom: 0; font-size: 2.25rem; }
+.proof-block .proof-card h3 { font-size: 0.6rem; }
 
 /* Buttons */
 .btn-primary {
@@ -451,8 +452,8 @@ html[data-theme="light"] .satellite-hero::before {
   border: 1px solid var(--card-border);
 }
 .pricing-list li:last-child { margin-bottom: 0; }
-.pricing-list .pricing-name { font-weight: 600; font-size: 0.8125rem; margin-bottom: 4px; }
-.pricing-list .pricing-desc { font-size: 0.75rem; color: var(--text-secondary); margin: 0 0 6px 0; }
+.pricing-list .pricing-name { font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; }
+.pricing-list .pricing-desc { font-size: 0.8rem; color: var(--text-secondary); margin: 0 0 6px 0; }
 .pricing-list .pricing-amount { font-size: 0.75rem; color: var(--muted); font-style: italic; }
 
 /* ========== MOBILE ========== */
@@ -486,6 +487,11 @@ html[data-theme="light"] .satellite-hero::before {
     visibility: visible;
     pointer-events: auto;
   }
+  /* Keep header bar (logo, priority links, theme, menu button) above overlay so menu button stays visible */
+  .nav-logo-link,
+  .nav-priority,
+  .nav-theme-wrap,
+  .nav-menu-btn { position: relative; z-index: 101; }
   /* Partnerships as grouped item: label + sub-links */
   .nav-links .nav-dropdown { display: block; width: 100%; }
   .nav-links .nav-dropdown-trigger {
@@ -533,9 +539,9 @@ html[data-theme="light"] .satellite-hero::before {
   .nav-menu-btn { display: flex; }
   .page-section { padding: 56px 20px; }
   .page-title { font-size: 1.85rem; }
-  .section-title { font-size: 1.4rem; }
-  .section-lead { font-size: 0.875rem; }
-  .body-text { font-size: 0.8125rem; }
+  .section-title { font-size: 1.6rem; }
+  .section-lead { font-size: 0.9375rem; }
+  .body-text { font-size: 0.8rem; }
   .sainz-form input,
   .sainz-form textarea { min-height: 48px; }
   .satellite-hero { min-height: 160px; padding: 36px 20px; }
@@ -558,12 +564,12 @@ html[data-theme="light"] .satellite-hero::before {
 .sf-hero { padding: 24px 0; }
 .sf-hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: start; }
 .sf-hero h1 { font-size: clamp(1.75rem, 2.5vw, 2.5rem); font-weight: 600; line-height: 1.25; margin: 0 0 14px 0; color: var(--text); letter-spacing: -0.02em; }
-.sf-hero .hero-subhead { font-size: 0.9375rem; line-height: 1.4; margin: 0 0 14px 0; max-width: 62ch; font-weight: 600; color: var(--text-secondary); }
-.sf-hero .body-copy { font-size: 0.875rem; line-height: var(--line); margin: 0 0 16px 0; max-width: 72ch; color: var(--text-secondary); }
-.sf-hero .subhead { font-size: 0.875rem; font-weight: 600; margin: 28px 0 8px 0; color: var(--text); }
+.sf-hero .hero-subhead { font-size: 1rem; line-height: 1.4; margin: 0 0 14px 0; max-width: 62ch; font-weight: 600; color: var(--text-secondary); }
+.sf-hero .body-copy { font-size: 0.8rem; line-height: var(--line); margin: 0 0 16px 0; max-width: 72ch; color: var(--text-secondary); }
+.sf-hero .subhead { font-size: 0.9rem; font-weight: 600; margin: 28px 0 8px 0; color: var(--text); }
 .sf-card { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); padding: 28px 32px; box-shadow: var(--shadow-card); }
-.sf-card h2 { font-size: 1rem; margin: 0 0 10px 0; color: var(--text); }
-.sf-card p { margin: 0 0 14px 0; font-size: 0.875rem; color: var(--text-secondary); }
+.sf-card h2 { font-size: 1.1rem; margin: 0 0 10px 0; color: var(--text); }
+.sf-card p { margin: 0 0 14px 0; font-size: 0.8rem; color: var(--text-secondary); }
 .sf-card label { display: block; font-size: 0.88rem; font-weight: 500; color: var(--text-secondary); margin: 14px 0 6px 0; }
 .sf-card input, .sf-card select, .sf-card textarea { width: 100%; padding: 12px 14px; font-size: 1rem; border: 1px solid var(--input-border); border-radius: var(--radius); background: var(--input-bg); color: var(--text); outline: none; }
 .sf-card input:focus, .sf-card select:focus, .sf-card textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-focus); }
