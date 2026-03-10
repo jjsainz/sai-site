@@ -51,6 +51,12 @@
     .hero-ctas { display: flex; flex-direction: column; align-items: center; gap: 0; }
     .hero-ctas .btn-primary { min-height: 48px; }
 
+    /* Homepage-specific spacing overrides */
+    .home-page .page-section { padding: 28px 32px; }
+    .home-page .body-text { margin-bottom: 10px; }
+    .home-page .section-title { margin-bottom: 6px; }
+    .home-page .section-eyebrow { margin-bottom: 4px; }
+
     /* Light theme hero: stronger overlay for readability */
     html[data-theme="light"] #hero { background-color: #1e293b; }
     html[data-theme="light"] #hero .hero-title,
@@ -63,7 +69,7 @@
     }
 
     /* Proof: testimonial + known-for, artifact-free rotation */
-    .proof-block { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: stretch; margin-top: 4px; }
+    .proof-block { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: stretch; margin-top: 0; }
     .proof-block .proof-card { padding: 18px 20px; background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); min-height: 136px; display: flex; flex-direction: column; }
     .proof-block .proof-card h3 { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px 0; }
     .testimonial-carousel { position: relative; min-height: 112px; flex: 1; contain: layout style; }
@@ -104,6 +110,9 @@
     }
 
     /* Ways to engage */
+    #ways-to-engage {
+      margin-top: 8px;
+    }
     .engage-list { list-style: none; padding: 0; margin: 10px 0 0 0; }
     .engage-list li { padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
     .engage-list li:last-child { border-bottom: none; }
