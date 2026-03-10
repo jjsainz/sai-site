@@ -62,10 +62,10 @@
     .recognition-block p { margin: 0 0 14px 0; color: var(--text-secondary); }
 
     /* Proof: testimonial + known-for, artifact-free rotation */
-    .proof-block { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; margin-top: 20px; }
-    .proof-block .proof-card { padding: 28px 32px; background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); min-height: 200px; display: flex; flex-direction: column; }
-    .proof-block .proof-card h3 { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px 0; }
-    .testimonial-carousel { position: relative; min-height: 160px; flex: 1; contain: layout style; }
+    .proof-block { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch; margin-top: 16px; }
+    .proof-block .proof-card { padding: 24px 28px; background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); min-height: 180px; display: flex; flex-direction: column; }
+    .proof-block .proof-card h3 { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px 0; }
+    .testimonial-carousel { position: relative; min-height: 140px; flex: 1; contain: layout style; }
     .testimonial-slide {
       position: absolute; left: 0; right: 0; top: 0;
       padding: 0; margin: 0;
@@ -80,7 +80,7 @@
     .testimonial-slide.active { position: relative; opacity: 1; visibility: visible; }
     .testimonial-slide .t-quote { display: block; }
     .testimonial-slide .t-attribution { font-size: 0.8125rem; color: var(--muted); margin-top: 10px; padding-top: 8px; border-top: none; }
-    .known-for-carousel { position: relative; min-height: 160px; flex: 1; contain: layout style; }
+    .known-for-carousel { position: relative; min-height: 140px; flex: 1; contain: layout style; }
     .known-for-item {
       position: absolute; left: 0; right: 0; top: 0;
       padding: 0; margin: 0;
@@ -94,20 +94,21 @@
     }
     .known-for-item.active { position: relative; opacity: 1; visibility: visible; }
     @media (max-width: 768px) {
-      .proof-block { grid-template-columns: 1fr; gap: 16px; margin-top: 16px; }
-      .proof-block .proof-card { min-height: 160px; padding: 18px 20px; }
-      .testimonial-carousel, .known-for-carousel { min-height: 140px; }
+      .proof-block { grid-template-columns: 1fr; gap: 14px; margin-top: 14px; }
+      .proof-block .proof-card { min-height: 0; padding: 16px 18px; }
+      .testimonial-carousel { min-height: 120px; }
+      .known-for-carousel { min-height: 4em; }
     }
 
     /* Ways to engage */
-    .engage-list { list-style: none; padding: 0; margin: 20px 0 0 0; }
-    .engage-list li { padding: 14px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+    .engage-list { list-style: none; padding: 0; margin: 16px 0 0 0; }
+    .engage-list li { padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
     .engage-list li:last-child { border-bottom: none; }
     .engage-list a { border: none; font-weight: 500; }
 
     /* Invitation + form */
-    #invitation { background: var(--card); border-top: 1px solid var(--border); padding: 72px 32px; }
-    .invitation-form { max-width: 480px; margin: 28px auto 0; padding: 36px 32px; background: var(--bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); }
+    #invitation { background: var(--card); border-top: 1px solid var(--border); padding: 56px 32px; }
+    .invitation-form { max-width: 480px; margin: 24px auto 0; padding: 28px 28px; background: var(--bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); }
 
     /* Floating CTA */
     .floating-cta {
