@@ -35,7 +35,7 @@
       background-position: center;
       overflow: hidden;
     }
-    #hero .hero-inner { position: relative; z-index: 1; max-width: 860px; animation: heroFade 1.4s ease-out; }
+    #hero .hero-inner { position: relative; z-index: 1; max-width: 920px; animation: heroFade 1.4s ease-out; }
     @keyframes heroFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     html[data-theme="dark"] #hero {
       background-color: #060910;
@@ -45,9 +45,9 @@
         url('/assets/v2/hero-dark.jpg'),
         linear-gradient(180deg, #0A0E16 0%, #060910 100%);
     }
-    .hero-title { font-size: 4rem; font-weight: 600; margin: 0 0 24px 0; letter-spacing: -0.03em; line-height: 1.05; color: var(--text); text-shadow: 0 2px 8px rgba(0,0,0,0.25); }
-    .hero-slogan { font-size: 1.65rem; font-weight: 500; margin: 0 0 34px 0; color: var(--text); opacity: 0.98; text-shadow: 0 2px 6px rgba(0,0,0,0.2); }
-    .hero-support { font-size: 1.18rem; color: var(--text-secondary); margin: 0 0 56px 0; max-width: 760px; margin-left: auto; margin-right: auto; line-height: 1.75; text-shadow: 0 1px 4px rgba(0,0,0,0.2); }
+    .hero-title { font-size: 4.35rem; font-weight: 600; margin: 0 0 28px 0; letter-spacing: -0.03em; line-height: 1.03; color: var(--text); text-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+    .hero-slogan { font-size: 1.8rem; font-weight: 500; margin: 0 0 42px 0; color: var(--text); opacity: 0.98; text-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+    .hero-support { font-size: 1.2rem; color: var(--text-secondary); margin: 0 0 64px 0; max-width: 780px; margin-left: auto; margin-right: auto; line-height: 1.8; text-shadow: 0 1px 4px rgba(0,0,0,0.2); }
     .hero-ctas { display: flex; flex-direction: column; align-items: center; gap: 0; }
     .hero-ctas .btn-primary { min-height: 48px; }
 
@@ -57,14 +57,34 @@
     .home-page .section-title { margin-bottom: 6px; }
     .home-page .section-eyebrow { margin-bottom: 4px; }
 
-    /* Proof/testimonials: align with section rhythm horizontally */
+    /* Proof/testimonials: same content width and alignment as other sections */
     .home-page #testimonials {
+      max-width: var(--grid-max);
+      margin-left: auto;
+      margin-right: auto;
       padding-left: 32px;
       padding-right: 32px;
+      box-sizing: border-box;
     }
 
     .home-page #testimonials .proof-block {
-      max-width: none;
+      max-width: 100%;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .home-page #testimonials {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .home-page #testimonials {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
     }
 
     /* Light theme hero: stronger overlay for readability */
@@ -209,7 +229,7 @@
     <div class="hero-inner">
       <h1 class="hero-title">JJ Sainz</h1>
       <p class="hero-slogan">Helping people see clearly when it matters most.</p>
-      <p class="hero-support">For people building something meaningful who value clear thinking, honest perspective, and a trusted sounding board. When something important needs thinking through, a calm conversation can make the path forward clearer.</p>
+      <p class="hero-support">For people building something meaningful who value clear thinking, honest perspective, and a trusted sounding board. When something important needs thinking through, a calm conversation often makes the path forward clearer.</p>
       <div class="hero-ctas">
         <a href="#invitation" class="btn-primary">Start a conversation</a>
       </div>
@@ -221,7 +241,7 @@
   <section class="page-section" id="what-i-do" style="background: var(--bg-alt); border-top: 1px solid var(--border);">
     <h2 class="section-title">Thinking through what matters</h2>
     <p class="section-eyebrow">What I do</p>
-    <p class="body-text">I help people think through important decisions. Mostly, that means helping them see things clearly when something important needs thinking through. Sometimes people simply need someone to help them hear their own thinking more clearly.</p>
+    <p class="body-text">I help people think through important decisions. Often that simply means helping them see a situation clearly when something important needs thinking through. Sometimes people simply need someone to help them hear their own thinking more clearly.</p>
     <p class="body-text">I focus on understanding the real problem first. Through careful listening and a few well-placed questions, complexity becomes clearer. Once the situation is understood properly, a few simple actions can often create meaningful change.</p>
   </section>
 
@@ -261,7 +281,7 @@
   <section class="page-section" id="ways-to-engage" style="background: var(--bg-alt); border-top: 1px solid var(--border);">
     <h2 class="section-title">Where to start</h2>
     <p class="section-eyebrow">Ways to engage</p>
-    <p class="section-lead">I keep things simple. A clarity session is often the best place to start. For ongoing support or deeper work, we can shape something that fits.</p>
+    <p class="section-lead">I keep things simple. A clarity session is often the best place to start. One focused conversation can usually reveal the real problem and the most sensible next step. For ongoing support or deeper work, we can shape something that fits.</p>
     <ul class="engage-list">
       <li><span>Clarity session</span> <a href="/how/#clarity">See options</a></li>
       <li><span>Ongoing advisory</span> <a href="/how/#advisory">See options</a></li>
@@ -272,7 +292,7 @@
   <section class="page-section" id="invitation">
     <h2 class="section-title">Start a conversation</h2>
     <p class="section-eyebrow">Get in touch</p>
-    <p class="section-lead">If something important needs thinking through, reach out. I respond to every message and will suggest a time for a no obligation conversation.</p>
+    <p class="section-lead">If something important needs thinking through, reach out. I respond to every message and will suggest a time for a no-obligation conversation.</p>
     <form class="invitation-form sainz-form" name="contact" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field">
       <p style="display:none;"><input type="hidden" name="form-name" value="contact"><label>Don’t fill this: <input name="bot-field"></label></p>
       <label for="v2-name">Name</label>
@@ -280,7 +300,7 @@
       <label for="v2-email">Email</label>
       <input type="email" name="email" id="v2-email" required>
       <label for="v2-message">Message</label>
-      <textarea name="message" id="v2-message" rows="4" required placeholder="A short note is enough."></textarea>
+      <textarea name="message" id="v2-message" rows="4" required></textarea>
       <button type="submit">Send</button>
     </form>
   </section>
