@@ -17,7 +17,7 @@
   <meta property="og:type" content="website" />
   <link rel="stylesheet" href="/assets/v2/site.css" />
   <style>
-    /* Hero — homepage */
+    /* Hero — v2 homepage only */
     #hero {
       position: relative;
       min-height: 70vh;
@@ -35,7 +35,7 @@
       background-position: center;
       overflow: hidden;
     }
-    #hero .hero-inner { position: relative; z-index: 1; max-width: 640px; animation: heroFade 1.4s ease-out; }
+    #hero .hero-inner { position: relative; z-index: 1; max-width: 920px; animation: heroFade 1.4s ease-out; }
     @keyframes heroFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     html[data-theme="dark"] #hero {
       background-color: #060910;
@@ -45,24 +45,64 @@
         url('/assets/v2/hero-dark.jpg'),
         linear-gradient(180deg, #0A0E16 0%, #060910 100%);
     }
-    .hero-title { font-size: 2.75rem; font-weight: 600; margin: 0 0 14px 0; letter-spacing: -0.03em; line-height: 1.1; color: var(--text); text-shadow: 0 2px 8px rgba(0,0,0,0.25); }
-    .hero-slogan { font-size: 1.15rem; font-weight: 500; margin: 0 0 18px 0; color: var(--text); opacity: 0.98; text-shadow: 0 2px 6px rgba(0,0,0,0.2); }
-    .hero-support { font-size: 0.9375rem; color: var(--text-secondary); margin: 0 0 32px 0; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.5; text-shadow: 0 1px 4px rgba(0,0,0,0.2); }
+    .hero-title { font-size: 4.35rem; font-weight: 600; margin: 0 0 28px 0; letter-spacing: -0.03em; line-height: 1.03; color: var(--text); text-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+    .hero-slogan { font-size: 1.8rem; font-weight: 500; margin: 0 0 42px 0; color: var(--text); opacity: 0.98; text-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+    .hero-support { font-size: 1.2rem; color: var(--text-secondary); margin: 0 0 64px 0; max-width: 780px; margin-left: auto; margin-right: auto; line-height: 1.8; text-shadow: 0 1px 4px rgba(0,0,0,0.2); }
     .hero-ctas { display: flex; flex-direction: column; align-items: center; gap: 0; }
     .hero-ctas .btn-primary { min-height: 48px; }
 
+    /* Homepage-specific spacing overrides */
+    .home-page .page-section { padding: 14px 32px; }
+    .home-page .body-text { margin-bottom: 6px; }
+    .home-page .section-title { margin-bottom: 6px; }
+    .home-page .section-eyebrow { margin-bottom: 4px; }
+
+    /* Proof/testimonials: same content width and alignment as other sections */
+    .home-page #testimonials {
+      max-width: var(--grid-max);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 32px;
+      padding-right: 32px;
+      box-sizing: border-box;
+    }
+
+    .home-page #testimonials .proof-block {
+      max-width: 100%;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .home-page #testimonials {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .home-page #testimonials {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+
+    /* Light theme hero: stronger overlay for readability */
     html[data-theme="light"] #hero { background-color: #1e293b; }
     html[data-theme="light"] #hero .hero-title,
     html[data-theme="light"] #hero .hero-slogan { color: #f8fafc; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
     html[data-theme="light"] #hero .hero-support { color: #e2e8f0; text-shadow: 0 1px 4px rgba(0,0,0,0.35); }
 
-    .recognition-block { margin-top: 8px; }
-    .recognition-block p { margin: 0 0 14px 0; color: var(--text-secondary); }
+    /* Section rhythm tightening */
+    .page-section + .page-section {
+      margin-top: 0;
+    }
 
-    .proof-block { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; margin-top: 20px; }
-    .proof-block .proof-card { padding: 28px 32px; background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); min-height: 200px; display: flex; flex-direction: column; }
-    .proof-block .proof-card h3 { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px 0; }
-    .testimonial-carousel { position: relative; min-height: 160px; flex: 1; contain: layout style; }
+    /* Proof: testimonial + known-for, artifact-free rotation */
+    .proof-block { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: stretch; margin-top: 0; width: 100%; }
+    .proof-block .proof-card { padding: 10px 12px; background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); min-height: 88px; display: flex; flex-direction: column; }
+    .proof-block .proof-card h3 { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px 0; }
+    .testimonial-carousel { position: relative; min-height: 84px; flex: 1; contain: layout style; }
     .testimonial-slide {
       position: absolute; left: 0; right: 0; top: 0;
       padding: 0; margin: 0;
@@ -76,8 +116,8 @@
     }
     .testimonial-slide.active { position: relative; opacity: 1; visibility: visible; }
     .testimonial-slide .t-quote { display: block; }
-    .testimonial-slide .t-attribution { font-size: 0.8125rem; color: var(--muted); margin-top: 10px; padding-top: 8px; border-top: none; }
-    .known-for-carousel { position: relative; min-height: 160px; flex: 1; contain: layout style; }
+    .testimonial-slide .t-attribution { font-size: 0.8125rem; color: var(--muted); margin-top: 8px; padding-top: 6px; border-top: none; }
+    .known-for-carousel { position: relative; min-height: 68px; flex: 1; contain: layout style; }
     .known-for-item {
       position: absolute; left: 0; right: 0; top: 0;
       padding: 0; margin: 0;
@@ -91,19 +131,28 @@
     }
     .known-for-item.active { position: relative; opacity: 1; visibility: visible; }
     @media (max-width: 768px) {
-      .proof-block { grid-template-columns: 1fr; gap: 16px; margin-top: 16px; }
-      .proof-block .proof-card { min-height: 160px; padding: 18px 20px; }
-      .testimonial-carousel, .known-for-carousel { min-height: 140px; }
+      .proof-block { grid-template-columns: 1fr; gap: 8px; margin-top: 6px; }
+      .proof-block .proof-card { min-height: 0; padding: 10px 12px; }
+      .proof-block .proof-card h3 { margin-bottom: 6px; }
+      .testimonial-carousel { min-height: 100px; }
+      .known-for-carousel { min-height: 3em; }
+      .known-for-item, .testimonial-slide { font-size: 0.8125rem; }
     }
 
-    .engage-list { list-style: none; padding: 0; margin: 20px 0 0 0; }
-    .engage-list li { padding: 14px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+    /* Ways to engage */
+    #ways-to-engage {
+      margin-top: 8px;
+    }
+    .engage-list { list-style: none; padding: 0; margin: 6px 0 0 0; }
+    .engage-list li { padding: 6px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
     .engage-list li:last-child { border-bottom: none; }
     .engage-list a { border: none; font-weight: 500; }
 
-    #invitation { background: var(--card); border-top: 1px solid var(--border); padding: 72px 32px; }
-    .invitation-form { max-width: 480px; margin: 28px auto 0; padding: 36px 32px; background: var(--bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); }
+    /* Invitation + form */
+    #invitation { background: var(--card); border-top: 1px solid var(--border); padding: 18px 32px; }
+    .invitation-form { max-width: 480px; margin: 8px auto 0; padding: 14px 16px; background: var(--bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); }
 
+    /* Floating CTA */
     .floating-cta {
       position: fixed;
       bottom: 24px;
@@ -126,11 +175,11 @@
     .floating-cta:hover { background: var(--accent-hover); color: var(--btn-text); }
 
     @media (max-width: 768px) {
-      #hero { min-height: 65vh; padding: 64px 20px 80px; }
-      .hero-title { font-size: 2.15rem; }
-      .hero-slogan { font-size: 1.1rem; }
-      .hero-support { font-size: 0.95rem; }
-      .invitation-form { padding: 24px 20px; }
+      #hero { min-height: 65vh; padding: 64px 20px 72px; }
+      .hero-title { font-size: 2.45rem; }
+      .hero-slogan { font-size: 1.2rem; margin: 0 0 20px 0; }
+      .hero-support { font-size: 1.02rem; line-height: 1.68; margin: 0 0 34px 0; }
+      .invitation-form { padding: 20px 18px; }
       .floating-cta { left: 20px; right: 20px; bottom: 20px; transform: translateY(80px); }
       .floating-cta.visible { transform: translateY(0); }
     }
@@ -142,7 +191,6 @@
   </style>
 </head>
 <body class="home-page">
-  <p class="site-refresh-banner" role="status">Site refresh in progress — some sections are still being refined.</p>
   <header class="site-header">
     <div class="nav-inner">
       <a href="/" class="nav-logo-link" aria-label="Home">
@@ -180,7 +228,7 @@
     <div class="hero-inner">
       <h1 class="hero-title">JJ Sainz</h1>
       <p class="hero-slogan">Helping people see clearly when it matters most.</p>
-      <p class="hero-support">For people building something meaningful who value clear thinking, honest perspective, and a trusted sounding board.</p>
+      <p class="hero-support">For people building something meaningful who value clear thinking, honest perspective, and a trusted sounding board. When something important needs thinking through, a calm conversation often makes the path forward clearer.</p>
       <div class="hero-ctas">
         <a href="#invitation" class="btn-primary">Start a conversation</a>
       </div>
@@ -189,18 +237,10 @@
 
   <a href="#invitation" class="floating-cta" id="floatingCta" aria-label="Start a conversation">Start a conversation</a>
 
-  <section class="page-section" id="recognition">
-    <p class="section-eyebrow">Who it’s for</p>
-    <h2 class="section-title">Built for people who value clarity</h2>
-    <div class="recognition-block">
-      <p class="section-lead" style="margin-bottom: 0;">SAI.NZ is for people building something meaningful who want a trusted sounding board. When something important needs thinking through — a decision, a direction, or a knotty problem — a calm conversation can make the path forward clearer.</p>
-    </div>
-  </section>
-
   <section class="page-section" id="what-i-do" style="background: var(--bg-alt); border-top: 1px solid var(--border);">
-    <p class="section-eyebrow">What I do</p>
     <h2 class="section-title">Thinking through what matters</h2>
-    <p class="body-text">I help people think through important decisions. Mostly I help people see things clearly when something important needs thinking through. Sometimes people simply need someone to help them hear their own thinking more clearly.</p>
+    <p class="section-eyebrow">What I do</p>
+    <p class="body-text">I help people think through important decisions. Often that simply means helping them see a situation clearly when something important needs thinking through. Sometimes people simply need someone to help them hear their own thinking more clearly.</p>
     <p class="body-text">I focus on understanding the real problem first. Through careful listening and a few well-placed questions, complexity becomes clearer. Once the situation is understood properly, a few simple actions can often create meaningful change.</p>
   </section>
 
@@ -224,7 +264,7 @@
         </div>
       </div>
       <div class="proof-card">
-        <h3>What I’m known for</h3>
+        <h3>What I'm known for</h3>
         <div class="known-for-carousel" id="knownForCarousel">
           <p class="known-for-item active" data-index="0">Recognised as Executive of the Year, 2024.</p>
           <p class="known-for-item" data-index="1">Guided multiple leaders into senior roles through tailored coaching and mentoring.</p>
@@ -238,9 +278,9 @@
   </section>
 
   <section class="page-section" id="ways-to-engage" style="background: var(--bg-alt); border-top: 1px solid var(--border);">
-    <p class="section-eyebrow">Ways to engage</p>
     <h2 class="section-title">Where to start</h2>
-    <p class="section-lead">I keep things simple. A clarity session is often the best first step. For ongoing support or deeper work, we can shape something that fits.</p>
+    <p class="section-eyebrow">Ways to engage</p>
+    <p class="section-lead">I keep things simple. A clarity session is often the best place to start. One focused conversation can usually reveal the real problem and the most sensible next step. For ongoing support or deeper work, we can shape something that fits.</p>
     <ul class="engage-list">
       <li><span>Clarity session</span> <a href="/how/#clarity">See options</a></li>
       <li><span>Ongoing advisory</span> <a href="/how/#advisory">See options</a></li>
@@ -249,17 +289,17 @@
   </section>
 
   <section class="page-section" id="invitation">
-    <p class="section-eyebrow">Get in touch</p>
     <h2 class="section-title">Start a conversation</h2>
+    <p class="section-eyebrow">Get in touch</p>
     <p class="section-lead">If something important needs thinking through, reach out. I respond to every message and will suggest a time for a no-obligation conversation.</p>
     <form class="invitation-form sainz-form" name="contact" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field">
-      <p style="display:none;"><input type="hidden" name="form-name" value="contact"><label>Don’t fill this: <input name="bot-field"></label></p>
-      <label for="home-name">Name</label>
-      <input type="text" name="name" id="home-name" required>
-      <label for="home-email">Email</label>
-      <input type="email" name="email" id="home-email" required>
-      <label for="home-message">Message</label>
-      <textarea name="message" id="home-message" rows="4" required placeholder="A short note is enough."></textarea>
+      <p style="display:none;"><input type="hidden" name="form-name" value="contact"><label>Don't fill this: <input name="bot-field"></label></p>
+      <label for="v2-name">Name</label>
+      <input type="text" name="name" id="v2-name" required>
+      <label for="v2-email">Email</label>
+      <input type="email" name="email" id="v2-email" required>
+      <label for="v2-message">Message</label>
+      <textarea name="message" id="v2-message" rows="4" required></textarea>
       <button type="submit">Send</button>
     </form>
   </section>
