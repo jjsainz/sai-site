@@ -35,7 +35,7 @@
       background-position: center;
       overflow: hidden;
     }
-    #hero .hero-inner { position: relative; z-index: 1; max-width: 640px; animation: heroFade 1.4s ease-out; }
+    #hero .hero-inner { position: relative; z-index: 1; max-width: 720px; animation: heroFade 1.4s ease-out; }
     @keyframes heroFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     html[data-theme="dark"] #hero {
       background-color: #060910;
@@ -47,7 +47,7 @@
     }
     .hero-title { font-size: 2.75rem; font-weight: 600; margin: 0 0 14px 0; letter-spacing: -0.03em; line-height: 1.1; color: var(--text); text-shadow: 0 2px 8px rgba(0,0,0,0.25); }
     .hero-slogan { font-size: 1.15rem; font-weight: 500; margin: 0 0 18px 0; color: var(--text); opacity: 0.98; text-shadow: 0 2px 6px rgba(0,0,0,0.2); }
-    .hero-support { font-size: 0.9375rem; color: var(--text-secondary); margin: 0 0 32px 0; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.5; text-shadow: 0 1px 4px rgba(0,0,0,0.2); }
+    .hero-support { font-size: 0.98rem; color: var(--text-secondary); margin: 0 0 40px 0; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.65; text-shadow: 0 1px 4px rgba(0,0,0,0.2); }
     .hero-ctas { display: flex; flex-direction: column; align-items: center; gap: 0; }
     .hero-ctas .btn-primary { min-height: 48px; }
 
@@ -57,12 +57,13 @@
     html[data-theme="light"] #hero .hero-slogan { color: #f8fafc; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
     html[data-theme="light"] #hero .hero-support { color: #e2e8f0; text-shadow: 0 1px 4px rgba(0,0,0,0.35); }
 
-    /* Recognition — calmer block */
-    .recognition-block { margin-top: 4px; }
-    .recognition-block p { margin: 0 0 8px 0; color: var(--text-secondary); }
+    /* Section rhythm tightening */
+    .page-section + .page-section {
+      margin-top: 0;
+    }
 
     /* Proof: testimonial + known-for, artifact-free rotation */
-    .proof-block { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: stretch; margin-top: 8px; }
+    .proof-block { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: stretch; margin-top: 4px; }
     .proof-block .proof-card { padding: 18px 20px; background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); min-height: 136px; display: flex; flex-direction: column; }
     .proof-block .proof-card h3 { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px 0; }
     .testimonial-carousel { position: relative; min-height: 112px; flex: 1; contain: layout style; }
@@ -109,8 +110,8 @@
     .engage-list a { border: none; font-weight: 500; }
 
     /* Invitation + form */
-    #invitation { background: var(--card); border-top: 1px solid var(--border); padding: 40px 32px; }
-    .invitation-form { max-width: 480px; margin: 16px auto 0; padding: 20px 22px; background: var(--bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); }
+    #invitation { background: var(--card); border-top: 1px solid var(--border); padding: 32px 32px; }
+    .invitation-form { max-width: 480px; margin: 12px auto 0; padding: 18px 20px; background: var(--bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); }
 
     /* Floating CTA */
     .floating-cta {
@@ -135,11 +136,11 @@
     .floating-cta:hover { background: var(--accent-hover); color: var(--btn-text); }
 
     @media (max-width: 768px) {
-      #hero { min-height: 65vh; padding: 64px 20px 80px; }
+      #hero { min-height: 65vh; padding: 64px 20px 72px; }
       .hero-title { font-size: 2.15rem; }
-      .hero-slogan { font-size: 1.1rem; }
-      .hero-support { font-size: 0.95rem; }
-      .invitation-form { padding: 24px 20px; }
+      .hero-slogan { font-size: 1.1rem; margin: 0 0 16px 0; }
+      .hero-support { font-size: 0.98rem; line-height: 1.6; margin: 0 0 32px 0; }
+      .invitation-form { padding: 20px 18px; }
       .floating-cta { left: 20px; right: 20px; bottom: 20px; transform: translateY(80px); }
       .floating-cta.visible { transform: translateY(0); }
     }
@@ -189,7 +190,7 @@
     <div class="hero-inner">
       <h1 class="hero-title">JJ Sainz</h1>
       <p class="hero-slogan">Helping people see clearly when it matters most.</p>
-      <p class="hero-support">For people building something meaningful who value clear thinking, honest perspective, and a trusted sounding board.</p>
+      <p class="hero-support">For people building something meaningful who value clear thinking, honest perspective, and a trusted sounding board. When something important needs thinking through, a calm conversation can make the path forward clearer.</p>
       <div class="hero-ctas">
         <a href="#invitation" class="btn-primary">Start a conversation</a>
       </div>
@@ -197,14 +198,6 @@
   </section>
 
   <a href="#invitation" class="floating-cta" id="floatingCta" aria-label="Start a conversation">Start a conversation</a>
-
-  <section class="page-section" id="recognition">
-    <h2 class="section-title">Built for people who value clarity</h2>
-    <p class="section-eyebrow">Who it’s for</p>
-    <div class="recognition-block">
-      <p class="section-lead" style="margin-bottom: 0;">SAI.NZ is for people building something meaningful who want a trusted sounding board. When something important needs thinking through — a decision, a direction, or a knotty problem — a calm conversation can make the path forward clearer.</p>
-    </div>
-  </section>
 
   <section class="page-section" id="what-i-do" style="background: var(--bg-alt); border-top: 1px solid var(--border);">
     <h2 class="section-title">Thinking through what matters</h2>
