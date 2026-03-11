@@ -42,7 +42,22 @@
     .satellite-hero.philosophy-hero .section-eyebrow,
     .satellite-hero.philosophy-hero .hero-intro {
       color: #ffffff;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+    }
+    /* Philosophy hero text readability: layered shadows (no overlays/boxes) */
+    .satellite-hero.philosophy-hero .page-title,
+    .satellite-hero.philosophy-hero .section-eyebrow {
+      text-shadow:
+        0 1px 0 rgba(0,0,0,0.28),
+        0 2px 6px rgba(0,0,0,0.55),
+        0 10px 22px rgba(0,0,0,0.32),
+        0 0 1px rgba(0,0,0,0.65);
+    }
+    .satellite-hero.philosophy-hero .hero-intro {
+      text-shadow:
+        0 1px 0 rgba(0,0,0,0.22),
+        0 2px 6px rgba(0,0,0,0.46),
+        0 8px 18px rgba(0,0,0,0.26),
+        0 0 1px rgba(0,0,0,0.55);
     }
     /* Dark theme: strong overlay, bright text */
     html[data-theme="dark"] .satellite-hero.philosophy-hero {
@@ -54,9 +69,7 @@
       background-position: center;
       background-repeat: no-repeat;
     }
-    html[data-theme="dark"] .philosophy-hero .page-title { color: #f8fafc; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
-    html[data-theme="dark"] .philosophy-hero .section-eyebrow { color: #cbd5e1; text-shadow: 0 1px 4px rgba(0,0,0,0.45); }
-    html[data-theme="dark"] .philosophy-hero .hero-intro { color: #cbd5e1; text-shadow: 0 1px 4px rgba(0,0,0,0.45); }
+    /* (Hero text color/shadow is defined above for both themes) */
     /* Tighter section spacing */
     main.page-section.content-wide { padding-top: 28px; }
     .phil-block { margin-bottom: 26px; }
