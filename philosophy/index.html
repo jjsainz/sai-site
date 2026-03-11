@@ -16,13 +16,14 @@
     .phil-block { margin-bottom: 36px; }
     .phil-block h2 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin: 0 0 8px 0; }
     .phil-block p,
-    .phil-block .body-text { margin: 0 0 8px 0; font-size: 1rem; }
+    .phil-block .body-text { margin: 0 0 8px 0; font-size: 1.0625rem; line-height: 1.65; }
     .phil-list { list-style: none; padding: 0; margin: 10px 0 0 0; }
     .phil-list li { padding: 10px 0; border-bottom: 1px solid var(--border); border-radius: var(--radius-sm); }
     .phil-list li:last-child { border-bottom: none; }
     .phil-list strong { display: block; margin-bottom: 2px; font-size: 0.9rem; }
-    .phil-list span { font-size: 0.875rem; color: var(--text-secondary); }
+    .phil-list span { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.6; }
     .phil-two-col { display: block; }
+    .phil-two-col > .phil-block { margin-top: 0; padding-top: 0; }
     @media (min-width: 769px) {
       .phil-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
     }
@@ -36,9 +37,9 @@
       background-position: center;
       background-repeat: no-repeat;
     }
-    .satellite-hero.philosophy-hero .page-title { color: #0f172a; text-shadow: 0 1px 2px rgba(255,255,255,0.6); }
-    .satellite-hero.philosophy-hero .section-eyebrow { font-size: 0.85rem; letter-spacing: 0.1em; color: #334155; text-shadow: 0 1px 2px rgba(255,255,255,0.5); margin-bottom: 14px; }
-    .satellite-hero.philosophy-hero .section-lead { color: #475569; text-shadow: 0 1px 2px rgba(255,255,255,0.5); max-width: 42em; margin-left: auto; margin-right: auto; margin-top: 0; }
+    .satellite-hero.philosophy-hero .page-title { color: #0a0a0a; text-shadow: 0 1px 2px rgba(255,255,255,0.5); margin-bottom: 18px; }
+    .satellite-hero.philosophy-hero .section-eyebrow { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.1em; color: #0f172a; text-shadow: 0 1px 2px rgba(255,255,255,0.5); margin-bottom: 16px; margin-top: 0; }
+    .satellite-hero.philosophy-hero .section-lead { font-size: 0.9rem; color: #1e293b; text-shadow: 0 1px 2px rgba(255,255,255,0.5); max-width: 42em; margin-left: auto; margin-right: auto; margin-top: 0; line-height: 1.6; }
     /* Dark theme hero: keep bright text */
     html[data-theme="dark"] .satellite-hero.philosophy-hero {
       background-color: #060910;
@@ -49,9 +50,9 @@
       background-position: center;
       background-repeat: no-repeat;
     }
-    html[data-theme="dark"] .satellite-hero.philosophy-hero .page-title { color: #f8fafc; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
-    html[data-theme="dark"] .satellite-hero.philosophy-hero .section-eyebrow { font-size: 0.85rem; letter-spacing: 0.1em; color: #94a3b8; text-shadow: 0 1px 4px rgba(0,0,0,0.45); margin-bottom: 14px; }
-    html[data-theme="dark"] .satellite-hero.philosophy-hero .section-lead { color: #cbd5e1; text-shadow: 0 1px 4px rgba(0,0,0,0.45); }
+    html[data-theme="dark"] .satellite-hero.philosophy-hero .page-title { color: #f8fafc; text-shadow: 0 2px 8px rgba(0,0,0,0.5); margin-bottom: 18px; }
+    html[data-theme="dark"] .satellite-hero.philosophy-hero .section-eyebrow { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.1em; color: #94a3b8; text-shadow: 0 1px 4px rgba(0,0,0,0.45); margin-bottom: 16px; margin-top: 0; }
+    html[data-theme="dark"] .satellite-hero.philosophy-hero .section-lead { font-size: 0.9rem; color: #cbd5e1; text-shadow: 0 1px 4px rgba(0,0,0,0.45); }
   </style>
 </head>
 <body>
