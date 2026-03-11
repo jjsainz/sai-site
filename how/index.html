@@ -115,6 +115,14 @@
     html[data-theme="dark"] body .satellite-hero.how-hero .hero-intro {
       text-shadow: 0 1px 4px rgba(0,0,0,0.45) !important;
     }
+
+    /* Disable global .satellite-hero::before wash on Approach (light only) */
+    html[data-theme="light"] body .satellite-hero.how-hero::before {
+      content: none !important;
+      display: none !important;
+      background: none !important;
+      opacity: 0 !important;
+    }
   </style>
 </head>
 <body>
