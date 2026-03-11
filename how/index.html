@@ -68,6 +68,53 @@
     main.page-section.content-wide .body-text.muted { font-size: 0.9375rem; }
     .how-cta-wrap { text-align: center; margin-top: 36px; margin-bottom: 28px; }
     main.page-section.content-wide { padding-top: 28px; }
+
+    /* FINAL OVERRIDES FOR APPROACH HERO */
+    html[data-theme="light"] body .satellite-hero.how-hero {
+      background-image: url('/assets/v2/approach-light.jpg') !important;
+      background-color: transparent !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+    }
+
+    html[data-theme="dark"] body .satellite-hero.how-hero {
+      background-image:
+        linear-gradient(to bottom, rgba(6,9,16,0.58) 0%, rgba(6,9,16,0.36) 45%, rgba(6,9,16,0.42) 100%),
+        url('/assets/v2/approach-dark.jpg') !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+    }
+
+    html[data-theme="light"] body .satellite-hero.how-hero .page-title,
+    html[data-theme="light"] body .satellite-hero.how-hero .section-eyebrow,
+    html[data-theme="light"] body .satellite-hero.how-hero .hero-intro,
+    html[data-theme="dark"] body .satellite-hero.how-hero .page-title,
+    html[data-theme="dark"] body .satellite-hero.how-hero .section-eyebrow,
+    html[data-theme="dark"] body .satellite-hero.how-hero .hero-intro {
+      color: #ffffff !important;
+    }
+
+    html[data-theme="light"] body .satellite-hero.how-hero .page-title,
+    html[data-theme="dark"] body .satellite-hero.how-hero .page-title {
+      text-shadow: 0 2px 8px rgba(0,0,0,0.45) !important;
+    }
+
+    html[data-theme="light"] body .satellite-hero.how-hero .section-eyebrow,
+    html[data-theme="dark"] body .satellite-hero.how-hero .section-eyebrow {
+      font-size: 1.1rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.08em !important;
+      margin-top: 18px !important;
+      margin-bottom: 26px !important;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.45) !important;
+    }
+
+    html[data-theme="light"] body .satellite-hero.how-hero .hero-intro,
+    html[data-theme="dark"] body .satellite-hero.how-hero .hero-intro {
+      text-shadow: 0 1px 4px rgba(0,0,0,0.45) !important;
+    }
   </style>
 </head>
 <body>
