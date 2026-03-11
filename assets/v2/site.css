@@ -378,6 +378,25 @@ body .satellite-hero.hero-unified .hero-intro {
   margin: 18px auto 0;
   line-height: 1.75;
 }
+/* Light theme readability: stronger black outline behind white hero text */
+html[data-theme="light"] body .satellite-hero.hero-unified .page-title {
+  text-shadow:
+    2px 2px 0 rgba(0, 0, 0, 0.92),
+    -2px 2px 0 rgba(0, 0, 0, 0.92),
+    2px -2px 0 rgba(0, 0, 0, 0.92),
+    -2px -2px 0 rgba(0, 0, 0, 0.92),
+    0 3px 12px rgba(0, 0, 0, 0.55);
+}
+
+html[data-theme="light"] body .satellite-hero.hero-unified .section-eyebrow,
+html[data-theme="light"] body .satellite-hero.hero-unified .hero-intro {
+  text-shadow:
+    1.5px 1.5px 0 rgba(0, 0, 0, 0.88),
+    -1.5px 1.5px 0 rgba(0, 0, 0, 0.88),
+    1.5px -1.5px 0 rgba(0, 0, 0, 0.88),
+    -1.5px -1.5px 0 rgba(0, 0, 0, 0.88),
+    0 2px 10px rgba(0, 0, 0, 0.45);
+}
 
 /* Dark theme readability: stronger black outline behind white hero text */
 html[data-theme="dark"] body .satellite-hero.hero-unified .page-title {
