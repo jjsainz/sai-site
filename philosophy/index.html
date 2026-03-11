@@ -26,10 +26,7 @@
     @media (min-width: 769px) {
       .phil-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
     }
-    /* Philosophy hero: shared structure and spacing */
-    .satellite-hero.philosophy-hero .page-title { margin-bottom: 20px; }
-    .satellite-hero.philosophy-hero .section-eyebrow { font-size: 1.05rem; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 18px; margin-top: 0; }
-    .satellite-hero.philosophy-hero .hero-intro { font-size: 0.9875rem; max-width: 42em; margin-left: auto; margin-right: auto; margin-top: 0; line-height: 1.65; }
+    /* Philosophy hero: typography/spacing is unified via shared .hero-unified rules */
     /* Light theme: image only (no wash overlay) */
     .satellite-hero.philosophy-hero {
       background-color: transparent;
@@ -38,27 +35,7 @@
       background-position: center;
       background-repeat: no-repeat;
     }
-    .satellite-hero.philosophy-hero .page-title,
-    .satellite-hero.philosophy-hero .section-eyebrow,
-    .satellite-hero.philosophy-hero .hero-intro {
-      color: #ffffff;
-    }
-    /* Philosophy hero text readability: layered shadows (no overlays/boxes) */
-    .satellite-hero.philosophy-hero .page-title,
-    .satellite-hero.philosophy-hero .section-eyebrow {
-      text-shadow:
-        0 1px 0 rgba(0,0,0,0.28),
-        0 2px 6px rgba(0,0,0,0.55),
-        0 10px 22px rgba(0,0,0,0.32),
-        0 0 1px rgba(0,0,0,0.65);
-    }
-    .satellite-hero.philosophy-hero .hero-intro {
-      text-shadow:
-        0 1px 0 rgba(0,0,0,0.22),
-        0 2px 6px rgba(0,0,0,0.46),
-        0 8px 18px rgba(0,0,0,0.26),
-        0 0 1px rgba(0,0,0,0.55);
-    }
+    /* (Hero text color/shadow is defined by shared .hero-unified rules) */
     /* Dark theme: strong overlay, bright text */
     html[data-theme="dark"] .satellite-hero.philosophy-hero {
       background-color: #060910;
@@ -116,7 +93,7 @@
     </div>
   </header>
 
-  <section class="satellite-hero philosophy-hero">
+  <section class="satellite-hero philosophy-hero hero-unified">
     <div class="satellite-hero-inner">
       <h1 class="page-title">Philosophy</h1>
       <p class="section-eyebrow">Foundation</p>
