@@ -60,6 +60,14 @@
     main.page-section.content-wide { padding-top: 28px; }
     .phil-block { margin-bottom: 26px; }
     .phil-cta-wrap { text-align: center; margin-top: 36px; margin-bottom: 28px; }
+
+    /* Disable global .satellite-hero::before wash on Philosophy (light only) */
+    html[data-theme="light"] body .satellite-hero.philosophy-hero::before {
+      content: none !important;
+      display: none !important;
+      background: none !important;
+      opacity: 0 !important;
+    }
   </style>
 </head>
 <body>
