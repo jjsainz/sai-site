@@ -13,8 +13,30 @@
   <link rel="canonical" href="https://www.sai.nz/ac/" />
   <link rel="stylesheet" href="/assets/v2/site.css" />
   <style>
-    .satellite-hero.ac-hero { background-image: linear-gradient(220deg, var(--bg-alt) 0%, var(--card) 55%); }
-    html[data-theme="dark"] .satellite-hero.ac-hero { background-image: linear-gradient(220deg, var(--bg-alt) 0%, var(--surface) 55%); }
+    .satellite-hero.ac-hero {
+      background-color: #d9dee5;
+      background-image:
+        linear-gradient(to bottom, rgba(250,251,252,0.52) 0%, rgba(244,246,248,0.34) 100%),
+        url('/assets/v2/telephony.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    html[data-theme="dark"] .satellite-hero.ac-hero {
+      background-color: #060910;
+      background-image:
+        linear-gradient(to bottom, rgba(6,9,16,0.58) 0%, rgba(6,9,16,0.42) 100%),
+        url('/assets/v2/telephony.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    html[data-theme="light"] body .satellite-hero.ac-hero::before {
+      content: none !important;
+      display: none !important;
+      background: none !important;
+      opacity: 0 !important;
+    }
   </style>
 </head>
 <body>
@@ -80,7 +102,6 @@
     </div>
 
     <div class="how-cta-wrap">
-      <a href="/contact/" class="btn-primary">Start a conversation</a>
       <p class="body-text muted" style="margin-top: 14px;">If your current setup is getting in the way, or you need to put a proper phone system in place, <a href="/contact/">get in touch</a>. I will help you assess fit and point you in the right direction.</p>
     </div>
   </main>
