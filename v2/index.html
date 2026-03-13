@@ -17,451 +17,92 @@
   <meta property="og:type" content="website" />
   <link rel="stylesheet" href="/assets/v2/site.css" />
   <style>
-    .v2-page {
-      background: var(--bg);
+    .v2-page { background: var(--bg); }
+    .v2-hero { padding: 30px 32px 20px; background: linear-gradient(180deg, var(--bg-alt) 0%, rgba(244,246,248,0) 100%); border-bottom: 1px solid var(--border); }
+    html[data-theme="dark"] .v2-hero { background: linear-gradient(180deg, rgba(15,20,28,1) 0%, rgba(15,20,28,0.2) 100%); }
+    .v2-hero-shell, .v2-trust-shell, .v2-section-shell, .v2-mobile-form-shell { max-width: var(--grid-max); margin: 0 auto; }
+    .v2-hero-shell { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(380px, 0.82fr); gap: 30px; align-items: stretch; padding: 38px; background: var(--card); border: 1px solid var(--card-border); border-radius: 26px; box-shadow: var(--shadow-card); }
+    html[data-theme="dark"] .v2-hero-shell { background: var(--surface); }
+    .v2-hero-copy { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+    .v2-hero-copy .section-eyebrow { margin-bottom: 12px; }
+    .v2-hero-copy .page-title { margin-bottom: 12px; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+    .v2-hero-headline { margin: 0 0 18px 0; font-size: clamp(2.45rem, 4.7vw, 4.75rem); line-height: 1.02; letter-spacing: -0.045em; color: var(--text); }
+    .v2-hero-support { margin: 0 0 16px 0; max-width: 50rem; font-size: 1.08rem; line-height: 1.78; color: var(--text-secondary); }
+    .v2-hero-note { margin: 0 0 24px 0; max-width: 45rem; font-size: 0.98rem; line-height: 1.75; color: var(--text); }
+    .v2-hero-points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 4px; }
+    .v2-hero-point, .v2-mini-card, .v2-value-card, .v2-step-card { padding: 16px 18px; background: var(--bg); border: 1px solid var(--card-border); border-radius: 16px; }
+    html[data-theme="dark"] .v2-hero-point, html[data-theme="dark"] .v2-mini-card, html[data-theme="dark"] .v2-value-card, html[data-theme="dark"] .v2-step-card { background: var(--bg-alt); }
+    .v2-hero-point strong { display: block; margin-bottom: 5px; font-size: 0.86rem; color: var(--text); }
+    .v2-hero-point span { display: block; font-size: 0.84rem; line-height: 1.65; color: var(--text-secondary); }
+    .v2-mobile-cta { display: none; width: fit-content; margin-top: 24px; border-bottom: none; }
+    .v2-form-card, .v2-mobile-form-card, .v2-trust-card, .v2-section-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 22px; box-shadow: var(--shadow-card); }
+    html[data-theme="dark"] .v2-form-card, html[data-theme="dark"] .v2-mobile-form-card, html[data-theme="dark"] .v2-trust-card, html[data-theme="dark"] .v2-section-card { background: var(--surface); }
+    .v2-form-card { padding: 24px; background: linear-gradient(180deg, var(--bg) 0%, rgba(255,255,255,0) 100%), var(--card); }
+    html[data-theme="dark"] .v2-form-card { background: linear-gradient(180deg, rgba(10,14,22,0.18) 0%, rgba(10,14,22,0) 100%), var(--surface); }
+    .v2-form-card h2, .v2-mobile-form-card h2 { margin: 0 0 8px 0; font-size: 1.24rem; color: var(--text); }
+    .v2-form-intro { margin: 0 0 16px 0; font-size: 0.92rem; line-height: 1.72; color: var(--text-secondary); }
+    .v2-audience-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; margin: 0 0 18px 0; background: var(--bg); border: 1px solid var(--border); border-radius: 999px; }
+    html[data-theme="dark"] .v2-audience-toggle { background: var(--bg-alt); }
+    .v2-audience-toggle button { min-height: 40px; padding: 10px 14px; background: transparent; border: none; border-radius: 999px; color: var(--muted); font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: background 0.18s ease, color 0.18s ease; font-family: inherit; }
+    .v2-audience-toggle button.active { background: var(--accent); color: var(--btn-text); }
+    .v2-jobseeker-note { margin: 0; padding: 6px 2px 0; font-size: 0.9375rem; line-height: 1.72; color: var(--text-secondary); }
+    .v2-jobseeker-note strong { display: block; margin-bottom: 6px; font-size: 0.9rem; color: var(--text); }
+    .v2-trust { padding: 12px 32px 0; }
+    .v2-trust-card { padding: 24px; }
+    .v2-trust-head { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 22px; align-items: start; }
+    .v2-trust-copy .section-eyebrow { margin-bottom: 8px; }
+    .v2-trust-copy .section-title { margin-bottom: 10px; }
+    .v2-trust-copy .body-text { margin-bottom: 0; max-width: none; }
+    .v2-trust-rotator { padding: 16px; background: var(--bg); border: 1px solid var(--card-border); border-radius: 18px; min-height: 176px; }
+    html[data-theme="dark"] .v2-trust-rotator { background: var(--bg-alt); }
+    .v2-trust-stage { position: relative; min-height: 142px; }
+    .v2-trust-frame { opacity: 0; visibility: hidden; position: absolute; inset: 0; transition: opacity 0.42s ease, visibility 0.42s ease; }
+    .v2-trust-frame.active { position: relative; opacity: 1; visibility: visible; }
+    .v2-trust-label { margin: 0 0 12px 0; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+    .v2-logo-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .v2-logo-badge { display: flex; align-items: center; justify-content: center; min-height: 84px; padding: 12px 14px; background: var(--card); border: 1px solid var(--card-border); border-radius: 16px; }
+    html[data-theme="dark"] .v2-logo-badge { background: var(--surface); }
+    .v2-logo-badge img { display: block; max-width: 100%; max-height: 48px; width: auto; height: auto; object-fit: contain; }
+    .v2-section { padding: 18px 32px 0; }
+    .v2-section-card { padding: 24px; }
+    .v2-section-head { max-width: 760px; margin-bottom: 18px; }
+    .v2-section-head .section-eyebrow { margin-bottom: 8px; }
+    .v2-section-head .section-title { margin-bottom: 10px; }
+    .v2-section-head .section-lead { margin-bottom: 0; max-width: none; }
+    .v2-card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .v2-value-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+    .v2-mini-card h3, .v2-value-card h3, .v2-step-card h3 { margin: 0 0 8px 0; font-size: 0.98rem; color: var(--text); }
+    .v2-mini-card p, .v2-value-card p, .v2-step-card p { margin: 0; font-size: 0.9rem; line-height: 1.68; color: var(--text-secondary); }
+    .v2-value-card { padding: 15px 16px; }
+    .v2-value-card h3 { font-size: 0.9rem; margin-bottom: 6px; }
+    .v2-how-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
+    .v2-mobile-form { display: none; padding: 18px 32px 0; }
+    .v2-mobile-form-card { padding: 22px; }
+    .v2-desktop-sticky-cta { position: fixed; right: 24px; bottom: 24px; z-index: 90; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 14px 20px; background: var(--accent); color: var(--btn-text); border-radius: var(--radius); text-decoration: none; border-bottom: none; box-shadow: var(--shadow-md); opacity: 0; visibility: hidden; transform: translateY(18px); transition: opacity 0.24s ease, transform 0.24s ease, visibility 0.24s ease; }
+    .v2-desktop-sticky-cta.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .v2-mobile-sticky-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; display: none; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: rgba(250,251,252,0.96); border-top: 1px solid var(--border); box-shadow: 0 -10px 24px rgba(13,19,32,0.08); transform: translateY(120%); opacity: 0; visibility: hidden; transition: transform 0.24s ease, opacity 0.24s ease, visibility 0.24s ease; backdrop-filter: blur(8px); }
+    html[data-theme="dark"] .v2-mobile-sticky-bar { background: rgba(10,14,22,0.96); box-shadow: 0 -10px 24px rgba(0,0,0,0.24); }
+    .v2-mobile-sticky-bar.visible { transform: translateY(0); opacity: 1; visibility: visible; }
+    .v2-mobile-sticky-bar .btn-primary { width: 100%; min-height: 50px; }
+    @media (max-width: 1180px) { .v2-trust-head { grid-template-columns: 1fr; } .v2-logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 1100px) { .v2-value-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .v2-how-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 980px) {
+      .v2-hero-shell { grid-template-columns: 1fr; padding: 28px; }
+      .v2-hero-points { grid-template-columns: 1fr; }
+      .v2-desktop-form { display: none; }
+      .v2-mobile-cta, .v2-mobile-form, .v2-mobile-sticky-bar { display: block; }
+      .v2-desktop-sticky-cta { display: none; }
+      .v2-card-grid, .v2-value-grid, .v2-how-grid { grid-template-columns: 1fr; }
     }
-
-    .v2-hero {
-      padding: 28px 32px 20px;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg-alt);
-    }
-
-    .v2-hero-shell,
-    .v2-trust-shell,
-    .v2-section-shell,
-    .v2-mobile-form-shell {
-      max-width: var(--grid-max);
-      margin: 0 auto;
-    }
-
-    .v2-hero-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
-      gap: 28px;
-      align-items: stretch;
-      padding: 34px;
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      box-shadow: var(--shadow-card);
-    }
-
-    html[data-theme="dark"] .v2-hero-shell {
-      background: var(--surface);
-    }
-
-    .v2-hero-copy {
-      padding: 6px 4px 6px 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .v2-hero-copy .section-eyebrow {
-      margin-bottom: 10px;
-    }
-
-    .v2-hero-title {
-      font-size: clamp(2.35rem, 4.6vw, 4.35rem);
-      font-weight: 600;
-      line-height: 1.03;
-      letter-spacing: -0.04em;
-      margin: 0 0 18px 0;
-      color: var(--text);
-    }
-
-    .v2-hero-support {
-      font-size: 1.08rem;
-      line-height: 1.75;
-      color: var(--text-secondary);
-      margin: 0 0 16px 0;
-      max-width: 48rem;
-    }
-
-    .v2-hero-note {
-      font-size: 0.98rem;
-      line-height: 1.75;
-      color: var(--text);
-      margin: 0;
-      max-width: 42rem;
-    }
-
-    .v2-mobile-cta {
-      display: none;
-      width: fit-content;
-      margin-top: 24px;
-      border-bottom: none;
-    }
-
-    .v2-form-card {
-      padding: 24px;
-      background: var(--bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      box-shadow: var(--shadow-card);
-      align-self: stretch;
-    }
-
-    html[data-theme="dark"] .v2-form-card {
-      background: var(--bg-alt);
-    }
-
-    .v2-form-card h2,
-    .v2-mobile-form-card h2 {
-      margin: 0 0 10px 0;
-      font-size: 1.28rem;
-      color: var(--text);
-    }
-
-    .v2-form-intro {
-      margin: 0 0 16px 0;
-      font-size: 0.9375rem;
-      line-height: 1.7;
-      color: var(--text-secondary);
-    }
-
-    .v2-audience-toggle {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4px;
-      padding: 4px;
-      margin: 0 0 18px 0;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-    }
-
-    html[data-theme="dark"] .v2-audience-toggle {
-      background: var(--surface);
-    }
-
-    .v2-audience-toggle button {
-      min-height: 40px;
-      padding: 10px 14px;
-      background: transparent;
-      border: none;
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 0.875rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.18s ease, color 0.18s ease;
-      font-family: inherit;
-    }
-
-    .v2-audience-toggle button.active {
-      background: var(--accent);
-      color: var(--btn-text);
-    }
-
-    .v2-jobseeker-note {
-      margin: 0;
-      padding: 6px 2px 0;
-      font-size: 0.9375rem;
-      line-height: 1.7;
-      color: var(--text-secondary);
-    }
-
-    .v2-jobseeker-note strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 0.9rem;
-      color: var(--text);
-    }
-
-    .v2-trust {
-      padding: 12px 32px 0;
-    }
-
-    .v2-trust-shell {
-      display: grid;
-      grid-template-columns: 0.82fr 1.18fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .v2-trust-copy,
-    .v2-proof-card,
-    .v2-section-card,
-    .v2-mobile-form-card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      box-shadow: var(--shadow-card);
-    }
-
-    html[data-theme="dark"] .v2-trust-copy,
-    html[data-theme="dark"] .v2-proof-card,
-    html[data-theme="dark"] .v2-section-card,
-    html[data-theme="dark"] .v2-mobile-form-card {
-      background: var(--surface);
-    }
-
-    .v2-trust-copy {
-      padding: 22px 24px;
-    }
-
-    .v2-trust-copy .section-eyebrow {
-      margin-bottom: 8px;
-    }
-
-    .v2-trust-copy .section-title {
-      margin-bottom: 10px;
-    }
-
-    .v2-trust-copy .body-text {
-      margin-bottom: 0;
-      max-width: none;
-    }
-
-    .v2-proof-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .v2-proof-card {
-      padding: 18px;
-    }
-
-    .v2-proof-card h3 {
-      margin: 0 0 12px 0;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .v2-logo-stage {
-      position: relative;
-      min-height: 118px;
-    }
-
-    .v2-logo-group {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      align-items: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.45s ease, visibility 0.45s ease;
-    }
-
-    .v2-logo-group.active {
-      position: relative;
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .v2-logo-badge {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 94px;
-      padding: 12px 16px;
-      background: var(--bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-    }
-
-    html[data-theme="dark"] .v2-logo-badge {
-      background: var(--bg-alt);
-    }
-
-    .v2-logo-badge img {
-      max-width: 100%;
-      max-height: 52px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      display: block;
-    }
-
-    .v2-section {
-      padding: 18px 32px 0;
-    }
-
-    .v2-section-card {
-      padding: 24px;
-    }
-
-    .v2-section-head {
-      max-width: 760px;
-      margin-bottom: 18px;
-    }
-
-    .v2-section-head .section-eyebrow {
-      margin-bottom: 8px;
-    }
-
-    .v2-section-head .section-title {
-      margin-bottom: 10px;
-    }
-
-    .v2-section-head .section-lead {
-      margin-bottom: 0;
-      max-width: none;
-    }
-
-    .v2-card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .v2-value-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .v2-mini-card,
-    .v2-value-card,
-    .v2-step-card {
-      padding: 16px 18px;
-      background: var(--bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-    }
-
-    html[data-theme="dark"] .v2-mini-card,
-    html[data-theme="dark"] .v2-value-card,
-    html[data-theme="dark"] .v2-step-card {
-      background: var(--bg-alt);
-    }
-
-    .v2-mini-card h3,
-    .v2-value-card h3,
-    .v2-step-card h3 {
-      margin: 0 0 8px 0;
-      font-size: 0.98rem;
-      color: var(--text);
-    }
-
-    .v2-mini-card p,
-    .v2-value-card p,
-    .v2-step-card p {
-      margin: 0;
-      font-size: 0.9rem;
-      line-height: 1.68;
-      color: var(--text-secondary);
-    }
-
-    .v2-value-card {
-      padding: 15px 16px;
-    }
-
-    .v2-value-card h3 {
-      font-size: 0.9rem;
-      margin-bottom: 6px;
-    }
-
-    .v2-how-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .v2-mobile-form {
-      display: none;
-      padding: 18px 32px 0;
-    }
-
-    .v2-mobile-form-card {
-      padding: 22px;
-    }
-
-    @media (max-width: 1100px) {
-      .v2-trust-shell {
-        grid-template-columns: 1fr;
-      }
-
-      .v2-value-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .v2-how-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 880px) {
-      .v2-hero-shell {
-        grid-template-columns: 1fr;
-      }
-
-      .v2-desktop-form {
-        display: none;
-      }
-
-      .v2-mobile-cta {
-        display: inline-flex;
-      }
-
-      .v2-mobile-form {
-        display: block;
-      }
-
-      .v2-proof-grid,
-      .v2-card-grid,
-      .v2-value-grid,
-      .v2-how-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
     @media (max-width: 768px) {
-      .v2-hero,
-      .v2-trust,
-      .v2-section,
-      .v2-mobile-form {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-
-      .v2-hero-shell,
-      .v2-trust-copy,
-      .v2-proof-card,
-      .v2-section-card,
-      .v2-mobile-form-card {
-        padding: 20px;
-      }
-
-      .v2-hero-title {
-        font-size: 2.2rem;
-      }
-
-      .v2-hero-support,
-      .v2-hero-note {
-        font-size: 0.96rem;
-      }
-
-      .v2-logo-stage {
-        min-height: 214px;
-      }
-
-      .v2-logo-group {
-        grid-template-columns: 1fr;
-      }
+      .v2-hero, .v2-trust, .v2-section, .v2-mobile-form { padding-left: 20px; padding-right: 20px; }
+      .v2-hero-shell, .v2-trust-card, .v2-section-card, .v2-mobile-form-card { padding: 20px; }
+      .v2-hero-headline { font-size: 2.26rem; }
+      .v2-hero-support, .v2-hero-note { font-size: 0.96rem; }
     }
-
     @media (max-width: 480px) {
-      .v2-hero,
-      .v2-trust,
-      .v2-section,
-      .v2-mobile-form {
-        padding-left: 16px;
-        padding-right: 16px;
-      }
-
-      .v2-hero-title {
-        font-size: 1.92rem;
-      }
+      .v2-hero, .v2-trust, .v2-section, .v2-mobile-form { padding-left: 16px; padding-right: 16px; }
+      .v2-hero-headline { font-size: 1.94rem; }
     }
   </style>
 </head>
@@ -503,9 +144,23 @@
         <div class="v2-hero-copy">
           <p class="section-eyebrow">Outsourcing</p>
           <h1 class="page-title">Outsourcing</h1>
-          <p class="v2-hero-title">A lower-friction way to build offshore capability.</p>
-          <p class="v2-hero-support">For the right business, offshore support can reduce overhead, keep monthly cost predictable, and add capability without the employment drag of hiring locally.</p>
-          <p class="v2-hero-note">I help founders and operators assess fit, think it through properly, and connect with a provider worth speaking to. If it is not the right path, I will tell you that directly.</p>
+          <h2 class="v2-hero-headline">A more flexible way to add offshore capability.</h2>
+          <p class="v2-hero-support">For the right business, offshore support can reduce overhead, lower employment risk, and create a clearer operating model for repeatable work.</p>
+          <p class="v2-hero-note">I help founders and operators assess fit, think it through properly, and connect with a provider worth speaking to. The aim is not to force a model. It is to make the next step easier to judge and easier to execute well.</p>
+          <div class="v2-hero-points">
+            <div class="v2-hero-point">
+              <strong>Flexible structure</strong>
+              <span>Add capability without taking on the full drag of local employment.</span>
+            </div>
+            <div class="v2-hero-point">
+              <strong>Commercial clarity</strong>
+              <span>Move with clearer monthly cost and less operational friction.</span>
+            </div>
+            <div class="v2-hero-point">
+              <strong>Fit first</strong>
+              <span>Start with whether it actually makes sense for your business.</span>
+            </div>
+          </div>
           <a href="#quick-check" class="btn-primary v2-mobile-cta">Start a quick suitability check</a>
         </div>
 
@@ -514,29 +169,26 @@
           <p style="display:none;"><label>Do not fill this: <input name="bot-field"></label></p>
           <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_term"><input type="hidden" name="utm_content"><input type="hidden" name="gclid"><input type="hidden" name="wbraid"><input type="hidden" name="gbraid"><input type="hidden" name="referrer">
           <h2>Start a quick suitability check</h2>
-          <p class="v2-form-intro">Share a few practical details. If there is a fit, I will point you towards the right provider. If not, I will say so plainly.</p>
-
+          <p class="v2-form-intro">Share a few practical details. If there is a fit, I will point you towards the right provider. If not, I will tell you plainly.</p>
           <div class="v2-audience-toggle" role="tablist" aria-label="Audience type">
             <button type="button" class="active" data-audience-btn="business" aria-pressed="true">For businesses</button>
             <button type="button" data-audience-btn="jobseeker" aria-pressed="false">Looking for work</button>
           </div>
-
           <div data-audience-panel="business">
             <label for="v2-desktop-name">Full name</label>
             <input id="v2-desktop-name" name="name" required data-business-field>
             <label for="v2-desktop-email">Work email</label>
             <input id="v2-desktop-email" name="email" type="email" required data-business-field>
-            <label for="v2-desktop-phone">Mobile (optional)</label>
-            <input type="tel" name="phone" id="v2-desktop-phone" data-business-field>
             <label for="v2-desktop-company">Company</label>
             <input id="v2-desktop-company" name="company" data-business-field>
-            <label for="v2-desktop-roles">Roles you are exploring</label>
+            <label for="v2-desktop-roles">Where are you looking for support?</label>
             <input id="v2-desktop-roles" name="roles" data-business-field>
+            <label for="v2-desktop-phone">Mobile (optional)</label>
+            <input type="tel" name="phone" id="v2-desktop-phone" data-business-field>
             <label for="v2-desktop-notes">Brief context (optional)</label>
             <textarea id="v2-desktop-notes" name="notes" rows="3" data-business-field></textarea>
             <button type="submit" data-business-submit>Start a quick suitability check</button>
           </div>
-
           <div data-audience-panel="jobseeker" hidden>
             <p class="v2-jobseeker-note"><strong>Looking for work</strong>I help organisations and founders build remote capability. I do not recruit or offer roles directly.</p>
           </div>
@@ -546,41 +198,42 @@
 
     <section class="v2-trust">
       <div class="v2-trust-shell">
-        <div class="v2-trust-copy">
-          <p class="section-eyebrow">Trust</p>
-          <h2 class="section-title">Trusted providers, proven operators.</h2>
-          <p class="body-text">The providers I introduce are already supporting recognised brands and operate with the sort of quality, governance, and maturity most businesses want in place before they move.</p>
-        </div>
-
-        <div class="v2-proof-grid">
-          <div class="v2-proof-card">
-            <h3>Client relationships</h3>
-            <div class="v2-logo-stage" data-rotating-groups>
-              <div class="v2-logo-group active">
-                <div class="v2-logo-badge"><img src="/assets/client-vodafone.png" alt="Vodafone" loading="lazy" decoding="async" width="300" height="120"></div>
-                <div class="v2-logo-badge"><img src="/assets/client-pg.png" alt="Procter &amp; Gamble" loading="lazy" decoding="async" width="300" height="120"></div>
-              </div>
-              <div class="v2-logo-group">
-                <div class="v2-logo-badge"><img src="/assets/client-stg.png" alt="STG" loading="lazy" decoding="async" width="300" height="120"></div>
-                <div class="v2-logo-badge"><img src="/assets/eyebuydirect.png" alt="Eyebuydirect" loading="lazy" decoding="async" width="300" height="120"></div>
-              </div>
+        <div class="v2-trust-card">
+          <div class="v2-trust-head">
+            <div class="v2-trust-copy">
+              <p class="section-eyebrow">Trust</p>
+              <h2 class="section-title">Trusted providers, established standards.</h2>
+              <p class="body-text">The providers I introduce already support recognised brands and operate with the sort of maturity, governance, and consistency most businesses want in place before they move.</p>
             </div>
-          </div>
-
-          <div class="v2-proof-card">
-            <h3>Credentials</h3>
-            <div class="v2-logo-stage" data-rotating-groups>
-              <div class="v2-logo-group active">
-                <div class="v2-logo-badge"><img src="/assets/cert-great-place-to-work.png" alt="Great Place to Work Certified" loading="lazy" decoding="async" width="300" height="120"></div>
-                <div class="v2-logo-badge"><img src="/assets/cert-iso-9001.png" alt="ISO 9001 Certified" loading="lazy" decoding="async" width="300" height="120"></div>
-              </div>
-              <div class="v2-logo-group">
-                <div class="v2-logo-badge"><img src="/assets/cert-iso-27001.png" alt="ISO 27001 Certified" loading="lazy" decoding="async" width="300" height="120"></div>
-                <div class="v2-logo-badge"><img src="/assets/cert-soc2.png" alt="SOC 2" loading="lazy" decoding="async" width="300" height="120"></div>
-              </div>
-              <div class="v2-logo-group">
-                <div class="v2-logo-badge"><img src="/assets/cert-stevie-awards.png" alt="Stevie Awards" loading="lazy" decoding="async" width="300" height="120"></div>
-                <div class="v2-logo-badge"><img src="/assets/cert-great-place-to-work.png" alt="Great Place to Work Certified" loading="lazy" decoding="async" width="300" height="120"></div>
+            <div class="v2-trust-rotator">
+              <div class="v2-trust-stage" data-trust-stage>
+                <div class="v2-trust-frame active">
+                  <p class="v2-trust-label">Selected client relationships</p>
+                  <div class="v2-logo-grid">
+                    <div class="v2-logo-badge"><img src="/assets/client-vodafone.png" alt="Vodafone" loading="lazy" decoding="async" width="300" height="120"></div>
+                    <div class="v2-logo-badge"><img src="/assets/client-pg.png" alt="Procter &amp; Gamble" loading="lazy" decoding="async" width="300" height="120"></div>
+                    <div class="v2-logo-badge"><img src="/assets/client-stg.png" alt="STG" loading="lazy" decoding="async" width="300" height="120"></div>
+                    <div class="v2-logo-badge"><img src="/assets/eyebuydirect.png" alt="Eyebuydirect" loading="lazy" decoding="async" width="300" height="120"></div>
+                  </div>
+                </div>
+                <div class="v2-trust-frame">
+                  <p class="v2-trust-label">Credentials and recognition</p>
+                  <div class="v2-logo-grid">
+                    <div class="v2-logo-badge"><img src="/assets/cert-great-place-to-work.png" alt="Great Place to Work Certified" loading="lazy" decoding="async" width="300" height="120"></div>
+                    <div class="v2-logo-badge"><img src="/assets/cert-iso-9001.png" alt="ISO 9001 Certified" loading="lazy" decoding="async" width="300" height="120"></div>
+                    <div class="v2-logo-badge"><img src="/assets/cert-iso-27001.png" alt="ISO 27001 Certified" loading="lazy" decoding="async" width="300" height="120"></div>
+                    <div class="v2-logo-badge"><img src="/assets/cert-soc2.png" alt="SOC 2" loading="lazy" decoding="async" width="300" height="120"></div>
+                  </div>
+                </div>
+                <div class="v2-trust-frame">
+                  <p class="v2-trust-label">Recognition and quality signals</p>
+                  <div class="v2-logo-grid">
+                    <div class="v2-logo-badge"><img src="/assets/cert-stevie-awards.png" alt="Stevie Awards" loading="lazy" decoding="async" width="300" height="120"></div>
+                    <div class="v2-logo-badge"><img src="/assets/cert-great-place-to-work.png" alt="Great Place to Work Certified" loading="lazy" decoding="async" width="300" height="120"></div>
+                    <div class="v2-logo-badge"><img src="/assets/cert-iso-9001.png" alt="ISO 9001 Certified" loading="lazy" decoding="async" width="300" height="120"></div>
+                    <div class="v2-logo-badge"><img src="/assets/cert-iso-27001.png" alt="ISO 27001 Certified" loading="lazy" decoding="async" width="300" height="120"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -595,29 +248,26 @@
           <p style="display:none;"><label>Do not fill this: <input name="bot-field"></label></p>
           <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_term"><input type="hidden" name="utm_content"><input type="hidden" name="gclid"><input type="hidden" name="wbraid"><input type="hidden" name="gbraid"><input type="hidden" name="referrer">
           <h2>Start a quick suitability check</h2>
-          <p class="v2-form-intro">Share a few practical details. If there is a fit, I will point you towards the right provider. If not, I will say so plainly.</p>
-
+          <p class="v2-form-intro">Share a few practical details. If there is a fit, I will point you towards the right provider. If not, I will tell you plainly.</p>
           <div class="v2-audience-toggle" role="tablist" aria-label="Audience type">
             <button type="button" class="active" data-audience-btn="business" aria-pressed="true">For businesses</button>
             <button type="button" data-audience-btn="jobseeker" aria-pressed="false">Looking for work</button>
           </div>
-
           <div data-audience-panel="business">
             <label for="v2-mobile-name">Full name</label>
             <input id="v2-mobile-name" name="name" required data-business-field>
             <label for="v2-mobile-email">Work email</label>
             <input id="v2-mobile-email" name="email" type="email" required data-business-field>
-            <label for="v2-mobile-phone">Mobile (optional)</label>
-            <input type="tel" name="phone" id="v2-mobile-phone" data-business-field>
             <label for="v2-mobile-company">Company</label>
             <input id="v2-mobile-company" name="company" data-business-field>
-            <label for="v2-mobile-roles">Roles you are exploring</label>
+            <label for="v2-mobile-roles">Where are you looking for support?</label>
             <input id="v2-mobile-roles" name="roles" data-business-field>
+            <label for="v2-mobile-phone">Mobile (optional)</label>
+            <input type="tel" name="phone" id="v2-mobile-phone" data-business-field>
             <label for="v2-mobile-notes">Brief context (optional)</label>
             <textarea id="v2-mobile-notes" name="notes" rows="3" data-business-field></textarea>
             <button type="submit" data-business-submit>Start a quick suitability check</button>
           </div>
-
           <div data-audience-panel="jobseeker" hidden>
             <p class="v2-jobseeker-note"><strong>Looking for work</strong>I help organisations and founders build remote capability. I do not recruit or offer roles directly.</p>
           </div>
@@ -630,27 +280,14 @@
         <div class="v2-section-card">
           <div class="v2-section-head">
             <p class="section-eyebrow">Where it tends to fit</p>
-            <h2 class="section-title">Useful when the work is real, repeatable, and worth structuring properly.</h2>
-            <p class="section-lead">This tends to suit English-speaking businesses in higher-cost labour markets that want practical offshore capability, not a heavy operating model.</p>
+            <h2 class="section-title">Usually where the work is repeatable, customer-facing, or operationally important.</h2>
+            <p class="section-lead">This tends to suit English-speaking businesses in higher-cost labour markets that want practical offshore capability without building a heavy structure around it.</p>
           </div>
-
           <div class="v2-card-grid">
-            <div class="v2-mini-card">
-              <h3>Customer-facing teams</h3>
-              <p>Support, customer service, follow-up, and operational coordination where consistency matters.</p>
-            </div>
-            <div class="v2-mini-card">
-              <h3>Sales support roles</h3>
-              <p>Outbound activity, lead follow-up, appointment setting, and pipeline support that benefits from repeatable process.</p>
-            </div>
-            <div class="v2-mini-card">
-              <h3>Back-office work</h3>
-              <p>Admin, data hygiene, case handling, and workflow support that creates drag when it sits in expensive local roles.</p>
-            </div>
-            <div class="v2-mini-card">
-              <h3>Growing operators</h3>
-              <p>Founder-led and operator-led businesses that need more capability without taking on full local employment overhead.</p>
-            </div>
+            <div class="v2-mini-card"><h3>Customer support and service</h3><p>Teams that need reliable follow-up, consistent handling, and a more scalable support layer.</p></div>
+            <div class="v2-mini-card"><h3>Sales support and pipeline work</h3><p>Roles shaped around outreach, lead follow-up, appointment setting, and repeatable workflow.</p></div>
+            <div class="v2-mini-card"><h3>Back-office and admin work</h3><p>Operational tasks that matter, but do not need to sit in expensive local roles to be handled well.</p></div>
+            <div class="v2-mini-card"><h3>Founder-led and operator-led businesses</h3><p>Businesses that need more capability, but want a more flexible and lower-risk way to get there.</p></div>
           </div>
         </div>
       </div>
@@ -661,31 +298,15 @@
         <div class="v2-section-card">
           <div class="v2-section-head">
             <p class="section-eyebrow">Why businesses explore it</p>
-            <h2 class="section-title">Usually for practical commercial reasons.</h2>
-            <p class="section-lead">The appeal is not novelty. It is a cleaner operating model for the right kind of work.</p>
+            <h2 class="section-title">Usually for commercial reasons more than operational theory.</h2>
+            <p class="section-lead">The attraction is often straightforward: a cleaner way to add capability, manage cost, and reduce hiring friction.</p>
           </div>
-
           <div class="v2-value-grid">
-            <div class="v2-value-card">
-              <h3>More flexibility</h3>
-              <p>Add capability without locking yourself into the full weight of local hiring.</p>
-            </div>
-            <div class="v2-value-card">
-              <h3>Lower overhead</h3>
-              <p>Reduce employment drag, support costs, and operational burden around repeatable roles.</p>
-            </div>
-            <div class="v2-value-card">
-              <h3>Faster access</h3>
-              <p>Move more quickly when the need is clear and the role shape is already understood.</p>
-            </div>
-            <div class="v2-value-card">
-              <h3>Less hiring friction</h3>
-              <p>Spend less time building process from scratch just to secure capability.</p>
-            </div>
-            <div class="v2-value-card">
-              <h3>Predictable monthly cost</h3>
-              <p>Operate with clearer cost visibility and a model that is easier to plan around.</p>
-            </div>
+            <div class="v2-value-card"><h3>More flexibility</h3><p>Add support in a way that is easier to adjust as the business changes.</p></div>
+            <div class="v2-value-card"><h3>Lower employment risk</h3><p>Avoid carrying the full local hiring burden while still building useful capability.</p></div>
+            <div class="v2-value-card"><h3>Lower overhead</h3><p>Reduce operational drag around roles that are important but structurally repeatable.</p></div>
+            <div class="v2-value-card"><h3>Faster access to capability</h3><p>Move more quickly once the role shape and fit are clear.</p></div>
+            <div class="v2-value-card"><h3>Predictable cost</h3><p>Operate with clearer monthly visibility and a more manageable model.</p></div>
           </div>
         </div>
       </div>
@@ -696,27 +317,14 @@
         <div class="v2-section-card">
           <div class="v2-section-head">
             <p class="section-eyebrow">How JJ helps</p>
-            <h2 class="section-title">A trusted first conversation, not a hard sell.</h2>
-            <p class="section-lead">My role is to help you decide whether this makes sense for your business, clarify what good looks like, and make the next step feel straightforward.</p>
+            <h2 class="section-title">A clearer first step when you want to assess the option properly.</h2>
+            <p class="section-lead">My role is to help you judge whether the model makes sense, clarify what good looks like, and connect you with the right provider if it does.</p>
           </div>
-
           <div class="v2-how-grid">
-            <div class="v2-step-card">
-              <h3>Assess fit</h3>
-              <p>Work out whether offshore capability genuinely suits the role, workflow, and stage of business.</p>
-            </div>
-            <div class="v2-step-card">
-              <h3>Think it through properly</h3>
-              <p>Clarify role shape, expectations, communication rhythm, and where the real value is likely to sit.</p>
-            </div>
-            <div class="v2-step-card">
-              <h3>Connect you well</h3>
-              <p>Introduce you to a provider worth speaking to, rather than leaving you to sort through the market alone.</p>
-            </div>
-            <div class="v2-step-card">
-              <h3>Keep it straightforward</h3>
-              <p>Help the next step feel practical, commercially sensible, and lower risk.</p>
-            </div>
+            <div class="v2-step-card"><h3>Assess fit</h3><p>Work out whether offshore capability genuinely suits the role, workflow, and stage of business.</p></div>
+            <div class="v2-step-card"><h3>Clarify the shape</h3><p>Think through role scope, communication rhythm, operating expectations, and where value is likely to sit.</p></div>
+            <div class="v2-step-card"><h3>Connect you well</h3><p>Make an introduction to a provider worth speaking to, rather than leaving you to sort through the market alone.</p></div>
+            <div class="v2-step-card"><h3>Keep it straightforward</h3><p>Help the next step feel practical, commercially sensible, and easier to move on with confidence.</p></div>
           </div>
         </div>
       </div>
@@ -727,26 +335,24 @@
     <p>Christchurch, New Zealand</p>
   </footer>
 
+  <a href="#quick-check-desktop" class="v2-desktop-sticky-cta" id="v2DesktopStickyCta">Start a quick suitability check</a>
+  <div class="v2-mobile-sticky-bar" id="v2MobileStickyBar">
+    <a href="#quick-check" class="btn-primary">Start a quick suitability check</a>
+  </div>
   <script>
     (function() {
       var root = document.documentElement;
-
       function getPreferredTheme() {
         if (typeof window.matchMedia !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
         if (typeof window.matchMedia !== 'undefined' && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
         return (new Date().getHours() >= 6 && new Date().getHours() < 18) ? 'light' : 'dark';
       }
-
       function applyTheme(theme) {
         root.setAttribute('data-theme', theme);
-        document.querySelectorAll('.theme-option').forEach(function(el) {
-          el.classList.toggle('active', el.getAttribute('data-theme') === theme);
-        });
+        document.querySelectorAll('.theme-option').forEach(function(el) { el.classList.toggle('active', el.getAttribute('data-theme') === theme); });
       }
-
       var stored = typeof localStorage !== 'undefined' && localStorage.getItem('sainz-theme');
       applyTheme(stored === 'light' || stored === 'dark' ? stored : getPreferredTheme());
-
       var themeBtn = document.getElementById('themeToggle');
       if (themeBtn) {
         themeBtn.addEventListener('click', function() {
@@ -774,26 +380,15 @@
       }
 
       var params = new URLSearchParams(location.search);
-      function getParam(name) {
-        return params.get(name) || '';
-      }
-
+      function getParam(name) { return params.get(name) || ''; }
       ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','wbraid','gbraid'].forEach(function(name) {
-        document.querySelectorAll('input[name="' + name + '"]').forEach(function(el) {
-          el.value = getParam(name);
-        });
+        document.querySelectorAll('input[name="' + name + '"]').forEach(function(el) { el.value = getParam(name); });
       });
-
-      document.querySelectorAll('input[name="referrer"]').forEach(function(el) {
-        el.value = document.referrer || '';
-      });
-
+      document.querySelectorAll('input[name="referrer"]').forEach(function(el) { el.value = document.referrer || ''; });
       [['name','name'],['email','email'],['company','organization'],['phone','tel']].forEach(function(pair) {
         var name = pair[0];
         var autocomplete = pair[1];
-        document.querySelectorAll('input[name="' + name + '"]').forEach(function(el) {
-          el.setAttribute('autocomplete', autocomplete);
-        });
+        document.querySelectorAll('input[name="' + name + '"]').forEach(function(el) { el.setAttribute('autocomplete', autocomplete); });
       });
 
       function setAudience(rootEl, audience) {
@@ -802,27 +397,19 @@
           btn.classList.toggle('active', active);
           btn.setAttribute('aria-pressed', active ? 'true' : 'false');
         });
-
         rootEl.querySelectorAll('[data-audience-panel]').forEach(function(panel) {
           panel.hidden = panel.getAttribute('data-audience-panel') !== audience;
         });
-
-        rootEl.querySelectorAll('[data-business-field]').forEach(function(field) {
-          field.disabled = audience !== 'business';
-        });
-
+        rootEl.querySelectorAll('[data-business-field]').forEach(function(field) { field.disabled = audience !== 'business'; });
         rootEl.querySelectorAll('[data-business-submit]').forEach(function(btn) {
           btn.hidden = audience !== 'business';
           btn.disabled = audience !== 'business';
         });
       }
-
       document.querySelectorAll('[data-toggle-root]').forEach(function(rootEl) {
         setAudience(rootEl, 'business');
         rootEl.querySelectorAll('[data-audience-btn]').forEach(function(btn) {
-          btn.addEventListener('click', function() {
-            setAudience(rootEl, btn.getAttribute('data-audience-btn'));
-          });
+          btn.addEventListener('click', function() { setAudience(rootEl, btn.getAttribute('data-audience-btn')); });
         });
       });
 
@@ -848,16 +435,47 @@
         });
       });
 
-      document.querySelectorAll('[data-rotating-groups]').forEach(function(stage, stageIndex) {
-        var groups = stage.querySelectorAll('.v2-logo-group');
-        if (groups.length < 2) return;
+      document.querySelectorAll('[data-trust-stage]').forEach(function(stage) {
+        var frames = stage.querySelectorAll('.v2-trust-frame');
+        if (frames.length < 2) return;
         var activeIndex = 0;
         setInterval(function() {
-          groups[activeIndex].classList.remove('active');
-          activeIndex = (activeIndex + 1) % groups.length;
-          groups[activeIndex].classList.add('active');
-        }, 4200 + (stageIndex * 500));
+          frames[activeIndex].classList.remove('active');
+          activeIndex = (activeIndex + 1) % frames.length;
+          frames[activeIndex].classList.add('active');
+        }, 4500);
       });
+
+      var desktopStickyCta = document.getElementById('v2DesktopStickyCta');
+      var mobileStickyBar = document.getElementById('v2MobileStickyBar');
+      var desktopForm = document.getElementById('quick-check-desktop');
+      var mobileForm = document.getElementById('quick-check');
+      function updateStickyCtas() {
+        var isMobile = window.innerWidth <= 980;
+        if (desktopStickyCta) {
+          if (isMobile || !desktopForm) {
+            desktopStickyCta.classList.remove('visible');
+          } else {
+            var desktopRect = desktopForm.getBoundingClientRect();
+            var desktopVisible = desktopRect.top < window.innerHeight * 0.75 && desktopRect.bottom > window.innerHeight * 0.25;
+            var scrolledPastHero = window.scrollY > window.innerHeight * 0.35;
+            desktopStickyCta.classList.toggle('visible', scrolledPastHero && !desktopVisible);
+          }
+        }
+        if (mobileStickyBar) {
+          if (!isMobile || !mobileForm) {
+            mobileStickyBar.classList.remove('visible');
+          } else {
+            var mobileRect = mobileForm.getBoundingClientRect();
+            var mobileVisible = mobileRect.top < window.innerHeight * 0.82 && mobileRect.bottom > window.innerHeight * 0.2;
+            var mobileScrolled = window.scrollY > window.innerHeight * 0.18;
+            mobileStickyBar.classList.toggle('visible', mobileScrolled && !mobileVisible);
+          }
+        }
+      }
+      window.addEventListener('scroll', updateStickyCtas, { passive: true });
+      window.addEventListener('resize', updateStickyCtas);
+      updateStickyCtas();
     })();
   </script>
 </body>
