@@ -131,14 +131,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 112px;
+      min-height: 120px;
       padding: 10px;
       background: var(--card);
       border: 1px solid var(--card-border);
       border-radius: var(--v2-small-radius);
     }
     html[data-theme="dark"] .v2-logo-badge { background: var(--surface); }
-    .v2-logo-badge img { display: block; max-width: 100%; max-height: 82px; width: auto; height: auto; object-fit: contain; }
+    .v2-logo-badge img { display: block; max-width: 100%; max-height: 84px; width: auto; height: auto; object-fit: contain; }
     .v2-section { padding: var(--v2-section-gap) var(--v2-gutter) 0; }
     .v2-section-card { padding: var(--v2-card-padding); }
     .v2-section-head { max-width: 760px; margin-bottom: 18px; }
@@ -146,7 +146,7 @@
     .v2-section-head .section-title { margin-bottom: 10px; }
     .v2-section-head .section-lead { margin-bottom: 0; max-width: none; }
     .v2-card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-    .v2-value-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+    .v2-value-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
     .v2-mini-card h3, .v2-value-card h3, .v2-step-card h3 { margin: 0 0 8px 0; font-size: 0.98rem; color: var(--text); }
     .v2-mini-card p, .v2-value-card p, .v2-step-card p { margin: 0; font-size: 0.9rem; line-height: 1.68; color: var(--text-secondary); }
     .v2-value-card { padding: 15px 16px; }
@@ -206,8 +206,8 @@
       }
       .v2-hero-headline { font-size: 1.94rem; }
       .v2-logo-grid { gap: 10px; }
-      .v2-logo-badge { min-height: 94px; padding: 10px; }
-      .v2-logo-badge img { max-height: 64px; }
+      .v2-logo-badge { min-height: 96px; padding: 8px; }
+      .v2-logo-badge img { max-height: 68px; }
     }
   </style>
 </head>
@@ -248,9 +248,9 @@
       <div class="v2-hero-shell">
         <div class="v2-hero-copy">
           <p class="section-eyebrow">Outsourcing</p>
-          <h1 class="v2-hero-headline">A clearer way to build offshore capability.</h1>
-          <p class="v2-hero-support">For the right business, outsourcing can be a practical way to add capability, reduce overhead, and keep the operating model more flexible.</p>
-          <p class="v2-hero-note">I help founders and operators assess fit, shape the thinking properly, and get to the right provider without unnecessary noise.</p>
+          <h1 class="v2-hero-headline">Create room to grow without forcing local hiring too early.</h1>
+          <p class="v2-hero-support">For the right business, outsourcing can be a practical way to add capability, reduce overhead, and move forward with more flexibility.</p>
+          <p class="v2-hero-note">I help founders and operators work out whether it fits, shape it properly, and get to a provider worth speaking to.</p>
           <a href="#quick-check" class="btn-primary v2-mobile-cta">Start a quick suitability check</a>
         </div>
 
@@ -276,7 +276,7 @@
             <button type="submit" data-business-submit>Start a quick suitability check</button>
           </div>
           <div data-audience-panel="jobseeker" hidden>
-            <p class="v2-jobseeker-note"><strong>Looking for work</strong>I help organisations and founders build remote capability. I do not recruit or offer roles directly.</p>
+            <p class="v2-jobseeker-note"><strong>Looking for work</strong>I help organisations build remote capability. I do not recruit or offer roles directly.</p>
           </div>
         </form>
       </div>
@@ -288,14 +288,14 @@
           <div class="v2-trust-head">
             <div class="v2-trust-copy">
               <p class="section-eyebrow">Trust</p>
-              <h2 class="section-title">Trusted providers with strong operating standards.</h2>
-              <p class="body-text">The providers I introduce already support recognised brands and operate with the sort of maturity, governance, and consistency most businesses want in place before they move.</p>
+              <h2 class="section-title">Trusted providers, recognised standards.</h2>
+              <p class="body-text">The providers I introduce already support recognised brands and operate with the maturity, governance, and consistency most businesses want in place before they move.</p>
             </div>
             <div class="v2-trust-rotator">
               <div class="v2-trust-stage" data-trust-stage>
                 <div class="v2-trust-frame active">
-                  <p class="v2-trust-label">Trusted by recognised brands</p>
-                  <p class="v2-trust-meta">A practical signal that the delivery environment is already established.</p>
+                  <p class="v2-trust-label">Recognised brands</p>
+                  <p class="v2-trust-meta">A useful signal of the delivery environment behind the provider.</p>
                   <div class="v2-logo-grid">
                     <div class="v2-logo-badge"><img src="/assets/client-vodafone.png" alt="Vodafone" loading="lazy" decoding="async" width="300" height="120"></div>
                     <div class="v2-logo-badge"><img src="/assets/client-pg.png" alt="Procter &amp; Gamble" loading="lazy" decoding="async" width="300" height="120"></div>
@@ -342,7 +342,7 @@
             <button type="submit" data-business-submit>Start a quick suitability check</button>
           </div>
           <div data-audience-panel="jobseeker" hidden>
-            <p class="v2-jobseeker-note"><strong>Looking for work</strong>I help organisations and founders build remote capability. I do not recruit or offer roles directly.</p>
+            <p class="v2-jobseeker-note"><strong>Looking for work</strong>I help organisations build remote capability. I do not recruit or offer roles directly.</p>
           </div>
         </form>
       </div>
@@ -353,8 +353,8 @@
         <div class="v2-section-card">
           <div class="v2-section-head">
             <p class="section-eyebrow">Where it tends to fit</p>
-            <h2 class="section-title">Usually where the work is repeatable and worth structuring properly.</h2>
-            <p class="section-lead">This tends to suit English-speaking businesses in higher-cost labour markets that want practical offshore capability around customer-facing or back-office work.</p>
+            <h2 class="section-title">Best suited to repeatable work that matters.</h2>
+            <p class="section-lead">Usually customer-facing or back-office work where consistency matters and local hiring is starting to slow growth.</p>
           </div>
           <div class="v2-card-grid">
             <div class="v2-mini-card"><h3>Customer support and service</h3><p>Reliable follow-up, consistent handling, and scalable support.</p></div>
@@ -371,15 +371,13 @@
         <div class="v2-section-card">
           <div class="v2-section-head">
             <p class="section-eyebrow">Why businesses explore it</p>
-            <h2 class="section-title">Usually for practical commercial reasons.</h2>
-            <p class="section-lead">The attraction is often simple: a more flexible way to add capability without carrying the full weight of local hiring.</p>
+            <h2 class="section-title">Usually for three practical reasons.</h2>
+            <p class="section-lead">The appeal is often straightforward: create room to grow, reduce employment drag, and add capability more flexibly.</p>
           </div>
           <div class="v2-value-grid">
-            <div class="v2-value-card"><h3>More flexibility</h3><p>Add support in a way that is easier to adjust as the business changes.</p></div>
-            <div class="v2-value-card"><h3>Lower employment risk</h3><p>Avoid taking on the full local hiring burden before the role is fully proven.</p></div>
-            <div class="v2-value-card"><h3>Lower overhead</h3><p>Reduce operational drag around work that is important but structurally repeatable.</p></div>
-            <div class="v2-value-card"><h3>Faster access to capability</h3><p>Move more quickly once the role shape and fit are clear.</p></div>
-            <div class="v2-value-card"><h3>Predictable cost</h3><p>Operate with clearer monthly visibility and a model that is easier to plan around.</p></div>
+            <div class="v2-value-card"><h3>Create room to grow</h3><p>Add capability without forcing full local hiring before the business is ready.</p></div>
+            <div class="v2-value-card"><h3>Reduce employment drag</h3><p>Lower overhead and reduce the operational weight around roles that are important but structurally repeatable.</p></div>
+            <div class="v2-value-card"><h3>Keep cost more predictable</h3><p>Operate with clearer monthly visibility and a model that is easier to plan around.</p></div>
           </div>
         </div>
       </div>
@@ -390,14 +388,14 @@
         <div class="v2-section-card">
           <div class="v2-section-head">
             <p class="section-eyebrow">How I can help</p>
-            <h2 class="section-title">A clearer first step.</h2>
+            <h2 class="section-title">A more considered first step.</h2>
             <p class="section-lead">My role is to help you assess fit, shape the thinking properly, and connect with the right provider where it makes sense.</p>
           </div>
           <div class="v2-how-grid">
             <div class="v2-step-card"><h3>Assess fit</h3><p>Work out whether offshore capability genuinely suits the role, workflow, and stage of business.</p></div>
-            <div class="v2-step-card"><h3>Clarify the shape</h3><p>Think through role scope, communication rhythm, operating expectations, and where value is likely to sit.</p></div>
+            <div class="v2-step-card"><h3>Shape the model</h3><p>Think through role scope, communication rhythm, operating expectations, and where the value is likely to sit.</p></div>
             <div class="v2-step-card"><h3>Connect you well</h3><p>Make an introduction to a provider worth speaking to, rather than leaving you to sort through the market alone.</p></div>
-            <div class="v2-step-card"><h3>Keep it straightforward</h3><p>Help the next step feel practical, commercially sensible, and easier to move on with confidence.</p></div>
+            <div class="v2-step-card"><h3>Keep it clear</h3><p>Help the next step feel practical, commercially sensible, and easier to move forward with confidence.</p></div>
           </div>
         </div>
       </div>
