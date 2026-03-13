@@ -14,8 +14,28 @@
   <link rel="stylesheet" href="/assets/v2/site.css" />
   <style>
     .contact-form-wrap { max-width: 520px; margin: 28px auto 0; padding: 36px 32px; background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
-    .satellite-hero.contact-hero { background-image: linear-gradient(200deg, var(--bg-alt) 0%, var(--card) 60%); }
-    html[data-theme="dark"] .satellite-hero.contact-hero { background-image: linear-gradient(200deg, var(--bg-alt) 0%, var(--surface) 60%); }
+    .satellite-hero.contact-hero {
+      background-color: #d9dee5;
+      background-image: url('/assets/v2/contact.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    html[data-theme="dark"] .satellite-hero.contact-hero {
+      background-color: #060910;
+      background-image:
+        linear-gradient(to bottom, rgba(6,9,16,0.58) 0%, rgba(6,9,16,0.42) 100%),
+        url('/assets/v2/contact.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    html[data-theme="light"] body .satellite-hero.contact-hero::before {
+      content: '';
+      display: block;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.42) 100%) !important;
+      opacity: 1 !important;
+    }
   </style>
 </head>
 <body>
@@ -50,29 +70,31 @@
     </div>
   </header>
 
-  <section class="satellite-hero contact-hero">
+  <section class="satellite-hero contact-hero hero-unified">
     <div class="satellite-hero-inner">
-      <h1 class="page-title">Start a conversation</h1>
-      <p class="section-eyebrow">Get in touch</p>
+      <h1 class="page-title">Contact</h1>
+      <p class="section-eyebrow">Start a conversation</p>
+      <p class="hero-intro">If something important needs thinking through, or you want a clear perspective on what comes next, reach out. Advisory, outsourcing, telephony, or a wider question that matters, a short note is enough to begin.</p>
     </div>
   </section>
 
   <main class="page-section content-wide">
-    <p class="section-lead">Talk to JJ. If something important needs thinking through, reach out. I respond to every message and will suggest a time for a no-obligation conversation.</p>
+    <p class="section-lead">If you would like to explore an idea, a decision, or a possible next step, send a message. I read every note myself and will come back to you personally.</p>
+    <p class="body-text muted">A few lines of context are enough. You do not need to have everything worked out before getting in touch.</p>
 
     <form class="contact-form-wrap sainz-form" name="contact" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field">
-      <p style="display:none;"><input type="hidden" name="form-name" value="contact"><label>Don’t fill: <input name="bot-field"></label></p>
+      <p style="display:none;"><input type="hidden" name="form-name" value="contact"><label>Don't fill: <input name="bot-field"></label></p>
       <label for="contact-name">Name</label>
       <input type="text" name="name" id="contact-name" required>
       <label for="contact-email">Email</label>
       <input type="email" name="email" id="contact-email" required>
       <label for="contact-phone">Phone (optional)</label>
-      <input type="tel" name="phone" id="contact-phone" placeholder="+64 21 123 4567">
-      <label for="contact-discuss">What would you like to discuss? (optional)</label>
-      <input type="text" name="discuss" id="contact-discuss" placeholder="e.g. clarity session, ongoing advisory">
+      <input type="tel" name="phone" id="contact-phone">
+      <label for="contact-discuss">Topic (optional)</label>
+      <input type="text" name="discuss" id="contact-discuss">
       <label for="contact-message">Message</label>
       <textarea name="message" id="contact-message" rows="5" required></textarea>
-      <button type="submit">Send message</button>
+      <button type="submit">Start the conversation</button>
     </form>
   </main>
 
